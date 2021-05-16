@@ -6,7 +6,7 @@
               <p><strong>&copy;2021 KMS BBPPT </strong></p>
             </div>
             <div class="col-md-6">
-              <p class="credit"><img src="src/image/icon2.png" style="width: 15px; height: 15px;"><a class="external" style= "color:#063F87;">&nbsp<strong>Kementerian Komunikasi dan Informatika</strong></a></p>
+              <p class="credit"><img src="src/image/logobbppt1.png" style="width: 15px; height: 15px;"><a class="external" style= "color:#063F87;">&nbsp<strong>Balai Besar Pengujian Perangkat Telekomunikasi</strong></a></p>
               <!-- Please do not remove the backlink to us unless you have purchased the attribution-free license at https://bootstraptemple.com. It is part of the license conditions. Thanks for understanding :) -->
             </div>
           </div>
