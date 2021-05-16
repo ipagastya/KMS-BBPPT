@@ -4,7 +4,7 @@
         // if (mysqli_connect_errno()){
         //     echo "Koneksi database gagal : " . mysqli_connect_error();
         // }
-        $servername = "185.27.134.10";
+        $servername = "sql102.epizy.com";
         $username = "epiz_28500943";
         $password = "2kiHEuD0ypoRX4";
         $dbname = "epiz_28500943_proto_kms_bbppt";
