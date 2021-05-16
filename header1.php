@@ -37,14 +37,14 @@
     <header class="header" >
       <div role="navigation" class="navbar navbar-default"  style="background-color: #466B97; border-color: #466B97; border-radius: 0px;">
         <div class="container">
-          <div class="navbar-header"><a href="index.php" class="navbar-brand"><img src="src/image/logokms.png" style="width: 120px;height: 40px;"></a>
+          <div class="navbar-header"><a href="index.php" class="navbar-brand"><img src="src/image/logokms.png" style="width: 200px"></a>
             <div class="navbar-buttons">
               <button type="button" data-toggle="collapse" data-target=".navbar-collapse" class="navbar-toggle navbar-btn">Menu</i></button>
             </div>
           </div>
           <div id="navigation" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-              <li class="active"><a href="index.php">Informasi Publik</a></li>
+              <li><a href="informasi.php">Informasi Publik</a></li>
              <!--  <li><a href="profil.php">Profil</a></li> -->
               <!--<li class="dropdown"><a href="#" data-toggle="dropdown" class="dropdown-toggle">Pelayanan <b class="caret"></b></a>
                 <ul class="dropdown-menu">
