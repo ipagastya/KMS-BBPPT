@@ -5,8 +5,8 @@ NAVBAR
 */
 .header {
   width: 100%;
-  height:45px;
 }
+
 .navbar {
   text-transform: uppercase;
   letter-spacing: 0.1em;
@@ -115,7 +115,7 @@ section.section--no-padding {
 .heading:after {
   content: " ";
   display: block;
-  width: 45px;
+  width: 40px;
   height: 1px;
   margin: 10px 0 20px;
   background: #2b90d9;
