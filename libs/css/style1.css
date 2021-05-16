@@ -115,7 +115,7 @@ section.section--no-padding {
 .heading:after {
   content: " ";
   display: block;
-  width: 40px;
+  width: 45px;
   height: 1px;
   margin: 10px 0 20px;
   background: #2b90d9;
