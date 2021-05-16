@@ -4,10 +4,10 @@
         // if (mysqli_connect_errno()){
         //     echo "Koneksi database gagal : " . mysqli_connect_error();
         // }
-        $servername = "sql102.epizy.com:3306";
-        $username = "epiz_28500943";
-        $password = "2kiHEuD0ypoRX4";
-        $dbname = "epiz_28500943_proto_kms_bbppt";
+        $servername = "remotemysql.com:3306";
+        $username = "1O7emlC26Q";
+        $password = "HfWyrA6uko";
+        $dbname = "1O7emlC26Q";
 
         // Create connection
         $koneksi = new mysqli($servername, $username, $password, $dbname);
