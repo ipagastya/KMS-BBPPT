@@ -205,6 +205,7 @@ a:hover {
   color: #0a3081;
   background-color: transparent;
   border-color: #0a3081;
+  margin-right: 20px;
 }
 .btn-ghost:hover,
 .btn-ghost:focus,
