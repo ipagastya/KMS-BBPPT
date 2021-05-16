@@ -5,6 +5,7 @@ NAVBAR
 */
 .header {
   width: 100%;
+  height:auto;
 }
 .navbar {
   text-transform: uppercase;
