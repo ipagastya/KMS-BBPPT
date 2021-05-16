@@ -10,5 +10,5 @@
     <link href="libs/assets/css/main.min.css" rel="stylesheet" />
     <!-- PAGE LEVEL STYLES-->
 
-    <script src="http://cdn.ckeditor.com/4.6.2/standard-all/ckeditor.js"></script>
+    <script src="https://cdn.ckeditor.com/4.6.2/standard-all/ckeditor.js"></script>
 
