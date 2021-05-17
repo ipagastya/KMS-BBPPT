@@ -74,9 +74,10 @@
                 $id = $_GET['id'];
 
 
-                $q = $koneksi->query("select informasi.id,informasi.nomordokumen,informasi.judul,informasi.dokumen,informasi.keterangan,informasi.tanggal,informasi.restricted,informasi.idkategori, favorit.id as idfavorit, favorit.idinformasi, favorit.username
+                $q = $koneksi->query("select informasi.id,informasi.nomordokumen,informasi.judul,informasi.dokumen,informasi.keterangan,informasi.tanggal,informasi.restricted,informasi.idkategori, favorit.id as idfavorit, favorit.idinformasi, favorit.username,divisi.iddivisi, divisi.namadivisi
                 from informasi
                 INNER JOIN favorit
+                INNER JOIN divisi ON divisi.iddivisi = informasi.idkategori
                  where informasi.id='$id' limit 1");
 
                 $no = 1; // nomor urut
@@ -90,6 +91,11 @@
                 <br>
                 <p> <?php echo $dt['username'] ?> - <?php $tanggal= $dt['tanggal']; echo date('d F Y', strtotime($tanggal)); ?>
                 <br>
+                <b> Kategori : </b> <?php echo $dt['namadivisi'] ?>  <br>
+                <b> Penulis  : </b> <?php echo $dt['username'] ?> <br>
+                <b> Tanggal  : </b> <?php echo date('d F Y', strtotime($tanggal)); ?> <br>
+                
+
                 <?php echo $dt['keterangan'] ?> 
                 <br>
                 <table class="table">
