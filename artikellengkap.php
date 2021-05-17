@@ -82,7 +82,7 @@
 		</div>
 	</div>
 	<div class="container" style="margin-bottom: 10px;padding: 10px;">
-		<strong style="position: absolute;float: left; font-size: 14pt;">Informasi Terbaru</strong>
+		<strong style="position: absolute;float: left; font-size: 14pt;">Informasi</strong>
 	</div>
 
 	<div class="container" style="margin-bottom: 10px;margin-top: 10px; padding: 20px;">
