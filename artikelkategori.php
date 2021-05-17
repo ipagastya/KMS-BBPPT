@@ -94,6 +94,7 @@
                 <th>Nomor Dokumen</th>
                 <th>Dokumen</th>
                 <th>Tanggal</th>
+                <th>Action</th>
               </tr>
             </thead>
             <tbody>
@@ -127,6 +128,25 @@
                     ?>
                 </td>
                 <td><?php $tanggal= $dt['tanggal']; echo date('d F Y', strtotime($tanggal)); ?></td>
+                <td>
+                    <a href="edit_informasi.php?id=<?php echo $dt['id']; ?>"><button type="button" class="btn btn-warning">Edit</button></a> | <a href="hapus_informasi.php?id=<?php echo $dt['id']; ?>" onclick="return confirm('Anda yakin akan menghapus data ini?')"><button type="button" class="btn btn-danger">Hapus</button></a>
+
+                     <?php
+                     $status= $dt['restricted'];
+                     if($status=='Aktif'){
+                     ?>
+                       <a href="aktivasi_informasi.php?id=<?php echo $dt['id']; ?>&status=aktif" onclick="return confirm('Anda yakin akan menonaktifkan artikel ini?')">
+                        <i class="sidebar-item-icon fa fa-eye fa-2x" style="color: #000";></i> &nbsp; &nbsp;
+                    </a>
+                     <?php }else{ ?>
+                    <a href="aktivasi_informasi.php?id=<?php echo $dt['id']; ?>&status=non" onclick="return confirm('Anda yakin akan mengaktifkan artikel ini?')">
+                        <i class="sidebar-item-icon fa fa-eye-slash fa-2x" style="color: #000";></i> &nbsp; &nbsp;
+                    </a>
+                    <?php 
+                    }
+                    ?>
+
+                </td>
                 </tr>
              
              <?php
