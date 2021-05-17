@@ -7,6 +7,7 @@ $keterangan = $_POST['keterangan'];
 $tanggal = date('Y-m-d');
 $idperangkat = $_POST['idperangkat'];
 $iddivisi = $_POST['iddivisi'];
+$restricted = $_POST['isrestricted']
 
 
 $dokumen = $_FILES['dokumen']['name'];

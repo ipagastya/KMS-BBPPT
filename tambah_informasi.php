@@ -139,7 +139,7 @@
                 </td>
               </tr>
               <tr>
-                <th>Dokumen</th>
+                <th>Dokumen Lampiran</th>
                 <td> <input type="file" name="dokumen" value=""> </td>
               </tr>
 
@@ -188,6 +188,19 @@
                      <?php
                     endwhile;
                   ?> -->
+                </select> 
+
+                </td>
+              </tr>
+              
+              <tr>
+                <th>Jenis Informasi</th>
+                <td>
+                      
+                <select class="form-control" name="isrestricted" id="isrestricted">
+                  <option selected>Open this select menu</option>
+                  <option value="Aktif">Non-publik</option>
+                  <option value="Tidak Aktif">Publik</option>
                 </select> 
 
                 </td>
