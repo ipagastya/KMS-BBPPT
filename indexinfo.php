@@ -91,7 +91,7 @@
                 if(!empty($judul)){
                     $q = $koneksi->query("SELECT * FROM informasi where restricted='Tidak Aktif' and idperangkat!='' and judul like '%$judul%'");
                 }else{
-                    $q = $koneksi->query("SELECT * FROM informasi WHERE restricted='Tidak Aktif' and idperangkat!=''");
+                    $q = $koneksi->query("SELECT * FROM informasi WHERE restricted='Tidak Aktif'");
                 }
 
                  $idperangkat=$_GET['idperangkat'];
