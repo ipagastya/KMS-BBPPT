@@ -136,7 +136,7 @@
                         <tr>
                             <td>&nbsp;</td>
                             <td></td>
-                            <td><button type="submit" class="btn btn-green" name="submit" value="Perbaharui"></td>
+                            <td><input type="submit" class="btn btn-success" name="submit" value="Ubah"></td>
                         <tr>
                     </table>
                 </form>
