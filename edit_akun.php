@@ -100,10 +100,6 @@ if (isset($_GET['id'])) {
                 <td><input type="text" class="form-control" name="username" value="<?php echo $dt['username'] ?>"></td>
               </tr>
               <tr>
-                <th>Password</th>
-                <td><input type="password" class="form-control" name="password"></td>
-              </tr>
-              <tr>
                 <th>Nama</th>
                 <td><input type="text" class="form-control" name="nama" value="<?php echo $dt['nama'] ?>"></td>
               </tr>
@@ -161,18 +157,45 @@ if (isset($_GET['id'])) {
                     <?php } ?>>
                     <?php echo $row['namadivisi']; ?>
                     </option>
-                     <?php
-                    endwhile;
-                    ?>
                 </select> </td>
               </tr>
               <tr>
                 <td></td>
                 <td>
                       <input type="submit" name="submit"  class="btn btn-primary" value="Simpan">
-                      <a class="btn btn-danger" href="reset_password.php" role="button">Reset Password</a>
+                      <!-- <a class="btn btn-danger" href="email.php" role="button">Reset Password</a> -->
+                      
+                      <div class="modal fade" id="exampleModal"  tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document" style="padding-top: 18%;padding-left:124px">
+                            <div class="modal-content" style="height:200px; width:350px;">
+                              <div class="modal-header">
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                              <h4 class="modal-title btn btn-danger" id="exampleModalLabel">Reset Password</h4>
+                              
+                              </div>
+                              <div class="modal-body">
+                              <form action="email.php" method="POST">
+                                <div class="form-group">
+                                <label for="recipient-name" class="col-form-label">Apakah anda yakin akan melakukan reset password akun <?php echo $dt['email'] ?> ? </label>
+                                <input type="hidden" class="form-control" name="email" value="<?php echo $dt['email'] ?>">
+                                </div>
+                              
+                                <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-primary" name="submit_email">Submit</button>
+                                </div>
+                              </form>
+                            </div>
+                            </div>
+                          </div>
+                      </div>
                 </td>
               </tr>
+              <?php
+                endwhile;
+              ?>
             </thead>
           </table>
        </form>   
