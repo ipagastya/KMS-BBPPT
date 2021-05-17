@@ -14,13 +14,13 @@ if (isset($_POST['submit'])) {
   $result=mysqli_query($koneksi,$query);
   //$q = $koneksi->query("INSERT INTO akun (username, password, nama, email, nip, iddivisi, level) VALUES ( '$username', MD5('$password'), '$nama', '$email', '$nip','$iddivisi', '$level')");
 
-  if ($query) {
+  if ($result) {
     // pesan jika data tersimpan
     echo "<script>alert('Data berhasil ditambahkan'); window.location.href='akun.php'</script>";
   } else {
     // pesan jika data gagal disimpan
-    echo "<script>alert('Data gagal ditambahkan'); window.location.href='akun.php'</script>";
-    echo "Error: " . $sql . "<br>" . $conn->error;
+    //echo "<script>alert('Data gagal ditambahkan'); window.location.href='akun.php'</script>";
+    echo "Error: " . $query . "<br>" . $conn->error;
   }
 } else {
   // jika coba akses langsung halaman ini akan diredirect ke halaman index
