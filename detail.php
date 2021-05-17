@@ -70,7 +70,8 @@
                 if (isset($_GET['id'])) {
                 $id = $_GET['id'];
 
-                $q = $koneksi->query("select informasi.id,informasi.nomordokumen,informasi.judul,informasi.dokumen,informasi.keterangan,informasi.tanggal,informasi.restricted,informasi.idkategori, favorit.id as idfavorit, favorit.idinformasi, favorit.username
+
+                $q = $koneksi->query("select informasi.id,informasi.nomordokumen,informasi.judul,informasi.dokumen,informasi.keterangan,informasi.tanggal,informasi.restricted,informasi.iddivisi, favorit.id as idfavorit, favorit.idinformasi, favorit.username
                 from favorit
                 INNER JOIN informasi
                 ON favorit.idinformasi = informasi.id where favorit.id='$id'");

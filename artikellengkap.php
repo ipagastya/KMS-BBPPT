@@ -108,7 +108,15 @@
 				</div><br>
 				<div class="row-md-6">
 					<?php echo $dt['keterangan'] ?><br><br>
+					<?php
+					$dokumen=$dt['dokumen'];
+					if(!empty($dokumen)){
+					?>
 					<a href="src/image/<?php echo $dt['dokumen'] ?>"><button type="button" class="btn btn-danger">File PDF</button></a>
+					<?php
+					}
+					?>
+					
 				</div>	
 			</div>
 			<div class="col-lg-2">
@@ -124,4 +132,4 @@
 
 	
 	</div>
-<?php include 'footer1.php' ?> y0l
+<?php include 'footer1.php' ?>

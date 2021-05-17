@@ -55,7 +55,7 @@
                                 <div class="ibox-title">Informasi Terbaru</div>
                                 <div class="ibox-tools">
 
-                                    </div>
+                               
                                 </div>
                             </div>
                             <div class="ibox-body">
@@ -100,7 +100,19 @@
                 <tr>  
                 <td><?php echo $no++ ?></td>
                 <td><?php echo $dt['judul'] ?></td>
-                <td><a href="src/image/<?php echo $dt['dokumen'] ?>"><button type="button" class="btn btn-danger">File</button></a></td>
+                <td>
+                  <?php
+                    $dokumen=$dt['dokumen'];
+                    if(!empty($dokumen)){
+                    ?>
+                    <a href="src/image/<?php echo $dt['dokumen'] ?>"><button type="button" class="btn btn-danger">File</button></a> 
+                    <?php
+                    }else{
+                    ?>
+                    <button type="button" class="btn btn-danger">File Kosong</button>
+                    <?php
+                    }
+                    ?></td>
                 <td><?php $tanggal= $dt['tanggal']; echo date('d F Y', strtotime($tanggal)); ?></td>
                 <td> 
                     <?php
@@ -149,6 +161,7 @@
 
             </tbody>
           </table>
+
 
 
                 </div>

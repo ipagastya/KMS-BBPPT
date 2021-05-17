@@ -24,7 +24,7 @@
 
                 while ($row = $q->fetch_assoc()) :
         ?>
-      if(document.form1.idkategori.value == '<?php echo $row['iddivisi']; ?>')
+      if(document.form1.iddivisi.value == '<?php echo $row['iddivisi']; ?>')
       { 
            
                   <?php
@@ -139,12 +139,6 @@
                 </td>
               </tr>
               <tr>
-                <th style="vertical-align:top">Berita</th>
-                <td><textarea class="form-control" name="berita"></textarea>
-
-                </td>
-              </tr>
-              <tr>
                 <th>Dokumen</th>
                 <td> <input type="file" name="dokumen" value=""> </td>
               </tr>
@@ -153,7 +147,7 @@
                 <th>Kategori</th>
                 <td>
                       
-                <select class="form-control" name="idkategori" onChange="SelectCat2();">
+                <select class="form-control" name="iddivisi" onChange="SelectCat2();">
                     <?php
                     require_once 'koneksi.php';
                       // ambil data berdasarkan id_produk
@@ -210,7 +204,7 @@
        </form>   
 
 
-                </div>
+               
                 </div>
                 </div>
             </div>
