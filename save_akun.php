@@ -20,7 +20,7 @@ if (isset($_POST['submit'])) {
   } else {
     // pesan jika data gagal disimpan
     //echo "<script>alert('Data gagal ditambahkan'); window.location.href='akun.php'</script>";
-    echo "Error: " . $query . "<br>" . $conn->error;
+    echo "Error: " . $query . "<br>" . $koneksi->error;
   }
 } else {
   // jika coba akses langsung halaman ini akan diredirect ke halaman index
