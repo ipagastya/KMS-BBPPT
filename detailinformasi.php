@@ -26,7 +26,10 @@
         <div class="content-wrapper">
             <!-- START PAGE CONTENT-->
             <div class="page-heading">
-                
+              <h1 class="page-title"> <i class="sidebar-item-icon fa fa-newspaper-o";></i> Detail Informasi</h1>
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item">Beranda > Informasi > <a href=# style="color: #0c2496;">Detail Informasi</a> </li>
+                </ol>
                 <div class="box">
                     <div class="container">
                       <!--<form>
@@ -82,7 +85,7 @@
                      <a href="hapus_favorit.php?id=<?php echo $dt['idfavorit']; ?>" onclick="return confirm('Anda yakin akan menghapus favorit?')" style="float: right;">
                         <i class="sidebar-item-icon fa fa-star fa-3x" style="color: #e6c34a";></i>
                     </a>
-                <h2><?php echo $dt['judul'] ?></h2>
+                <h1><?php echo $dt['judul'] ?></h1>
 
                 <br>
                 <p> <?php echo $dt['username'] ?> - <?php $tanggal= $dt['tanggal']; echo date('d F Y', strtotime($tanggal)); ?>
@@ -92,7 +95,7 @@
                 <table class="table">
             <thead>
               <tr>
-                <td>Dokumen</td>
+                <td>Dokumen Lampiran</td>
                 <td><a href="src/image/<?php echo $dt['dokumen'] ?>"><button type="button" class="btn btn-danger">File</button></a></td>
               </tr>
             </thead>
