@@ -3,6 +3,9 @@
   if($_SESSION['status']!="login"){
       header("location:login.php?pesan=belum_login");
   }
+  if ($_SESSION['level'] != "Admin"){
+    header("location:dashboard.php");
+  }
 ?>
 <!DOCTYPE html>
 <html lang="en">
