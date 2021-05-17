@@ -26,10 +26,10 @@
         <div class="content-wrapper">
             <!-- START PAGE CONTENT-->
             <div class="page-heading">
-              <h1 class="page-title"> <i class="sidebar-item-icon fa fa-id-card-o";></i> Tambah Divisi</h1>
+              <h1 class="page-title"> <i class="sidebar-item-icon fa fa-id-card-o";></i> Tambah Kategori</h1>
                 <ol class="breadcrumb">
                     
-                    <li class="breadcrumb-item">Beranda > Divisi > <a href="tambah_divisi.php" style="color: #0c2496;">Tambah Divisi</a> </li>
+                    <li class="breadcrumb-item">Beranda > Kategori > <a href="tambah_divisi.php" style="color: #0c2496;">Tambah Kategori</a> </li>
                 </ol>
                 <div class="box">
                     <div class="container">
@@ -65,7 +65,7 @@
 
                 <div class="ibox ibox-primary">
                             <div class="ibox-head">
-                                <div class="ibox-title">Tambah Divisi</div>
+                                <div class="ibox-title">Tambah Kategori</div>
                                 <div class="ibox-tools">
                                     <div class="dropdown-menu dropdown-menu-right">
                                        
@@ -83,7 +83,7 @@
       <table class="table table-bordered">
             <thead>
               <tr>
-                <th>Nama Divisi</th>
+                <th>Nama Kategori</th>
                 <td><input type="text" class="form-control" name="namadivisi"></td>
               </tr>
               <tr>

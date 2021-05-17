@@ -26,10 +26,10 @@
         <div class="content-wrapper">
             <!-- START PAGE CONTENT-->
             <div class="page-heading">
-                <h1 class="page-title"> <i class="sidebar-item-icon fa fa-id-card-o";></i> Divisi</h1>
+                <h1 class="page-title"> <i class="sidebar-item-icon fa fa-id-card-o";></i> Kategori</h1>
                 <ol class="breadcrumb">
                     
-                    <li class="breadcrumb-item">Beranda > Divisi > <a href="divisi.php" style="color: #0c2496;">Pengaturan Divisi</a> </li>
+                    <li class="breadcrumb-item">Beranda > Kategori > <a href="divisi.php" style="color: #0c2496;">Pengaturan Kategori</a> </li>
                 </ol>
                 <div class="box">
                     <div class="container">
@@ -65,7 +65,7 @@
 
                 <div class="ibox ibox-primary">
                             <div class="ibox-head" style="background-color: #466B97;">
-                                <div class="ibox-title">Pengaturan Divisi</div>
+                                <div class="ibox-title">Pengaturan Kategori</div>
                                 <div class="ibox-tools">
                                      <a href="tambah_divisi.php">
                                       <button type="button" class="btn btn-success">Tambah</button>
@@ -86,7 +86,7 @@
             <thead>
               <tr>
                 <th style="text-align: center";>No</th>
-                <th>Nama Divisi</th>
+                <th>Nama Kategori</th>
                 <th>Aksi</th>
               </tr>
             </thead>

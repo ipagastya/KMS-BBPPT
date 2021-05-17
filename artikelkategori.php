@@ -90,7 +90,7 @@
                 // Tampilkan semua data
                 include"koneksi.php";
                 $id= $_GET['id'];
-                $q = $koneksi->query("SELECT * FROM informasi where idkategori='$id'");
+                $q = $koneksi->query("SELECT * FROM informasi where iddivisi='$id'");
 
                 $no = 1; // nomor urut
                 while ($dt = $q->fetch_assoc()) :
@@ -100,7 +100,20 @@
                 <td><?php echo $no++ ?></td>
                 <td><?php echo $dt['judul'] ?></td>
                 <td><?php echo $dt['nomordokumen'] ?></td>
-                <td><a href="src/image/<?php echo $dt['dokumen'] ?>"><button type="button" class="btn btn-danger">File</button></a></td>
+                <td>
+                    <?php
+                    $dokumen=$dt['dokumen'];
+                    if(!empty($dokumen)){
+                    ?>
+                    <a href="src/image/<?php echo $dt['dokumen'] ?>"><button type="button" class="btn btn-danger">File</button></a> 
+                    <?php
+                    }else{
+                    ?>
+                    <button type="button" class="btn btn-danger">File Kosong</button>
+                    <?php
+                    }
+                    ?>
+                </td>
                 <td><?php $tanggal= $dt['tanggal']; echo date('d F Y', strtotime($tanggal)); ?></td>
                 </tr>
              

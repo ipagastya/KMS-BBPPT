@@ -24,7 +24,7 @@
 
                 while ($row = $q->fetch_assoc()) :
         ?>
-      if(document.form1.idkategori.value == '<?php echo $row['iddivisi']; ?>')
+      if(document.form1.iddivisi.value == '<?php echo $row['iddivisi']; ?>')
       { 
            
                   <?php
@@ -154,10 +154,6 @@ if (isset($_GET['id'])) {
                 <td><textarea class="form-control" name="keterangan" id="content"><?php echo $dt['keterangan'] ?></textarea></td>
               </tr>
               <tr>
-                <th style="vertical-align:top">Berita</th>
-                <td><textarea class="form-control" name="berita"><?php echo $dt['berita'] ?></textarea></td>
-              </tr>
-              <tr>
                 <th>Dokumen</th>
                 <td><a href="src/image/<?php echo $dt['dokumen'] ?>"><button type="button" class="btn btn-danger">File</button></a>
                   <input type="file" name="dokumen" value=""> 
@@ -168,7 +164,7 @@ if (isset($_GET['id'])) {
                 <th>Kategori</th>
                 <td>
                       
-                <select class="form-control" name="idkategori" onChange="SelectCat2();">
+                <select class="form-control" name="iddivisi" onChange="SelectCat2();">
                     <?php
                     require_once 'koneksi.php';
                       // ambil data berdasarkan id_produk
@@ -178,7 +174,7 @@ if (isset($_GET['id'])) {
                               while ($row = $q->fetch_assoc()) :
                       ?>
                   <option value="<?php echo $row['iddivisi']; ?>" <?php
-                    $local= $dt['idkategori'];
+                    $local= $dt['iddivisi'];
                     $iddivisi=$row['iddivisi'];
                     if($local==$iddivisi){ ?>
                       selected
@@ -201,7 +197,7 @@ if (isset($_GET['id'])) {
                     <?php
                     require_once 'koneksi.php';
                       // ambil data berdasarkan id_produk
-                    $iddivisi= $dt['idkategori']; 
+                    $iddivisi= $dt['iddivisi']; 
                      $q2 = $koneksi->query("SELECT * FROM perangkat where iddivisi='$iddivisi'");
 
                               $no = 1; // nomor urut

@@ -11,4 +11,6 @@
     <!-- PAGE LEVEL STYLES-->
 
     <script src="http://cdn.ckeditor.com/4.6.2/standard-all/ckeditor.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    
 

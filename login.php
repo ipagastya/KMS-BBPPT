@@ -41,40 +41,8 @@
 </style>
 </head>
 <body>
-  <!-- navbar-->
-    <header class="header" >
-      <div role="navigation" class="navbar navbar-default"  style="background-color: #466B97; border-color: #466B97; border-radius: 0px;">
-        <div class="container">
-          <div class="navbar-header"><a href="index.php" class="navbar-brand"><img src="src/image/logobbppt1.png" style="width: 120px;height: 40px;"></a>
-            <div class="navbar-buttons">
-              <button type="button" data-toggle="collapse" data-target=".navbar-collapse" class="navbar-toggle navbar-btn">Menu</i></button>
-            </div>
-          </div>
-          <div id="navigation" class="collapse navbar-collapse">
-            <ul class="nav navbar-nav">
-              <li class="active"><a href="index.php">Informasi Publik</a></li>
-              <!-- <li><a href="profil.php">Profil</a></li> -->
-              <li><a href="http://bbppt.postel.go.id/pengujian/">Portal Pengujian</a></li>
-              <!--<li class="dropdown"><a href="#" data-toggle="dropdown" class="dropdown-toggle">Pelayanan <b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                  <li><a href="#">Pelayanan 1</a></li>
-                  <li><a href="#">Pelayanan 2</a></li>
-                  <li><a href="#">Pelayanan 3</a></li>
-                  <li><a href="#">Pelayanan 4</a></li>
-                </ul>
-              </li>
-              <li><a href="index.php">Informasi Publik</a></li>
-             <!-- <li><a href="header1.php">Plans</a></li>
-              <li><a href="header1.php">FAQ</a></li>-->
-            </ul>
-
-             <ul class="nav navbar-nav navbar-right">
-            <a href="login.php" class="btn navbar-btn btn-ghost" >Login</a>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </header>
+  <?php include "header1.php" ?>
+ 
      
 
     <div class="container">

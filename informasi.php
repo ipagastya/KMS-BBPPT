@@ -43,10 +43,36 @@
                 </div>
                
             </div>
+            
             <div class="page-content fade-in-up">
                 <!--<div class="row">
                  
                <div class="container">-->
+                <form>
+                <div class="dropdown">
+              <label for="firstName" class="first-name">Filter Kategori &nbsp;</label>
+              <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" > Pilih Kategori
+              <span class="caret"></span></button></form>
+              <ul class="dropdown-menu">
+                                
+                                    <?php
+                                        // Tampilkan semua data
+                                        include"koneksi.php";
+
+                                        $q = $koneksi->query("SELECT * FROM divisi");
+
+                                        $nom = 1; // nomor urut
+                                        while ($dt = $q->fetch_assoc()) :
+                                        ?>
+                                  
+                                  <li><a href="informasi.php?iddivisi=<?php echo $dt['iddivisi'] ?>"><?php echo $dt['namadivisi'] ?></a></li>
+                                 <?php
+                                endwhile;
+                                ?> 
+                                
+         </ul>
+      </div>
+    </div>
 
                 <br><br>
                     <?php 
@@ -101,7 +127,13 @@
                 // Tampilkan semua data
                 include"koneksi.php";
 
-                $q = $koneksi->query("SELECT * FROM informasi");
+                $iddivisi=$_GET['iddivisi'];
+                if(!empty($iddivisi)){
+                    $q = $koneksi->query("SELECT * FROM informasi where iddivisi='$iddivisi'");
+                }else{
+                    $q = $koneksi->query("SELECT * FROM informasi");
+                }
+                
 
                 $nom = 1; // nomor urut
                 while ($dt = $q->fetch_assoc()) :
@@ -111,15 +143,29 @@
                 <td><?php echo $nom++ ?></td>
                 <td><?php echo $dt['judul'] ?></td>
                 <td><?php echo $dt['nomordokumen'] ?></td>
-                <td><a href="src/image/<?php echo $dt['dokumen'] ?>"><button type="button" class="btn btn-danger">File</button></a></td>
+                <td>
+                   <?php
+          $dokumen=$dt['dokumen'];
+          if(!empty($dokumen)){
+          ?>
+                    <a href="src/image/<?php echo $dt['dokumen'] ?>"><button type="button" class="btn btn-danger">File</button></a> 
+                    <?php
+                    }else{
+                    ?>
+                    <button type="button" class="btn btn-danger">File Kosong</button>
+                    <?php
+                    }
+                    ?>
+                 | 
+                  <a href="detailinformasi.php?id=<?php echo $dt['id'] ?>"><button type="button" class="btn btn-primary">Detail</button></a></td>
                 <td><?php $tanggal= $dt['tanggal']; echo date('d F Y', strtotime($tanggal)); ?></td>
                 <td>
                     
                     <?php
                     require_once 'koneksi.php';
                       // ambil data berdasarkan id_produk
-                     $idkategori = $dt['idkategori'];
-                     $q1 = $koneksi->query("SELECT * FROM divisi WHERE iddivisi='$idkategori'");
+                     $iddivisi = $dt['iddivisi'];
+                     $q1 = $koneksi->query("SELECT * FROM divisi WHERE iddivisi='$iddivisi'");
 
                               $no = 1; // nomor urut
                               while ($row = $q1->fetch_assoc()) :
@@ -225,7 +271,12 @@
                 // Tampilkan semua data
                 include"koneksi.php";
 
-                $q = $koneksi->query("SELECT * FROM informasi");
+               $iddivisi=$_GET['iddivisi'];
+                if(!empty($iddivisi)){
+                    $q = $koneksi->query("SELECT * FROM informasi where iddivisi='$iddivisi'");
+                }else{
+                    $q = $koneksi->query("SELECT * FROM informasi");
+                }
 
                 $no = 1; // nomor urut
                 while ($dt = $q->fetch_assoc()) :
@@ -235,15 +286,31 @@
                 <td><?php echo $no++ ?></td>
                 <td><?php echo $dt['judul'] ?></td>
                 <td><?php echo $dt['nomordokumen'] ?></td>
-                <td><a href="src/image/<?php echo $dt['dokumen'] ?>"><button type="button" class="btn btn-danger">File</button></a></td>
+                <td>
+                  <?php
+          $dokumen=$dt['dokumen'];
+          if(!empty($dokumen)){
+          ?>
+                    <a href="src/image/<?php echo $dt['dokumen'] ?>"><button type="button" class="btn btn-danger">File</button></a> 
+                    <?php
+                    }else{
+                    ?>
+                    <button type="button" class="btn btn-danger">File Kosong</button>
+                    <?php
+                    }
+                    ?>
+
+                  |
+
+                <a href="detailinformasi.php?id=<?php echo $dt['id'] ?>"><button type="button" class="btn btn-primary">Detail</button></a></td>
                 <td><?php $tanggal= $dt['tanggal']; echo date('d F Y', strtotime($tanggal)); ?></td>
                 <td>
                     
                     <?php
                     require_once 'koneksi.php';
                       // ambil data berdasarkan id_produk
-                     $idkategori = $dt['idkategori'];
-                     $q1 = $koneksi->query("SELECT * FROM divisi WHERE iddivisi='$idkategori'");
+                     $iddivisi = $dt['iddivisi'];
+                     $q1 = $koneksi->query("SELECT * FROM divisi WHERE iddivisi='$iddivisi'");
 
                               $no = 1; // nomor urut
                               while ($row = $q1->fetch_assoc()) :
@@ -287,7 +354,7 @@
            <?php include "footeradmin.php" ?>
         </div>
     </div>
-  
+ 
     <!-- END THEME CONFIG PANEL-->
     <?php include "cssbawah.php" ?>
 </body>

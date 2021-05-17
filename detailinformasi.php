@@ -26,11 +26,7 @@
         <div class="content-wrapper">
             <!-- START PAGE CONTENT-->
             <div class="page-heading">
-              <h1 class="page-title"> <i class="sidebar-item-icon fa fa-id-card-o";></i> Edit Kategori</h1>
-                <ol class="breadcrumb">
-                    
-                    <li class="breadcrumb-item">Beranda > Kategori > <a href="edit_divisi.php" style="color: #0c2496;">Edit Kategori</a> </li>
-                </ol>
+                
                 <div class="box">
                     <div class="container">
                       <!--<form>
@@ -45,11 +41,13 @@
             </div>
             <div class="page-content fade-in-up">
                 <div class="row">
-                    
+                 
                 <div class="container"> 
 
                 <br><br>
-
+                 
+                            <div class="ibox-body">
+                            
                 <!--<div class="input-group">
                 <div class="input-group-btn search-panel">
                     <button type="button" class="btn btn-default btn-lg">
@@ -61,76 +59,63 @@
                 <span class="input-group-btn">
                     <button class="btn btn-info btn-lg" type="button">Search</button>
                 </span>-->
+             
 
 
-                <div class="ibox ibox-primary">
-                            <div class="ibox-head">
-                                <div class="ibox-title">Edit Kategori</div>
-                                <div class="ibox-tools">
-                                    <div class="dropdown-menu dropdown-menu-right">
-                                       
-                                      
-
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="ibox-body">
+                </div>
+            
                 <?php
-
-require_once 'koneksi.php';
-
-// cek id
-if (isset($_GET['id'])) {
-  $id = $_GET['id'];
-
-  // ambil data berdasarkan id_produk
-     $q = $koneksi->query("SELECT * FROM divisi WHERE iddivisi = '$id'");
-
-   while ($dt = $q->fetch_assoc()) :
-  ?>
+                // Tampilkan semua data
+                include"koneksi.php";
+                if (isset($_GET['id'])) {
+                $id = $_GET['id'];
 
 
+                $q = $koneksi->query("select informasi.id,informasi.nomordokumen,informasi.judul,informasi.dokumen,informasi.keterangan,informasi.tanggal,informasi.restricted,informasi.iddivisi, favorit.id as idfavorit, favorit.idinformasi, favorit.username
+                from informasi
+                INNER JOIN favorit
+                 where informasi.id='$id' limit 1");
 
+                $no = 1; // nomor urut
+                while ($dt = $q->fetch_assoc()) :
+                ?>
+                     <a href="hapus_favorit.php?id=<?php echo $dt['idfavorit']; ?>" onclick="return confirm('Anda yakin akan menghapus favorit?')" style="float: right;">
+                        <i class="sidebar-item-icon fa fa-star fa-3x" style="color: #e6c34a";></i>
+                    </a>
+                <h2><?php echo $dt['judul'] ?></h2>
 
-
-                <form method="post" action="update_divisi.php">
-                    <input type="hidden" name="iddivisi" value="<?php echo $dt['iddivisi'] ?>">
-      <table class="table table-bordered">
+                <br>
+                <p> <?php echo $dt['username'] ?> - <?php $tanggal= $dt['tanggal']; echo date('d F Y', strtotime($tanggal)); ?>
+                <br>
+                <?php echo $dt['keterangan'] ?> 
+                <br>
+                <table class="table">
             <thead>
               <tr>
-                <th>Nama Kategori</th>
-                <td><input type="text" class="form-control" name="namadivisi" value="<?php echo $dt['namadivisi'] ?>"></td>
-              </tr>
-              <tr>
-                <td></td>
-                <td>
-                      <input type="submit" name="submit"  class="btn btn-primary" value="Simpan">
-                </td>
+                <td>Dokumen</td>
+                <td><a href="src/image/<?php echo $dt['dokumen'] ?>"><button type="button" class="btn btn-danger">File</button></a></td>
               </tr>
             </thead>
+            </table>
+                
+                
+             
+             <?php
+              endwhile;
+            }
+              ?> 
+
+            </tbody>
           </table>
-       </form>   
- <?php
-   endwhile;
-}
-?>
-
-</div>
 
 
-
-
-
-
-
-                </div>
-                </div>
+                
                 </div>
             </div>
            <?php include "footeradmin.php" ?>
         </div>
     </div>
-   
+  
     <!-- END THEME CONFIG PANEL-->
     <?php include "cssbawah.php" ?>
 </body>

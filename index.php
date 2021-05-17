@@ -88,29 +88,64 @@
 
 	<div class="container" style="margin-bottom: 10px;margin-top: 10px; padding: 20px;">
 
-		<?php
-        // Tampilkan semua data
-        include"koneksi.php";
 
-        $q = $koneksi->query("SELECT * FROM informasi where restricted='Aktif'");
 
-        $no = 1; // nomor urut
-        while ($dt = $q->fetch_assoc()) :
-        ?>
+        <?php 
+         include"koneksi.php";
+				$batas = 10;
+				$halaman = isset($_GET['halaman'])?(int)$_GET['halaman'] : 1;
+				$halaman_awal = ($halaman>1) ? ($halaman * $batas) - $batas : 0;	
+ 
+				$previous = $halaman - 1;
+				$next = $halaman + 1;
+				
+				$data = mysqli_query($koneksi,"SELECT * FROM informasi where restricted='Aktif'");
+				$jumlah_data = mysqli_num_rows($data);
+				$total_halaman = ceil($jumlah_data / $batas);
+ 
+				$data_pegawai = mysqli_query($koneksi,"SELECT * FROM informasi where restricted='Aktif' limit $halaman_awal, $batas");
+				$nomor = $halaman_awal+1;
+				while($dt = mysqli_fetch_array($data_pegawai)){
+					?>
 		
 		
 			<div class="col-lg-4" style="height:140px;">
 					<h4><a href="artikellengkap.php?id=<?php echo $dt['id'] ?>"><?php echo $dt['judul'] ?></h4></a>
 					<strong><?php $tanggal= $dt['tanggal']; echo date('d F Y', strtotime($tanggal)); ?></strong>
-					<!--<?php $keterangan= $dt['keterangan']; echo substr($keterangan, 0 ,100); ?>-->
 					<p style="text-align: justify;">
-					<?php $keterangan= $dt['berita']; echo substr($keterangan, 0 ,100); ?></p>
+					<?php 
+					 $keterangan= $dt['keterangan']; 
+					 $keterangan= substr($keterangan, 0 ,100); 
+					 //$keterangan = replace('/([\s\S]*)(<em>)([\s\S]*)(</em>)([\s\S]*)/', $keterangan);
+					 //echo $keterangan;
+					// $result = str_replace('/([\s\S]*)(<em>)([\s\S]*)(</em>)([\s\S]*)/', ' ', $keterangan);
+					 echo $content = preg_replace('/<[^>]*>/', '', $keterangan);
+					// print($result);
+					?></p>
 			</div>
+
+				<?php
+				}
+				?>
 			
 
-		<?php
-        endwhile;
-         ?>
+		<nav>
+			<ul class="pagination justify-content-center">
+				<li class="page-item">
+					<a class="page-link" <?php if($halaman > 1){ echo "href='?halaman=$Previous'"; } ?>>Previous</a>
+				</li>
+				<?php 
+				for($x=1;$x<=$total_halaman;$x++){
+					?> 
+					<li class="page-item"><a class="page-link" href="?halaman=<?php echo $x ?>"><?php echo $x; ?></a></li>
+					<?php
+				}
+				?>				
+				<li class="page-item">
+					<a  class="page-link" <?php if($halaman < $total_halaman) { echo "href='?halaman=$next'"; } ?>>Next</a>
+				</li>
+			</ul>
+		</nav>
 
 		</div>
 

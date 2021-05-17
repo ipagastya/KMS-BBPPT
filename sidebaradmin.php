@@ -92,7 +92,7 @@
 
                     <li>
                         <a href="divisi.php"><i class="sidebar-item-icon fa fa-id-card-o "></i>
-                            <span class="nav-label">Divisi</span>
+                            <span class="nav-label">Kategori</span>
 
                         </a>
                     </li>

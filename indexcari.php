@@ -91,9 +91,10 @@
 		<?php
         // Tampilkan semua data
         include"koneksi.php";
+
         $judul=$_GET['judul'];
 
-        $q = $koneksi->query("SELECT * FROM informasi where restricted='Aktif' and judul like '%$judul%' or berita like '%$judul%' ");
+        $q = $koneksi->query("SELECT * FROM informasi where restricted='Aktif' and judul like '%$judul%' or keterangan like '%$judul%'");
 
         $no = 1; // nomor urut
         while ($dt = $q->fetch_assoc()) :
@@ -105,7 +106,15 @@
 					<strong><?php $tanggal= $dt['tanggal']; echo date('d F Y', strtotime($tanggal)); ?></strong>
 					<!--<?php $keterangan= $dt['keterangan']; echo substr($keterangan, 0 ,100); ?>-->
 					<p style="text-align: justify;">
-					<?php $keterangan= $dt['berita']; echo substr($keterangan, 0 ,100); ?></p>
+					<?php 
+					 $keterangan= $dt['keterangan']; 
+					 $keterangan= substr($keterangan, 0 ,100); 
+					 //$keterangan = replace('/([\s\S]*)(<em>)([\s\S]*)(</em>)([\s\S]*)/', $keterangan);
+					 //echo $keterangan;
+					// $result = str_replace('/([\s\S]*)(<em>)([\s\S]*)(</em>)([\s\S]*)/', ' ', $keterangan);
+					 echo $content = preg_replace('/<[^>]*>/', '', $keterangan);
+					// print($result);
+					?></p>
 			</div>
 			
 
