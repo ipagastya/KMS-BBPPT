@@ -95,22 +95,32 @@
                                 $update 		= $koneksi->query("UPDATE akun SET password='$password_baru' WHERE email='$email_user'");
                                 if($update){
                                     //kondisi jika proses query UPDATE berhasil
-                                    echo 'Password berhasil di rubah';
+                                    echo '<div class="alert alert-success" role="alert">
+                                    Password berhasil di rubah!
+                                  </div>';
                                 }else{
                                     //kondisi jika proses query gagal
-                                    echo 'Gagal merubah password';
+                                    echo '<div class="alert alert-danger" role="alert">
+                                            Gagal merubah password!
+                                        </div>';
                                 }					
                             }else{
                                 //kondisi jika password baru beda dengan konfirmasi password
-                                echo 'Konfirmasi password tidak cocok';
+                                echo '<div class="alert alert-danger" role="alert">
+                                Konfirmasi password tidak cocok!
+                            </div>';
                             }
                         }else{
                             //kondisi jika password baru yang dimasukkan kurang dari 5 karakter
-                            echo 'Minimal password baru adalah 6 karakter';
+                            echo '<div class="alert alert-danger" role="alert">
+                            Minimal password baru adalah 6 karakter
+                        </div>';
                         }
                     }else{
                         //kondisi jika password lama tidak cocok dengan data yang ada di database
-                        echo 'Password lama tidak cocok';
+                        echo '<div class="alert alert-danger" role="alert">
+                        Password lama tidak cocok
+                    </div>';
                     }
                 }
                 ?>
