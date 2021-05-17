@@ -90,7 +90,7 @@
                 // Tampilkan semua data
                 include"koneksi.php";
                 $id= $_GET['id'];
-                $q = $koneksi->query("SELECT * FROM informasi where iddivisi='$id'");
+                $q = $koneksi->query("SELECT * FROM informasi where idkategori='$id'");
 
                 $no = 1; // nomor urut
                 while ($dt = $q->fetch_assoc()) :

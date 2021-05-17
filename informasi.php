@@ -129,7 +129,7 @@
 
                 $iddivisi=$_GET['iddivisi'];
                 if(!empty($iddivisi)){
-                    $q = $koneksi->query("SELECT * FROM informasi where iddivisi='$iddivisi'");
+                    $q = $koneksi->query("SELECT * FROM informasi where idkategori='$iddivisi'");
                 }else{
                     $q = $koneksi->query("SELECT * FROM informasi");
                 }
@@ -273,7 +273,7 @@
 
                $iddivisi=$_GET['iddivisi'];
                 if(!empty($iddivisi)){
-                    $q = $koneksi->query("SELECT * FROM informasi where iddivisi='$iddivisi'");
+                    $q = $koneksi->query("SELECT * FROM informasi where idkategori='$iddivisi'");
                 }else{
                     $q = $koneksi->query("SELECT * FROM informasi");
                 }
