@@ -166,16 +166,21 @@ if (isset($_GET['id'])) {
                 <td></td>
                 <td>
                       <input type="submit" name="submit"  class="btn btn-primary" value="Simpan">
-                      <!-- <a class="btn btn-danger" href="email.php" role="button">Reset Password</a> -->
-                      
-                      <div class="modal fade" id="exampleModal"  tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                      <!-- <a class="btn btn-danger" data-target="#exampleModal" role="button">Reset Password</a> -->
+                      <a class="btn btn-danger" href data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo" ="#" style="margin-left:175px">Reset Password</a>
+                </td>
+              </tr>
+            </thead>
+          </table>
+       </form>
+       <div class="modal fade" id="exampleModal"  tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog" role="document" style="padding-top: 18%;padding-left:124px">
                             <div class="modal-content" style="height:200px; width:350px;">
                               <div class="modal-header">
                               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                               </button>
-                              <h4 class="modal-title btn btn-danger" id="exampleModalLabel">Reset Password</h4>
+                              <h4 class="btn btn-danger" id="exampleModalLabel">Reset Password</h4>
                               
                               </div>
                               <div class="modal-body">
@@ -193,12 +198,7 @@ if (isset($_GET['id'])) {
                             </div>
                             </div>
                           </div>
-                      </div>
-                </td>
-              </tr>
-            </thead>
-          </table>
-       </form>   
+                      </div>   
  <?php
    endwhile;
 }
