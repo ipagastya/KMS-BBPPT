@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 //Include required PHPMailer files
 	require 'includes/PHPMailer.php';
 	require 'includes/SMTP.php';
