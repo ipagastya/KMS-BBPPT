@@ -24,7 +24,7 @@ if (isset($_POST['submit_email'])) {
 	
 	session_start();
   if($_SESSION['status'] == "login"){  
-		/Create instance of PHPMailer
+		//Create instance of PHPMailer
 		$mail = new PHPMailer();
 		//Set mailer to use smtp
 		$mail->isSMTP();
