@@ -309,8 +309,8 @@
                     <?php
                     require_once 'koneksi.php';
                       // ambil data berdasarkan id_produk
-                     $iddivisi = $dt['iddivisi'];
-                     $q1 = $koneksi->query("SELECT * FROM divisi WHERE iddivisi='$iddivisi'");
+                     $iddivisi = $dt['idkategori'];
+                     $q1 = $koneksi->query("SELECT * FROM divisi WHERE iddivisi='$idkategori'");
 
                               $no = 1; // nomor urut
                               while ($row = $q1->fetch_assoc()) :
