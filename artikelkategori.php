@@ -38,9 +38,7 @@
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item">Beranda > Kategori Informasi >  <?php echo $dv['namadivisi'] ?></li>
                 </ol>
-                <?php
-                endwhile;
-                ?> 
+                 
                 <div class="box">
                     <div class="container">
                       <!--<form>
@@ -61,7 +59,10 @@
                 <br><br>
                  <div class="ibox ibox-primary">
                             <div class="ibox-head" style="background-color: #466B97;">
-                                <div class="ibox-title">Informasi></div>
+                                <div class="ibox-title">Informasi <?php echo $dv['namadivisi'] ?></div>
+                                <?php
+                                endwhile;
+                                ?>
                                 <div class="ibox-tools">
             
                                       <div class="dropdown-menu dropdown-menu-right">
