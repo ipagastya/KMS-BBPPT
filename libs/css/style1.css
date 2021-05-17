@@ -12,7 +12,6 @@ NAVBAR
   letter-spacing: 0.1em;
   position: fixed;
   top: 0;
-  overflow: hidden;
 }
 
 .navbar a.navbar-brand {
