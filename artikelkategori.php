@@ -124,6 +124,7 @@
                     <?php
                     }
                     ?>
+                <a href="detailinformasi.php?id=<?php echo $dt['id'] ?>"><button type="button" class="btn btn-primary">Detail</button></a>
                 </td>
                 <td><?php $tanggal= $dt['tanggal']; echo date('d F Y', strtotime($tanggal)); ?></td>
                 </tr>
