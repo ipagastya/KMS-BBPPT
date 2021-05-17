@@ -41,17 +41,53 @@
 </style>
 </head>
 <body>
-  <?php include "header1.php" ?>
-    
+  <!-- navbar-->
+    <header class="header" >
+      <div role="navigation" class="navbar navbar-default"  style="background-color: #466B97; border-color: #466B97; border-radius: 0px;">
+        <div class="container">
+          <div class="navbar-header"><a href="index.php" class="navbar-brand"><img src="src/image/logobbppt1.png" style="width: 120px;height: 40px;"></a>
+            <div class="navbar-buttons">
+              <button type="button" data-toggle="collapse" data-target=".navbar-collapse" class="navbar-toggle navbar-btn">Menu</i></button>
+            </div>
+          </div>
+          <div id="navigation" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+              <li class="active"><a href="index.php">Informasi Publik</a></li>
+              <!-- <li><a href="profil.php">Profil</a></li> -->
+              <li><a href="http://bbppt.postel.go.id/pengujian/">Portal Pengujian</a></li>
+              <!--<li class="dropdown"><a href="#" data-toggle="dropdown" class="dropdown-toggle">Pelayanan <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li><a href="#">Pelayanan 1</a></li>
+                  <li><a href="#">Pelayanan 2</a></li>
+                  <li><a href="#">Pelayanan 3</a></li>
+                  <li><a href="#">Pelayanan 4</a></li>
+                </ul>
+              </li>
+              <li><a href="index.php">Informasi Publik</a></li>
+             <!-- <li><a href="header1.php">Plans</a></li>
+              <li><a href="header1.php">FAQ</a></li>-->
+            </ul>
+
+             <ul class="nav navbar-nav navbar-right">
+            <a href="login.php" class="btn navbar-btn btn-ghost" >Login</a>
+			
+            </ul>
+          </div>
+        </div>
+      </div>
+    </header>
+     
+
     <div class="container">
       <div class="col-sm-4">
       </div>  
       <div class="col-sm-3" style="margin-top:100px; width:380px;">
-        <h2 class="form-signin-heading" style="text-align:center;">Masuk KMS BBPPT</h2>
+        
           <div class="panel panel-default" style="background-color: #ADD4F0;">
             
             <div class="panel-body">
-
+				<h2 class="form-signin-heading" style="text-align:center">Masuk KMS BBPPT</h2>
+	
 
               <?php 
         if(isset($_GET['pesan'])){
@@ -62,25 +98,71 @@
                 echo "<div class='alert alert-danger' role='alert'>Anda telah berhasil logout</div>";
             }
             else if($_GET['pesan'] == "belum_login"){
-                echo "<div class='alert alert-danger' role='alert'>Anda harus login untuk mengakses halaman KMS</div>";
+                echo "<div class='alert alert-danger' role='alert'>Anda harus login untuk mengakses halaman admin</div>";
             }
         }
     ?>
 
-              <form class="form-signin" method="POST" action="action.php">
-               <br><br><br><br>
+              <form class="form-signin"  method="POST" action="action.php">
+               <br><br><br>
                 <label for="username" class="sr-only">Username</label>
-                <center><input type="text" name="username" id="username" class="form-control" placeholder="Username" style="width:250px; height:40px" required><br></center>
-                <label for="password" class="sr-only">Password</label>
-                <center><input type="password" name="password" id="password" class="form-control" placeholder="Password" style="width:250px; height:40px;" required><br></center>
-                <center><button class="btn btn-lg btn-info" type="submit" style="margin-top: 100px; background-color: #466B97;width: 100px; ">Login</button></center>
+                <center><input type="text" name="username" id="username" class="form-control" placeholder="Username" autocomplete="off" style="width:250px; height:40px; margin-bottom: 20px" required></center>
+                <label for="password" class="sr-only" style="margin-bottom: 100px">Password</label>
+                <center><input type="password" name="password" id="password" class="form-control" placeholder="Password" style="width:250px; height:40px; margin-bottom:20px" required></center>
+				<a href data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo" ="#" style="margin-left:175px">Reset Password</a>
+                <center style="height:100px"><button class="btn btn-lg btn-info" type="submit" style="margin-top: 50px; background-color: #466B97;width: 100px; ">Login</button></center>
               </form>
 
 
-       </div>
+        
+    </div>
+	<div class="modal fade" id="exampleModal"  tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+				  <div class="modal-dialog" role="document" style="padding-top: 18%;padding-left:124px">
+					<div class="modal-content" style="height:200px; width:350px;">
+					  <div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						  <span aria-hidden="true">&times;</span>
+						</button>
+						<h4 class="modal-title" id="exampleModalLabel">Reset Password</h4>
+						
+					  </div>
+					  <div class="modal-body">
+						<form action="email.php" method="POST">
+						  <div class="form-group">
+							<label for="recipient-name" class="col-form-label">Masukkan Email Anda</label>
+							<form action="email-script.php" method="post" class="form-signin">
+							<input type="email" name="email" class="form-control" autocomplete="off">
+						  </div>
+						 
+						  <div class="modal-footer">
+							<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+							<button type="submit" class="btn btn-primary" name="submit_email">Submit</button>
+						  </div>
+						</form>
+					</div>
+				  </div>
+				</div>
+    </div>
+	
+	
+    <!-- /.login-card-body -->
+  </div>
+</div>
+<!-- /.login-box -->
+
+<!-- jQuery -->
+<script src="admin/plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="admin/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE App -->
+<script src="admin/dist/js/adminlte.min.js"></script>
+               
+              </form>
           </div>
+		  
 
     </div> <!-- /container -->
+
 
 
 
