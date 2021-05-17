@@ -57,8 +57,6 @@
                         </div>
                     </div>
                     <div class="ibox-body">
-
-                <h2>Ganti Password</h2>
                 
                 <?php
                 //mengatasi error notice dan warning
@@ -84,7 +82,7 @@
                     if($cek->num_rows){
                         //kondisi ini jika password lama yang dimasukkan sama dengan yang ada di database
                         //membuat kondisi minimal password adalah 5 karakter
-                        if(strlen($password_baru) >= 5){
+                        if(strlen($password_baru) >= 6){
                             //jika password baru sudah 5 atau lebih, maka lanjut ke bawah
                             //membuat kondisi jika password baru harus sama dengan konfirmasi password
                             if($password_baru == $konfirmasi_password){
@@ -108,7 +106,7 @@
                             }
                         }else{
                             //kondisi jika password baru yang dimasukkan kurang dari 5 karakter
-                            echo 'Minimal password baru adalah 5 karakter';
+                            echo 'Minimal password baru adalah 6 karakter';
                         }
                     }else{
                         //kondisi jika password lama tidak cocok dengan data yang ada di database
@@ -138,7 +136,7 @@
                         <tr>
                             <td>&nbsp;</td>
                             <td></td>
-                            <td><input type="submit" name="submit" value="Rubah"></td>
+                            <td><input type="submit" class="btn btn-green" name="submit" value="Rubah"></td>
                         <tr>
                     </table>
                 </form>

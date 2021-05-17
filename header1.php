@@ -44,7 +44,6 @@
           </div>
           <div id="navigation" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-              <li ><a href="index.php">Beranda</a></li>
               <li ><a href="indexinfo.php">Informasi Perangkat</a></li>
              <!--  <li><a href="profil.php">Profil</a></li> -->
               <!--<li class="dropdown"><a href="#" data-toggle="dropdown" class="dropdown-toggle">Pelayanan <b class="caret"></b></a>
