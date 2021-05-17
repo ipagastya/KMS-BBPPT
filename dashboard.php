@@ -99,7 +99,7 @@
 
                 <tr>  
                 <td><?php echo $no++ ?></td>
-                <td><?php echo $dt['judul'] ?></td>
+                <td><a href="detailinformasi.php?id=<?php echo $dt['id'] ?>"><?php echo $dt['judul'] ?></a></td>
                 <td><?php
                     $dokumen=$dt['dokumen'];
                     if(!empty($dokumen)){
