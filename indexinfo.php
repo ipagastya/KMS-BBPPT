@@ -89,14 +89,14 @@
                 include"koneksi.php";
                 $judul=$_GET['judul'];
                 if(!empty($judul)){
-                    $q = $koneksi->query("SELECT * FROM informasi where restricted='Aktif' and idperangkat!='' and judul like '%$judul%'");
+                    $q = $koneksi->query("SELECT * FROM informasi where restricted='Tidak Aktif' and idperangkat!='' and judul like '%$judul%'");
                 }else{
-                    $q = $koneksi->query("SELECT * FROM informasi WHERE restricted='Aktif' and idperangkat!=''");
+                    $q = $koneksi->query("SELECT * FROM informasi WHERE restricted='Tidak Aktif' and idperangkat!=''");
                 }
 
                  $idperangkat=$_GET['idperangkat'];
                 if(!empty($idperangkat)){
-                    $q = $koneksi->query("SELECT * FROM informasi where restricted='Aktif' and idperangkat='$idperangkat' and idperangkat!=''");
+                    $q = $koneksi->query("SELECT * FROM informasi where restricted='Tidak Aktif' and idperangkat='$idperangkat' and idperangkat!=''");
                 }
 
                 $noo = 1; // nomor urut
