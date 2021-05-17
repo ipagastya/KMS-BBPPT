@@ -128,7 +128,7 @@
 				}
 				?>
 			
-
+		</br>
 		<nav>
 			<ul class="pagination justify-content-center">
 				<li class="page-item">
