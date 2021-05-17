@@ -112,7 +112,7 @@
 					$dokumen=$dt['dokumen'];
 					if(!empty($dokumen)){
 					?>
-					<a href="src/image/<?php echo $dt['dokumen'] ?>"><button type="button" class="btn btn-danger">File PDF</button></a>
+					<a href="src/image/<?php echo $dt['dokumen'] ?>"><button type="button" class="btn btn-danger">File</button></a>
 					<?php
 					}
 					?>
