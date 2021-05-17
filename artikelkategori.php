@@ -94,7 +94,14 @@
                 <th>Nomor Dokumen</th>
                 <th>Dokumen</th>
                 <th>Tanggal</th>
+                <?php 
+                    $level = $_SESSION['level'];
+                    if($level=='Admin'){
+                ?>
                 <th>Action</th>
+                <?php 
+                    }
+                ?>
               </tr>
             </thead>
             <tbody>
@@ -128,6 +135,10 @@
                     ?>
                 </td>
                 <td><?php $tanggal= $dt['tanggal']; echo date('d F Y', strtotime($tanggal)); ?></td>
+                <?php 
+                    $level = $_SESSION['level'];
+                    if($level=='Admin'){
+                ?>
                 <td>
                     <a href="edit_informasi.php?id=<?php echo $dt['id']; ?>"><button type="button" class="btn btn-warning">Edit</button></a> | <a href="hapus_informasi.php?id=<?php echo $dt['id']; ?>" onclick="return confirm('Anda yakin akan menghapus data ini?')"><button type="button" class="btn btn-danger">Hapus</button></a>
 
@@ -147,6 +158,9 @@
                     ?>
 
                 </td>
+                <?php 
+                    }
+                ?>
                 </tr>
              
              <?php
