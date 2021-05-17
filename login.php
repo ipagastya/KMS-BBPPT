@@ -62,7 +62,7 @@
                 echo "<div class='alert alert-danger' role='alert'>Anda telah berhasil logout</div>";
             }
             else if($_GET['pesan'] == "belum_login"){
-                echo "<div class='alert alert-danger' role='alert'>Anda harus login untuk mengakses halaman admin</div>";
+                echo "<div class='alert alert-danger' role='alert'>Anda harus login untuk mengakses halaman KMS</div>";
             }
         }
     ?>
