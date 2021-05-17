@@ -289,12 +289,12 @@
                     $q = $koneksi->query("SELECT * FROM informasi");
                 }
 
-                $no = 1; // nomor urut
+                $numb = 1; // nomor urut
                 while ($dt = $q->fetch_assoc()) :
                 ?>
 
                 <tr>  
-                <td><?php echo $no++ ?></td>
+                <td><?php echo $numb++ ?></td>
                 <td><a href="detailinformasi.php?id=<?php echo $dt['id'] ?>"><?php echo $dt['judul'] ?></a></td>
                 <td><?php echo $dt['nomordokumen'] ?></td>
                 <td>
