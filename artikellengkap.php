@@ -106,6 +106,7 @@
 					<strong><?php echo $dt['judul'] ?></strong>
 					
 				</div><br>
+				<strong>Lampiran: </strong><br>
 				<div class="row-md-6">
 					<?php echo $dt['keterangan'] ?><br><br>
 					<?php
