@@ -32,15 +32,7 @@
                             <img src="libs/assets/img/admin-avatar.png" />
                             <span></span><?php echo $_SESSION['level'] ?></a>
                             <ul class="dropdown-menu dropdown-menu-left">
-                             <?php 
-                            $level = $_SESSION['level'];
-                            if($level=='Admin'){
-                            ?>
-                            <a class="dropdown-item" href="reset_password.php"><i class="fa fa-key"></i>Reset Password</a>
-<?php
-}
-?>
-
+                            <a class="dropdown-item" href="#"><i class="fa fa-key"></i>Ganti Password</a>
                             <a class="dropdown-item" href="logout.php"><i class="fa fa-power-off"></i>Logout</a>
                         </ul>
                         

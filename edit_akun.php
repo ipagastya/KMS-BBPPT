@@ -167,6 +167,7 @@ if (isset($_GET['id'])) {
                 <td></td>
                 <td>
                       <input type="submit" name="submit"  class="btn btn-primary" value="Simpan">
+                      <a class="btn btn-danger" href="reset_password.php" role="button">Reset Password</a>
                 </td>
               </tr>
             </thead>
