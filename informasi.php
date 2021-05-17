@@ -262,7 +262,7 @@
                 <th>Nomor Dokumen</th>
                 <th>Dokumen</th>
                 <th>Tanggal</th>
-                <th>Kategori</th>
+                <th> </th>
                 <th>Perangkat</th>
               </tr>
             </thead>
@@ -310,7 +310,7 @@
                     require_once 'koneksi.php';
                       // ambil data berdasarkan id_produk
                      $iddivisi = $dt['idkategori'];
-                     $q1 = $koneksi->query("SELECT * FROM divisi WHERE iddivisi='$idkategori'");
+                     $q1 = $koneksi->query("SELECT * FROM divisi WHERE iddivisi='$iddivisi'");
 
                               $no = 1; // nomor urut
                               while ($row = $q1->fetch_assoc()) :
