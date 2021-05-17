@@ -157,6 +157,9 @@ if (isset($_GET['id'])) {
                     <?php } ?>>
                     <?php echo $row['namadivisi']; ?>
                     </option>
+                     <?php
+                    endwhile;
+                    ?>
                 </select> </td>
               </tr>
               <tr>
@@ -178,7 +181,7 @@ if (isset($_GET['id'])) {
                               <div class="modal-body">
                               <form action="email.php" method="POST">
                                 <div class="form-group">
-                                <label for="recipient-name" class="col-form-label">Apakah anda yakin akan melakukan reset password akun <?php echo $dt['email'] ?> ? </label>
+                                <label for="recipient-name" class="col-form-label">Apakah anda yakin akan reset password akun <?php echo $dt['email'] ?> ?</label>
                                 <input type="hidden" class="form-control" name="email" value="<?php echo $dt['email'] ?>">
                                 </div>
                               
@@ -193,9 +196,6 @@ if (isset($_GET['id'])) {
                       </div>
                 </td>
               </tr>
-              <?php
-                endwhile;
-              ?>
             </thead>
           </table>
        </form>   
