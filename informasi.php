@@ -28,8 +28,18 @@
             <div class="page-heading">
                 <h1 class="page-title"> <i class="sidebar-item-icon fa fa-newspaper-o";></i> Informasi</h1>
                 <ol class="breadcrumb">
-                    
-                    <li class="breadcrumb-item">Beranda > Informasi > <a href="informasi.php" style="color: #0c2496;">Pengaturan Informasi</a> </li>
+                    <?php 
+                      $level = $_SESSION['level'];
+                      if($level=='Admin'){
+                    ?>
+                      <li class="breadcrumb-item">Beranda > Informasi > <a href="informasi.php" style="color: #0c2496;">Pengaturan Informasi</a> </li>
+                    <?php 
+                      }else{
+                    ?>
+                      <li class="breadcrumb-item">Beranda > Informasi > <a href="informasi.php" style="color: #0c2496;">Daftar Informasi</a> </li>
+                    <?php 
+                      }
+                    ?>
                 </ol>
                 <div class="box">
                     <div class="container">
@@ -164,7 +174,7 @@
                     <?php
                     require_once 'koneksi.php';
                       // ambil data berdasarkan id_produk
-                     $iddivisi = $dt['iddivisi'];
+                     $iddivisi = $dt['idkategori'];
                      $q1 = $koneksi->query("SELECT * FROM divisi WHERE iddivisi='$iddivisi'");
 
                               $no = 1; // nomor urut
@@ -230,7 +240,7 @@
 
                  <div class="ibox ibox-primary">
                             <div class="ibox-head" style="background-color: #466B97;">
-                                <div class="ibox-title">Pengaturan Informasi</div>
+                                <div class="ibox-title">Daftar Informasi</div>
                                 <div class="ibox-tools">
             
                                       <div class="dropdown-menu dropdown-menu-right">
