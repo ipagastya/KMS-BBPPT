@@ -28,8 +28,7 @@ if (!empty($judul)) {
     echo "<script>alert('Data berhasil ditambahkan'); window.location.href='informasi.php'</script>";
 
   }else{
-    echo "<script>alert('Data gagal ditambahkan'); window.location.href='informasi.php'</script>";
-
+    echo "Error: " . $query . "<br>" . $koneksi->error;
   }
 }else{
   echo "<script>alert('Data gagal ditambahkan'); window.location.href='informasi.php'</script>";
