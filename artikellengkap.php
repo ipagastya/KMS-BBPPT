@@ -103,7 +103,7 @@
 			</div>
 			<div class="col-lg-6">
 				<div class="row-md-2">
-					<strong><?php echo $dt['judul'] ?></strong>
+					<h1><strong><?php echo $dt['judul'] ?></strong></h1>
 					
 				</div><br>
 				<div class="row-md-6">
