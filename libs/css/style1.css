@@ -11,7 +11,10 @@ NAVBAR
   text-transform: uppercase;
   letter-spacing: 0.1em;
   position: fixed;
+  top: 0;
+  overflow: hidden;
 }
+
 .navbar a.navbar-brand {
   font-weight: bold;
   letter-spacing: 0.2em;
