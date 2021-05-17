@@ -23,7 +23,7 @@
         $id= $_GET['id'];
         $q = $koneksi->query("SELECT namadivisi FROM divisi where iddivisi='$id'");
         while ($row = $q->fetch_row()) {
-            $GLOBALS[namaKategori] = $row[0];
+            $GLOBALS['namaKategori'] = $row[0];
         }
     ?>
     <div class="page-wrapper">
