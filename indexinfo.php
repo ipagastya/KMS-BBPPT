@@ -29,15 +29,26 @@
                  
                 <div class="container"> 
 
+
                 <br><br>
                  <div class="ibox ibox-primary" style="border-color: #000;">
                             <div class="ibox-head" style="background-color: #fff;">
                                 <h1 style="text-align: center;">Daftar Informasi</h1><br><br>
+                                <div class="container" style="padding: 20px;">
+    <div class="form-inline" style="display: flex;justify-content: center;">
+      <div class="form-group" style="width: 600px;">
+      <form action="indexinfo.php" method="GET">  
+        <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search"
+          aria-describedby="search-addon" style="width: 100%;" name="judul" />
+      </div>
+      <button type="button" class="btn btn-outline-primary" style="color: white;background-color: blue;"><i class="glyphicon glyphicon-search"></i></button>
+    </div></form>
+  </div>
                                 <div class="ibox-tools">
                                     <form>
                 <div class="dropdown">
-              <label for="firstName" class="first-name">Filter Kategori &nbsp;</label>
-              <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" > Pilih Kategori
+              <label for="firstName" class="first-name">Filter Perangkat &nbsp;</label>
+              <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" > Pilih Perangkat
               <span class="caret"></span></button></form>
               <ul class="dropdown-menu">
                                 
@@ -45,13 +56,13 @@
                                         // Tampilkan semua data
                                         include"koneksi.php";
 
-                                        $q = $koneksi->query("SELECT * FROM divisi");
+                                        $q = $koneksi->query("SELECT * FROM perangkat");
 
                                         $nom = 1; // nomor urut
                                         while ($dt = $q->fetch_assoc()) :
                                         ?>
                                   
-                                  <li><a href="indexinfo.php?iddivisi=<?php echo $dt['iddivisi'] ?>"><?php echo $dt['namadivisi'] ?></a></li>
+                                  <li><a href="indexinfo.php?idperangkat=<?php echo $dt['idperangkat'] ?>"><?php echo $dt['namaperangkat'] ?></a></li>
                                  <?php
                                 endwhile;
                                 ?> 
@@ -68,7 +79,7 @@
                 <th style="font-size: 18pt;text-align: center;">Judul</th>
                 <th style="font-size: 18pt;text-align: center;">Dokumen</th>
                 <th style="font-size: 18pt;text-align: center;">Tanggal</th>
-                <th style="font-size: 18pt;text-align: center;">Kategori</th>
+                <th style="font-size: 18pt;text-align: center;">Perangkat</th>
             
               </tr>
             </thead>
@@ -76,13 +87,16 @@
                 <?php
                 // Tampilkan semua data
                 include"koneksi.php";
-
-
-                 $iddivisi=$_GET['iddivisi'];
-                if(!empty($iddivisi)){
-                    $q = $koneksi->query("SELECT * FROM informasi where iddivisi='$iddivisi'");
+                $judul=$_GET['judul'];
+                if(!empty($judul)){
+                    $q = $koneksi->query("SELECT * FROM informasi where restricted='Aktif' and idperangkat!='' and judul like '%$judul%'");
                 }else{
-                    $q = $koneksi->query("SELECT * FROM informasi");
+                    $q = $koneksi->query("SELECT * FROM informasi WHERE restricted='Aktif' and idperangkat!=''");
+                }
+
+                 $idperangkat=$_GET['idperangkat'];
+                if(!empty($idperangkat)){
+                    $q = $koneksi->query("SELECT * FROM informasi where restricted='Aktif' and idperangkat='$idperangkat' and idperangkat!=''");
                 }
 
                 $noo = 1; // nomor urut
@@ -112,16 +126,16 @@
                 <td style="font-size: 14pt;"><?php echo $dt['tanggal'] ?></td>
                 <td style="font-size: 14pt;">
                     
-                    <?php
+                   <?php
                     require_once 'koneksi.php';
                       // ambil data berdasarkan id_produk
-                     $iddivisi = $dt['iddivisi'];
-                     $q1 = $koneksi->query("SELECT * FROM divisi WHERE iddivisi='$iddivisi'");
+                     $idperangkat = $dt['idperangkat'];
+                     $q1 = $koneksi->query("SELECT * FROM perangkat WHERE idperangkat='$idperangkat'");
 
                               $no = 1; // nomor urut
                               while ($row = $q1->fetch_assoc()) :
                       ?>
-                    <?php echo $row['namadivisi']; ?>
+                     <?php echo $row['namaperangkat']; ?>
                      <?php
                     endwhile;
                   ?>
