@@ -100,8 +100,7 @@
                 <tr>  
                 <td><?php echo $no++ ?></td>
                 <td><?php echo $dt['judul'] ?></td>
-                <td>
-                  <?php
+                <td><?php
                     $dokumen=$dt['dokumen'];
                     if(!empty($dokumen)){
                     ?>
