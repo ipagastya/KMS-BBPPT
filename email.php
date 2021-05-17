@@ -46,12 +46,12 @@ if (isset($_POST['submit_email'])) {
 		//Enable HTML
 		$mail->isHTML(true);
 		//Attachment
-		$mail->addAttachment('img/attachment.png');
+		
 		
 		//$url= "https://".$SERVER["HTTPS_HOST"].dirname[$_SERVER["PHP_SELF"])."/new%20password.php?code=$code";
 		
 		//Email body
-		$mail->Body = "<h3>Reset Password </h3><p>Akun Anda:</p><p>Email: $toEmail</p><p>Kode: $code</p><p>Silahkan klik tautan di bawah ini</p> <a href='https://kms-bbppt.herokuapp.com/new%20password.php?code=$code'>Reset Password</a>";
+		$mail->Body = "<h3>Reset Password </h3><p>Akun Anda:</p><p>Email: $toEmail</p><p>Silahkan klik tautan di bawah ini</p> <a href='https://kms-bbppt.herokuapp.com/new%20password.php?code=$code'>Reset Password</a>";
 		
 		//Add recipient
 		$mail->addAddress($toEmail);
