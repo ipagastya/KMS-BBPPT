@@ -17,6 +17,14 @@
 </head>
 
 <body class="fixed-navbar">
+    <?php
+        include"koneksi.php";
+        $id= $_GET['id'];
+        $q = $koneksi->query("SELECT namadivisi FROM divisi where iddivisi='$id'");
+        while ($row = $q->fetch_row()) {
+            $kategoriName = $row[0];
+        }
+    ?>
     <div class="page-wrapper">
         <!-- START HEADER-->
         <?php include "headeradmin.php" ?>
@@ -26,7 +34,7 @@
         <div class="content-wrapper">
             <!-- START PAGE CONTENT-->
             <div class="page-heading">
-                <h1 class="page-title"> <i class="sidebar-item-icon fa fa-folder-open-o";></i> Artikel </h1>
+                <h1 class="page-title"> <i class="sidebar-item-icon fa fa-folder-open-o";></i> Informasi </h1>
                 <ol class="breadcrumb">
                     
                     <li class="breadcrumb-item">Beranda > Kategori Informasi </li>
@@ -51,7 +59,7 @@
                 <br><br>
                  <div class="ibox ibox-primary">
                             <div class="ibox-head" style="background-color: #466B97;">
-                                <div class="ibox-title">Kategori</div>
+                                <div class="ibox-title">Informasi <?php $kategoriName ?></div>
                                 <div class="ibox-tools">
             
                                       <div class="dropdown-menu dropdown-menu-right">

@@ -262,7 +262,7 @@
                 <th>Nomor Dokumen</th>
                 <th>Dokumen</th>
                 <th>Tanggal</th>
-                <th> </th>
+                <th>Kategori</th>
                 <th>Perangkat</th>
               </tr>
             </thead>
