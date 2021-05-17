@@ -60,7 +60,7 @@
                 <br><br>
                  <div class="ibox ibox-primary">
                             <div class="ibox-head" style="background-color: #466B97;">
-                                <div class="ibox-title">Informasi <?php $kategoriName ?></div>
+                                <div class="ibox-title">Informasi <?php echo $namaKategori ?></div>
                                 <div class="ibox-tools">
             
                                       <div class="dropdown-menu dropdown-menu-right">
