@@ -16,26 +16,30 @@
                     </li>
 
                      <li>
-                        <!-- <a href="informasi.php"><i class="sidebar-item-icon fa fa-newspaper-o"></i>
-                            <span class="nav-label">Informasi</span>
-                        </a> -->
+                        
+                        <?php 
+                            $level = $_SESSION['level'];
+                            if($level=='Admin'){
+                        ?>
                         <a href="javascript:;"><i class="sidebar-item-icon fa fa-newspaper-o"></i>
                             <span class="nav-label">Informasi</span><i class="fa fa-angle-left arrow"></i></a>
                         <ul class="nav-2-level collapse">
                              <li >
-                                <a href="informasi.php">Daftar Informasi</a>
+                                <a href="informasi.php">Pengaturan Informasi</a>
                             </li>
-                            <?php 
-                            $level = $_SESSION['level'];
-                            if($level=='Admin'){
-                            ?>
                             <li >
                                 <a href="tambah_informasi.php">Tambah Informasi</a>
                             </li>
-                            <?php
-                             }
-                            ?> 
                         </ul>
+                        <?php
+                             }else{
+                        ?>
+                        <a href="informasi.php"><i class="sidebar-item-icon fa fa-newspaper-o"></i>
+                            <span class="nav-label">Informasi</span>
+                        </a>
+                        <?php
+                             }
+                        ?>
                     </li>
 
                    
