@@ -26,19 +26,21 @@
         <div class="content-wrapper">
             <!-- START PAGE CONTENT-->
             <div class="page-heading">
-                <h1 class="page-title"> <i class="sidebar-item-icon fa fa-folder-open-o";></i> Informasi </h1>
-                <ol class="breadcrumb">
-                     <?php
+                <?php
+                        // Tampilkan semua data
                         include"koneksi.php";
                         $id= $_GET['id'];
-                        $q = $koneksi->query("SELECT namadivisi FROM divisi where iddivisi='$id'");
-                        while ($row = $q->fetch_row())
-                        ?>
-                        <li class="breadcrumb-item">Beranda > Kategori Informasi > <?php echo $row[0] ?></li>
-                        <?php
-                        endwhile;
-                        ?> 
+                        $query = $koneksi->query("SELECT * FROM divisi where iddivisi = '$id'");
+
+                        while ($dv = $query->fetch_assoc()) : 
+                ?>
+                <h1 class="page-title"> <i class="sidebar-item-icon fa fa-folder-open-o";></i> Informasi <?php echo $dv['namadivisi'] ?> </h1>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">Beranda > Kategori Informasi >  <?php echo $dv['namadivisi'] ?></li>
                 </ol>
+                <?php
+                endwhile;
+                ?> 
                 <div class="box">
                     <div class="container">
                       <!--<form>
@@ -59,7 +61,7 @@
                 <br><br>
                  <div class="ibox ibox-primary">
                             <div class="ibox-head" style="background-color: #466B97;">
-                                <div class="ibox-title">Informasi <?php echo $namaKategori ?></div>
+                                <div class="ibox-title">Informasi></div>
                                 <div class="ibox-tools">
             
                                       <div class="dropdown-menu dropdown-menu-right">
