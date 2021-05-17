@@ -10,7 +10,6 @@ NAVBAR
 .navbar {
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  position: fixed;
 }
 
 .navbar a.navbar-brand {
