@@ -23,7 +23,7 @@ if (isset($_POST['submit_email'])) {
 	}
 	
 	session_start();
-  if($_SESSION['status'] == "login"){  
+  if($_SESSION['level'] == "Admin"){  
 		//Create instance of PHPMailer
 		$mail = new PHPMailer();
 		//Set mailer to use smtp
@@ -59,9 +59,9 @@ if (isset($_POST['submit_email'])) {
 		$mail->addReplyTo('no-reply@gmail.com','No reply');
 		//Finally send email
 		if ( $mail->send() ) {
-			echo "<script> alert('Email telah terkirim. Silahkan lihat kotak masuk anda!'); window.location = 'login.php'; </script>";
+			echo "<script> alert('Email telah terkirim. Silahkan lihat kotak masuk anda!'); window.location = 'akun.php'; </script>";
 		}else{
-			echo "<script> alert('Email tidak dapat dikirim. Terjadi kesalahan.'); window.location = 'login.php'; </script>";
+			echo "<script> alert('Email tidak dapat dikirim. Terjadi kesalahan.'); window.location = 'akun.php'; </script>";
 		}
 		//Closing smtp connection
 		$mail->smtpClose();
