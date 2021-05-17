@@ -17,15 +17,6 @@
 </head>
 
 <body class="fixed-navbar">
-    <?php
-        $namaKategori = "";
-        include"koneksi.php";
-        $id= $_GET['id'];
-        $q = $koneksi->query("SELECT namadivisi FROM divisi where iddivisi='$id'");
-        while ($row = $q->fetch_row()) {
-            $GLOBALS['namaKategori'] = $row[0];
-        }
-    ?>
     <div class="page-wrapper">
         <!-- START HEADER-->
         <?php include "headeradmin.php" ?>
@@ -37,8 +28,16 @@
             <div class="page-heading">
                 <h1 class="page-title"> <i class="sidebar-item-icon fa fa-folder-open-o";></i> Informasi </h1>
                 <ol class="breadcrumb">
-                    
-                    <li class="breadcrumb-item">Beranda > Kategori Informasi </li>
+                     <?php
+                        include"koneksi.php";
+                        $id= $_GET['id'];
+                        $q = $koneksi->query("SELECT namadivisi FROM divisi where iddivisi='$id'");
+                        while ($row = $q->fetch_row())
+                        ?>
+                        <li class="breadcrumb-item">Beranda > Kategori Informasi > <?php echo $row[0] ?></li>
+                        <?php
+                        endwhile;
+                        ?> 
                 </ol>
                 <div class="box">
                     <div class="container">
