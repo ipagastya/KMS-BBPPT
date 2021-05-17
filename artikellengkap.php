@@ -106,13 +106,13 @@
 					<strong><?php echo $dt['judul'] ?></strong>
 					
 				</div><br>
-				<strong>Lampiran: </strong><br>
 				<div class="row-md-6">
 					<?php echo $dt['keterangan'] ?><br><br>
 					<?php
 					$dokumen=$dt['dokumen'];
 					if(!empty($dokumen)){
 					?>
+					<strong>Lampiran: </strong><br>
 					<a href="src/image/<?php echo $dt['dokumen'] ?>"><button type="button" class="btn btn-danger">File</button></a>
 					<?php
 					}
