@@ -180,7 +180,7 @@ if (isset($_GET['id'])) {
                               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                               </button>
-                              <h4 class="btn btn-danger" id="exampleModalLabel">Reset Password</h4>
+                              <h4 class="modal-title" id="exampleModalLabel">Reset Password</h4>
                               
                               </div>
                               <div class="modal-body">
