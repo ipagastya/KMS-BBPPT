@@ -1,5 +1,4 @@
 <?php
-session_start();
 //Include required PHPMailer files
 	require 'includes/PHPMailer.php';
 	require 'includes/SMTP.php';
@@ -23,7 +22,8 @@ if (isset($_POST['submit_email'])) {
 		exit("Error");
 	}
 	
-	if (isset($_SESSION['level'])){
+	session_start();
+  if($_SESSION['status'] == "login"){  
 		/Create instance of PHPMailer
 		$mail = new PHPMailer();
 		//Set mailer to use smtp
