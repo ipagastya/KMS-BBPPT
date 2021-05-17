@@ -131,7 +131,7 @@
 		
 		</div>
 		</br>
-		<div>
+		<div class="container" style="margin-bottom: 10px;margin-top: 10px; padding: 20px;">
 			<nav>
 				<ul class="pagination justify-content-center">
 					<li class="page-item">
