@@ -103,7 +103,7 @@
 				$jumlah_data = mysqli_num_rows($data);
 				$total_halaman = ceil($jumlah_data / $batas);
  
-				$data_pegawai = mysqli_query($koneksi,"SELECT * FROM informasi where restricted='Aktif' limit $halaman_awal, $batas");
+				$data_pegawai = mysqli_query($koneksi,"SELECT * FROM informasi where restricted='Non Aktif' limit $halaman_awal, $batas");
 				$nomor = $halaman_awal+1;
 				while($dt = mysqli_fetch_array($data_pegawai)){
 					?>
