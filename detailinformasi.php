@@ -71,7 +71,7 @@
                 $id = $_GET['id'];
 
 
-                $q = $koneksi->query("select informasi.id,informasi.nomordokumen,informasi.judul,informasi.dokumen,informasi.keterangan,informasi.tanggal,informasi.restricted,informasi.iddivisi, favorit.id as idfavorit, favorit.idinformasi, favorit.username
+                $q = $koneksi->query("select informasi.id,informasi.nomordokumen,informasi.judul,informasi.dokumen,informasi.keterangan,informasi.tanggal,informasi.restricted,informasi.idkategori, favorit.id as idfavorit, favorit.idinformasi, favorit.username
                 from informasi
                 INNER JOIN favorit
                  where informasi.id='$id' limit 1");
