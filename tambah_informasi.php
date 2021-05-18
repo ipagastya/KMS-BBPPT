@@ -200,7 +200,7 @@
                 <select class="form-control" name="isrestricted" id="isrestricted">
                   <option selected>Open this select menu</option>
                   <option value="Aktif">Non-publik</option>
-                  <option value="Tidak Aktif">Publik</option>
+                  <option value="Non Aktif">Publik</option>
                 </select> 
 
                 </td>
