@@ -210,11 +210,11 @@
                      if($status=='Aktif'){
                      ?>
                        <a href="aktivasi_informasi.php?id=<?php echo $dt['id']; ?>&status=aktif" onclick="return confirm('Anda yakin akan menonaktifkan artikel ini?')">
-                        <i class="sidebar-item-icon fa fa-eye fa-2x" style="color: #000";></i> &nbsp; &nbsp;
+                       <i class="sidebar-item-icon fa fa-eye-slash fa-2x" style="color: #000";></i> &nbsp; &nbsp;
                     </a>
                      <?php }else{ ?>
-                    <a href="aktivasi_informasi.php?id=<?php echo $dt['id']; ?>&status=non" onclick="return confirm('Anda yakin akan mengaktifkan artikel ini?')">
-                        <i class="sidebar-item-icon fa fa-eye-slash fa-2x" style="color: #000";></i> &nbsp; &nbsp;
+                        <a href="aktivasi_informasi.php?id=<?php echo $dt['id']; ?>&status=non" onclick="return confirm('Anda yakin akan mengaktifkan artikel ini?')">
+                        <i class="sidebar-item-icon fa fa-eye fa-2x" style="color: #000";></i> &nbsp; &nbsp;
                     </a>
                     <?php 
                     }

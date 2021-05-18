@@ -8,7 +8,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<!-- Bootstrap CSS-->
-    <link rel="stylesheet" href="libs/bootstrap/dist/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="libs/bootstrap/dist/css/bootstrap.min.css"> -->
 
     <!-- theme stylesheet-->
     <link rel="stylesheet" href="libs/css/style1.css" id="theme-stylesheet">
@@ -17,10 +17,10 @@
     <link rel="shortcut icon" href="libs/image/icon2.png">
 
     <!-- Javascript files-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="libs/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="libs/bootstrap/dist/js/jquery.cookie.js"> </script>
-
+    <script src="libs/bootstrap/dist/js/jquery.cookie.js"> </script> -->
+    <?php include "csssidebar.php"?>
 </head>
 <body>
 </html>
