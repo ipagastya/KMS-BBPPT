@@ -79,7 +79,7 @@
 			  <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search"
 			    aria-describedby="search-addon" style="width: 100%;" name="judul" />
 			</div>
-			<button type="button" class="btn btn-outline-primary" style="color: white;background-color: blue;"><i class="glyphicon glyphicon-search"></i></button>
+			<button type="submit" class="btn btn-outline-primary" style="color: white;background-color: blue;"><i class="glyphicon glyphicon-search"></i></button>
 		</div></form>
 	</div>
 	<div class="container" style="margin-bottom: 10px;padding: 10px;">
