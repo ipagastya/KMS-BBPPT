@@ -93,8 +93,12 @@
         include"koneksi.php";
 
         $judul=$_GET['judul'];
+		if(!empty($judul)){
+			$q = $koneksi->query("SELECT * FROM informasi where restricted='Non Aktif' and judul like '%$judul%' or keterangan like '%$judul%'");
+		}else{
+			$q = $koneksi->query("SELECT * FROM informasi WHERE restricted='Non Aktif'");
+		}
 
-        $q = $koneksi->query("SELECT * FROM informasi where restricted='Non Aktif' and judul like '%$judul%' or keterangan like '%$judul%'");
 
         $no = 1; // nomor urut
         while ($dt = $q->fetch_assoc()) :
