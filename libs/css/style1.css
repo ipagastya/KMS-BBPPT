@@ -28,7 +28,7 @@ NAVBAR
   .navbar ul.nav > li > a {
     border-top: solid 2px transparent;
     padding-top: 17.5px;
-	color: #0a3081;
+	color: #ffffff;
   }
   .navbar ul.nav > li > a:hover,
   .navbar ul.nav > li > a:focus {
@@ -37,6 +37,7 @@ NAVBAR
   }
   .navbar ul.nav > li.active > a,
   .navbar ul.nav > li.open > a {
+    color:#020786;
     text-decoration: none !important;
     border-top-color: #2b90d9;
 	background-color: transparent;
