@@ -10,6 +10,8 @@
 	<!-- Bootstrap CSS-->
     <link rel="stylesheet" href="libs/bootstrap/dist/css/bootstrap.min.css">
     <link href="libs/assets/vendors/DataTables/datatables.min.css" rel="stylesheet" />
+    <link href="libs/assets/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="libs/assets/vendors/themify-icons/css/themify-icons.css" rel="stylesheet" />
 
     <!-- theme stylesheet-->
     <link rel="stylesheet" href="libs/css/style1.css" id="theme-stylesheet">
@@ -72,7 +74,7 @@
     </div><br><br><br>
 
 
-                   <table class="table table-striped table-bordered table-hover" id="example-table" cellspacing="0" width="100%">
+<table class="table table-striped table-bordered table-hover" id="example-table" cellspacing="0" width="100%">
             <thead>
               <tr>
                 <th style="font-size: 18pt;text-align: center;">No</th>
