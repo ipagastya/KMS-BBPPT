@@ -73,8 +73,9 @@
 
                 $q = $koneksi->query("select informasi.id,informasi.nomordokumen,informasi.judul,informasi.dokumen,informasi.keterangan,informasi.tanggal,informasi.restricted,informasi.iddivisi, favorit.id as idfavorit, favorit.idinformasi, favorit.username
                 from favorit
-                INNER JOIN informasi
-                ON favorit.idinformasi = informasi.id where favorit.id='$id'");
+                INNER JOIN informasi ON favorit.idinformasi = informasi.id 
+                INNER JOIN divisi ON divisi.iddivisi = informasi.iddivisi
+                where favorit.id='$id'");
 
                 $no = 1; // nomor urut
                 while ($dt = $q->fetch_assoc()) :
@@ -83,7 +84,12 @@
                         <i class="sidebar-item-icon fa fa-star fa-3x" style="color: #e6c34a";></i>
                     </a>
                 <h2><?php echo $dt['judul'] ?></h2>
-
+                
+                <br>
+                <b> Kategori : </b> <?php echo $dt['namadivisi'] ?>  <br>
+                <b> Penulis  : </b> <?php echo $dt['username'] ?> <br>
+                <b> Tanggal  : </b> <?php echo date('d F Y', strtotime($tanggal)); ?> <br>
+                
                 <br>
                 <p> <?php echo $dt['username'] ?> - <?php $tanggal= $dt['tanggal']; echo date('d F Y', strtotime($tanggal)); ?>
                 <br>
