@@ -9,8 +9,7 @@
 
 	<!-- Bootstrap CSS-->
     <link href="libs/assets/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="libs/assets/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
-    <link href="libs/assets/vendors/themify-icons/css/themify-icons.css" rel="stylesheet" />
+    <link href="libs/assets/vendors/DataTables/datatables.min.css" rel="stylesheet" />
 
     <!-- theme stylesheet-->
     <link rel="stylesheet" href="libs/css/style1.css" id="theme-stylesheet"> -->
