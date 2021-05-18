@@ -37,15 +37,16 @@
                             <div class="ibox-head" style="background-color: #fff;">
                                 <h1 style="text-align: center;">Daftar Informasi</h1><br><br>
                                 <div class="container" style="padding: 20px;">
-    <div class="form-inline" style="display: flex;justify-content: center;">
-      <div class="form-group" style="width: 600px;">
-      <form action="indexinfo.php" method="GET">  
-        <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search"
-          aria-describedby="search-addon" style="width: 100%;" name="judul" />
-      </div>
-      <button type="button" class="btn btn-outline-primary" style="color: white;background-color: blue;"><i class="glyphicon glyphicon-search"></i></button>
-    </div></form>
-  </div>
+                                <div class="form-inline" style="display: flex;justify-content: center;">
+                                  <div class="form-group" style="width: 600px;">
+                                  <form action="indexinfo.php" method="GET">  
+                                      <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search"
+                                        aria-describedby="search-addon" style="width: 100%;" name="judul" />
+                                      </div>
+                                        <button type="submit" class="btn btn-outline-primary" style="color: white;background-color: blue;"><i class="glyphicon glyphicon-search"></i></button>
+                                      </div>
+                                </form>
+                              </div>
                                 <div class="ibox-tools">
                                     <form>
                 <div class="dropdown">
