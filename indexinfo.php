@@ -92,7 +92,7 @@
                 include"koneksi.php";
                 $judul=$_GET['judul'];
                 if(!empty($judul)){
-                    $q = $koneksi->query("SELECT * FROM informasi where restricted='Non Aktif' and idperangkat!='' and judul like '%$judul%'");
+                    $q = $koneksi->query("SELECT * FROM informasi where restricted='Non Aktif' and judul like '%$judul%'");
                 }else{
                     $q = $koneksi->query("SELECT * FROM informasi WHERE restricted='Non Aktif'");
                 }

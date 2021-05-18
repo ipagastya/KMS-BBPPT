@@ -79,7 +79,7 @@
 			  <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search"
 			    aria-describedby="search-addon" style="width: 100%;" name="judul" />
 			</div>
-			<button type="button" class="btn btn-outline-primary" style="color: white;background-color: blue;"><i class="glyphicon glyphicon-search"></i></button>
+			<button type="submit" class="btn btn-outline-primary" style="color: white;background-color: blue;"><i class="glyphicon glyphicon-search"></i></button>
 		</div></form>
 	</div>
 	<div class="container" style="margin-bottom: 10px;padding: 10px;">
@@ -91,20 +91,37 @@
 
 
         <?php 
-         include"koneksi.php";
-				$batas = 10;
-				$halaman = isset($_GET['halaman'])?(int)$_GET['halaman'] : 1;
-				$halaman_awal = ($halaman>1) ? ($halaman * $batas) - $batas : 0;	
- 
-				$previous = $halaman - 1;
-				$next = $halaman + 1;
-				
-				$data = mysqli_query($koneksi,"SELECT * FROM informasi where restricted='Aktif'");
-				$jumlah_data = mysqli_num_rows($data);
-				$total_halaman = ceil($jumlah_data / $batas);
- 
-				$data_pegawai = mysqli_query($koneksi,"SELECT * FROM informasi where restricted='Non Aktif' limit $halaman_awal, $batas");
-				$nomor = $halaman_awal+1;
+         		include"koneksi.php";
+				$judul=$_GET['judul'];
+				if(!empty($judul)){
+					$batas = 10;
+					$halaman = isset($_GET['halaman'])?(int)$_GET['halaman'] : 1;
+					$halaman_awal = ($halaman>1) ? ($halaman * $batas) - $batas : 0;	
+	
+					$previous = $halaman - 1;
+					$next = $halaman + 1;
+					
+					$data = mysqli_query($koneksi,"SELECT * FROM informasi where restricted='Non Aktif'  and judul like '%$judul%'");
+					$jumlah_data = mysqli_num_rows($data);
+					$total_halaman = ceil($jumlah_data / $batas);
+	
+					$data_pegawai = mysqli_query($koneksi,"SELECT * FROM informasi where restricted='Non Aktif'  and judul like '%$judul%' limit $halaman_awal, $batas");
+					$nomor = $halaman_awal+1;
+				}else{
+					$batas = 10;
+					$halaman = isset($_GET['halaman'])?(int)$_GET['halaman'] : 1;
+					$halaman_awal = ($halaman>1) ? ($halaman * $batas) - $batas : 0;	
+	
+					$previous = $halaman - 1;
+					$next = $halaman + 1;
+					
+					$data = mysqli_query($koneksi,"SELECT * FROM informasi where restricted='Non Aktif'");
+					$jumlah_data = mysqli_num_rows($data);
+					$total_halaman = ceil($jumlah_data / $batas);
+	
+					$data_pegawai = mysqli_query($koneksi,"SELECT * FROM informasi where restricted='Non Aktif' limit $halaman_awal, $batas");
+					$nomor = $halaman_awal+1;
+				}
 				while($dt = mysqli_fetch_array($data_pegawai)){
 					?>
 		
