@@ -1,4 +1,3 @@
-<?php include 'header1.php' ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,13 +24,31 @@
     <script src="libs/bootstrap/dist/js/jquery.cookie.js"> </script>
 </head>
 <body>
+<!-- navbar-->
+  <header class="header" >
+        <div role="navigation" class="navbar navbar-default"  style="background-color: #466B97; border-color: #466B97; border-radius: 0px;">
+          <div>
+            <div class="navbar-header"><a href="index.php" class="navbar-brand"><img src="src/image/logokms.png" style="width: 200px; height: 41px;"></a>
+              <div class="navbar-buttons">
+                <button type="button" data-toggle="collapse" data-target=".navbar-collapse" class="navbar-toggle navbar-btn">Menu</i></button>
+              </div>
+            </div>
+            <div id="navigation" class="collapse navbar-collapse">
+              <ul class="nav navbar-nav">
+                <li ><a class="active" href="indexinfo.php">Informasi Pengujian</a></li>
+                <li><a href="http://bbppt.postel.go.id/pengujian/">Portal Pengujian</a></li>
+              </ul>
+
+              <ul class="nav navbar-nav navbar-right">
+              <a href="login.php" class="btn navbar-btn btn-ghost" >Login</a>
+              </ul>
+            </div>
+          </div>
+        </div>
+    </header>
 </html>
 	 <div class="page-content fade-in-up">
-             
-                 
                 <div class="container"> 
-
-
                 <br><br>
                  <div class="ibox ibox-primary" style="border-color: #000;">
                             <div class="ibox-head" style="background-color: #fff;">
