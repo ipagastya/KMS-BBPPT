@@ -13,7 +13,7 @@
     <link href="libs/assets/vendors/themify-icons/css/themify-icons.css" rel="stylesheet" />
 
     <!-- theme stylesheet-->
-    <link rel="stylesheet" href="libs/css/style1.css" id="theme-stylesheet">
+    <!-- <link rel="stylesheet" href="libs/css/style1.css" id="theme-stylesheet"> -->
     <link href="libs/assets/css/main.min.css" rel="stylesheet" />
 
 
