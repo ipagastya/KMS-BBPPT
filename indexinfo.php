@@ -80,7 +80,7 @@
               <tr>
                 <th style="font-size: 18pt;text-align: center;">No</th>
                 <th style="font-size: 18pt;text-align: center;">Judul</th>
-                <th style="font-size: 18pt;text-align: center;">Dokumen</th>
+                <th style="font-size: 18pt;text-align: center;">Dokumen Lampiran</th>
                 <th style="font-size: 18pt;text-align: center;">Tanggal</th>
                 <th style="font-size: 18pt;text-align: center;">Perangkat</th>
             
@@ -108,7 +108,7 @@
 
                 <tr>  
                 <td style="font-size: 14pt; text-align: center;"><?php echo $noo++ ?></td>
-                <td style="font-size: 14pt;"><?php echo $dt['judul'] ?></td>
+                <td><a href="artikellengkap.php?id=<?php echo $dt['id'] ?>"><?php echo $dt['judul'] ?></a></td>
                 <td style="font-size: 14pt;">
                     <?php
                      $dokumen=$dt['dokumen'];
@@ -122,9 +122,7 @@
                     <?php
                     }
                     ?>
-                    |
 
-                <a href="artikellengkap.php?id=<?php echo $dt['id'] ?>"><button type="button" class="btn btn-primary">Detail</button></a></td>
                 </td>
                 <td style="font-size: 14pt;"><?php echo $dt['tanggal'] ?></td>
                 <td style="font-size: 14pt;">
