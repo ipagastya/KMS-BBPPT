@@ -94,7 +94,7 @@
 
         $judul=$_GET['judul'];
 
-        $q = $koneksi->query("SELECT * FROM informasi where restricted='Aktif' and judul like '%$judul%' or keterangan like '%$judul%'");
+        $q = $koneksi->query("SELECT * FROM informasi where restricted='Non Aktif' and judul like '%$judul%' or keterangan like '%$judul%'");
 
         $no = 1; // nomor urut
         while ($dt = $q->fetch_assoc()) :
