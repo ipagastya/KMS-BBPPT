@@ -100,24 +100,18 @@
 				$previous = $halaman - 1;
 				$next = $halaman + 1;
 				
-				if(!empty($judul)){
-					$data = mysqli_query($koneksi,"SELECT * FROM informasi where restricted='Non Aktif' and judul like '%$judul%'");
-				}else
-					$data = mysqli_query($koneksi,"SELECT * FROM informasi where restricted='Non Aktif'");
-				}
+				$data = mysqli_query($koneksi,"SELECT * FROM informasi where restricted='Non Aktif'");
 
 				$jumlah_data = mysqli_num_rows($data);
 				$total_halaman = ceil($jumlah_data / $batas);
 				
-				if(!empty($judul)){
-					$data_pegawai = mysqli_query($koneksi,"SELECT * FROM informasi where restricted='Non Aktif' and judul like '%$judul%' limit $halaman_awal, $batas");
-				}else{
-					$data_pegawai = mysqli_query($koneksi,"SELECT * FROM informasi where restricted='Non Aktif' limit $halaman_awal, $batas");
-				}
+				$data_pegawai = mysqli_query($koneksi,"SELECT * FROM informasi where restricted='Non Aktif' limit $halaman_awal, $batas");
+				
+
 				$nomor = $halaman_awal+1;
 				
 				while($dt = mysqli_fetch_array($data_pegawai)){
-					?>
+		?>
 		
 		
 			<div class="col-lg-4" style="height:140px;">
