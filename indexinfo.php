@@ -9,7 +9,7 @@
 
 	<!-- Bootstrap CSS-->
     <link href="libs/assets/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="libs/assets/vendors/DataTables/datatables.min.css" rel="stylesheet" />
+    <!-- <link href="libs/assets/vendors/DataTables/datatables.min.css" rel="stylesheet" /> -->
 
     <!-- theme stylesheet-->
     <link rel="stylesheet" href="libs/css/style1.css" id="theme-stylesheet"> -->
@@ -21,7 +21,6 @@
     <!-- Javascript files-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="libs/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="libs/bootstrap/dist/js/jquery.cookie.js"> </script>
 </head>
 <body>
 </html>
