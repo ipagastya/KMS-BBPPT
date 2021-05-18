@@ -4,10 +4,9 @@ require_once "koneksi.php";
 if (isset($_POST['submit'])) {
 $namaperangkat = $_POST['namaperangkat'];
 $biaya = $_POST['biaya'];
-$iddivisi = $_POST['iddivisi'];
 
  // id_produk bernilai '' karena kita set auto increment
-  $q = $koneksi->query("INSERT INTO perangkat (idperangkat, namaperangkat, biaya, iddivisi) VALUES ( '$idperangkat', '$namaperangkat', '$biaya', '$iddivisi')");
+  $q = $koneksi->query("INSERT INTO perangkat (idperangkat, namaperangkat, biaya, iddivisi) VALUES ( '$idperangkat', '$namaperangkat', '$biaya', 7)");
 
   if ($q) {
     // pesan jika data tersimpan

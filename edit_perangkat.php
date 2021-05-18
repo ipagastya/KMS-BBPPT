@@ -97,37 +97,8 @@ if (isset($_GET['id'])) {
                 <td><input type="text" class="form-control" name="namaperangkat" value="<?php echo $dt['namaperangkat'] ?>"></td>
               </tr>
               <tr>
-                <th>Biaya</th>
+                <th>Biaya Pengujian</th>
                 <td><input type="text" class="form-control" name="biaya" value="<?php echo $dt['biaya'] ?>"></td>
-              </tr>
-              <tr>
-                <th>Kategori</th>
-                <td>
-                      
-                <select class="form-control" name="iddivisi">
-                   <option value=""></option>
-                    <?php
-                    require_once 'koneksi.php';
-                      // ambil data berdasarkan id_produk
-                     $q = $koneksi->query("SELECT * FROM divisi");
-
-                              $no = 1; // nomor urut
-                              while ($row = $q->fetch_assoc()) :
-                      ?>
-                  <option value="<?php echo $row['iddivisi']; ?>" <?php
-                    $local= $dt['iddivisi'];
-                    $iddivisi=$row['iddivisi'];
-                    if($local==$iddivisi){ ?>
-                      selected
-                    <?php } ?>> 
-                    <?php echo $row['namadivisi']; ?>
-                  </option>
-                     <?php
-                    endwhile;
-                  ?>
-                </select> 
-
-                </td>
               </tr>
               <tr>
         

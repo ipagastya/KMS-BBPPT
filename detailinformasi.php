@@ -89,8 +89,6 @@
                 <h1><?php echo $dt['judul'] ?></h1>
 
                 <br>
-                <p> <?php echo $dt['username'] ?> - <?php $tanggal= $dt['tanggal']; echo date('d F Y', strtotime($tanggal)); ?>
-                <br>
                 <b> Kategori : </b> <?php echo $dt['namadivisi'] ?>  <br>
                 <b> Penulis  : </b> <?php echo $dt['username'] ?> <br>
                 <b> Tanggal  : </b> <?php echo date('d F Y', strtotime($tanggal)); ?> <br>

@@ -90,32 +90,7 @@
                  <input type="text" class="form-control" name="biaya" required=""> 
                 </td>
               </tr>
-              <tr>
-                <th>Kategori</th>
-                <td>
-                      
-                <select class="form-control" name="iddivisi">
-                  <option value=""></option>
-                    <?php
-                    require_once 'koneksi.php';
-                      // ambil data berdasarkan id_produk
-                     $q = $koneksi->query("SELECT * FROM divisi");
-
-                              $no = 1; // nomor urut
-                              while ($row = $q->fetch_assoc()) :
-                      ?>
-                  <option value="<?php echo $row['iddivisi']; ?>">
-                    <?php echo $row['namadivisi']; ?>
-                  </option>
-                     <?php
-                    endwhile;
-                  ?>
-                </select> 
-
-                </td>
-              </tr>
-
-
+              
               <tr>
                 <td></td>
                 <td>

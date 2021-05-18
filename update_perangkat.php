@@ -6,9 +6,8 @@ if (isset($_POST['submit'])) {
   $id = $_POST['id'];
   $namaperangkat = $_POST['namaperangkat'];
   $biaya = $_POST['biaya'];
-  $iddivisi = $_POST['iddivisi'];
   // update data berdasarkan id_produk yg dikirimkan
-     $q = $koneksi->query("UPDATE perangkat SET namaperangkat = '$namaperangkat',biaya='$biaya',iddivisi='$iddivisi' WHERE idperangkat = '$id'"); 
+     $q = $koneksi->query("UPDATE perangkat SET namaperangkat = '$namaperangkat',biaya='$biaya' WHERE idperangkat = '$id'"); 
   
 
 
