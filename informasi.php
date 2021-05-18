@@ -139,7 +139,7 @@
 
                 $iddivisi=$_GET['iddivisi'];
                 if(!empty($iddivisi)){
-                    $q = $koneksi->query("SELECT * FROM informasi where idkategori='$iddivisi'");
+                    $q = $koneksi->query("SELECT * FROM informasi where idkdivisi='$iddivisi'");
                 }else{
                     $q = $koneksi->query("SELECT * FROM informasi");
                 }
@@ -174,7 +174,7 @@
                     <?php
                     require_once 'koneksi.php';
                       // ambil data berdasarkan id_produk
-                     $iddivisi = $dt['idkategori'];
+                     $iddivisi = $dt['iddivisi'];
                      $q1 = $koneksi->query("SELECT * FROM divisi WHERE iddivisi='$iddivisi'");
 
                               $no = 1; // nomor urut
@@ -283,7 +283,7 @@
 
                $iddivisi=$_GET['iddivisi'];
                 if(!empty($iddivisi)){
-                    $q = $koneksi->query("SELECT * FROM informasi where idkategori='$iddivisi'");
+                    $q = $koneksi->query("SELECT * FROM informasi where iddivisi='$iddivisi'");
                 }else{
                     $q = $koneksi->query("SELECT * FROM informasi");
                 }
@@ -317,7 +317,7 @@
                     <?php
                     require_once 'koneksi.php';
                       // ambil data berdasarkan id_produk
-                     $iddivisi = $dt['idkategori'];
+                     $iddivisi = $dt['iddivisi'];
                      $q1 = $koneksi->query("SELECT * FROM divisi WHERE iddivisi='$iddivisi'");
 
                               $no = 1; // nomor urut

@@ -74,10 +74,10 @@
                 $id = $_GET['id'];
 
 
-                $q = $koneksi->query("select informasi.id,informasi.nomordokumen,informasi.judul,informasi.dokumen,informasi.keterangan,informasi.tanggal,informasi.restricted,informasi.idkategori, favorit.id as idfavorit, favorit.idinformasi, favorit.username,divisi.iddivisi, divisi.namadivisi
+                $q = $koneksi->query("select informasi.id,informasi.nomordokumen,informasi.judul,informasi.dokumen,informasi.keterangan,informasi.tanggal,informasi.restricted,informasi.iddivisi, favorit.id as idfavorit, favorit.idinformasi, favorit.username,divisi.iddivisi, divisi.namadivisi
                 from informasi
                 INNER JOIN favorit
-                INNER JOIN divisi ON divisi.iddivisi = informasi.idkategori
+                INNER JOIN divisi ON divisi.iddivisi = informasi.iddivisi
                  where informasi.id='$id' limit 1");
 
                 $no = 1; // nomor urut
