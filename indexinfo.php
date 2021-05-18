@@ -35,7 +35,7 @@
             </div>
             <div id="navigation" class="collapse navbar-collapse">
               <ul class="nav navbar-nav">
-                <li ><a class="active" href="indexinfo.php">Informasi Pengujian</a></li>
+                <li class="active"><a href="indexinfo.php">Informasi Pengujian</a></li>
                 <li><a href="http://bbppt.postel.go.id/pengujian/">Portal Pengujian</a></li>
               </ul>
 
