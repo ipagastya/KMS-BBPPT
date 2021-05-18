@@ -8,19 +8,22 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<!-- Bootstrap CSS-->
-    <!-- <link rel="stylesheet" href="libs/bootstrap/dist/css/bootstrap.min.css"> -->
+    <link href="libs/assets/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="libs/assets/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="libs/assets/vendors/themify-icons/css/themify-icons.css" rel="stylesheet" />
 
     <!-- theme stylesheet-->
     <link rel="stylesheet" href="libs/css/style1.css" id="theme-stylesheet">
+    <link href="libs/assets/css/main.min.css" rel="stylesheet" />
+
 
     <!--Logo web-->
     <link rel="shortcut icon" href="libs/image/icon2.png">
 
     <!-- Javascript files-->
-    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="libs/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="libs/bootstrap/dist/js/jquery.cookie.js"> </script> -->
-    <?php include "csssidebar.php"?>
+    <script src="libs/bootstrap/dist/js/jquery.cookie.js"> </script>
 </head>
 <body>
 </html>
