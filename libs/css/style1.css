@@ -38,7 +38,6 @@ NAVBAR
   .navbar ul.nav > li.active > a,
   .navbar ul.nav > li.open > a {
     color:#020786;
-    text-decoration: none !important;
     border-top-color: #2b90d9;
 	background-color: transparent;
   }
