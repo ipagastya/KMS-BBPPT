@@ -1,7 +1,7 @@
 <?php
 error_reporting(E_ALL ^ E_NOTICE);
 require_once "koneksi.php";
- 
+session_start();
 $id = $_POST['id'];
 $judul = $_POST['judul'];
 $nomordokumen= $_POST['nomordokumen'];

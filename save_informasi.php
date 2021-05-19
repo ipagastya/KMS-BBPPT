@@ -1,6 +1,6 @@
 <?php
 require_once "koneksi.php";
- 
+session_start();
 $judul = $_POST['judul'];
 $nomordokumen = $_POST['nomordokumen'];
 $keterangan = $_POST['keterangan'];
