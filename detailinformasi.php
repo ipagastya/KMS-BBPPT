@@ -86,7 +86,7 @@
                   $data = $koneksi->query("SELECT * FROM favorit WHERE idinformasi='$idinfo' and  username='$username'");
                   $cek = mysqli_num_rows($data);
                   if($cek > 0){
-                     $q2 = $koneksi->query("SELECT * FROM favorit WHERE judul='$idinfo' and  username='$username'");
+                     $q2 = $koneksi->query("SELECT * FROM favorit WHERE idinformasi='$idinfo' and  username='$username'");
                      while ($dt2 =  $q2->fetch_assoc()) {
                      $cek1=$dt2['id'];  
                      if($cek1){
@@ -99,7 +99,7 @@
                     }
                   }else{
                   ?>
-                     <a href="save_favorit.php?id=<?php echo $dt['id']; ?>&judul=<?php echo $dt['judul']; ?>" onclick="return confirm('Berhasil Favorit')" style="float: right;">
+                     <a href="save_favorit.php?id=<?php echo $dt2['id']; ?>&judul=<?php echo $dt['judul']; ?>" onclick="return confirm('Berhasil Favorit')" style="float: right;">
                         <i class="sidebar-item-icon fa fa-star-o fa-3x" style="color: #000";></i>
                     </a>
                   <?php
