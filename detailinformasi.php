@@ -74,7 +74,7 @@
                 $id = $_GET['id'];
 
 
-                $q = $koneksi->query("select informasi.id,informasi.nomordokumen,informasi.judul,informasi.dokumen,informasi.keterangan,informasi.tanggal,informasi.restricted,informasi.iddivisi
+                $q = $koneksi->query("select informasi.id,informasi.nomordokumen,informasi.judul,informasi.dokumen,informasi.keterangan,informasi.tanggal,informasi.restricted,informasi.iddivisi, informasi.author
                 from informasi
                 INNER JOIN divisi ON divisi.iddivisi = informasi.iddivisi
                  where informasi.id='$id' limit 1");
@@ -110,8 +110,8 @@
 
                 <br>
                 <b> Kategori : </b> <?php echo $dt['namadivisi'] ?>  <br>
-                <b> Penulis  : </b> <?php echo $dt['username'] ?> <br>
-                <b> Tanggal  : </b> <?php echo date('d F Y', strtotime($tanggal)); ?> <br>
+                <b> Penulis  : </b> <?php echo $dt['author'] ?> <br>
+                <b> Tanggal  : </b> <?php echo $dt['tanggal'] ?> <br>
                 <br>
                 <br>
                 <br>

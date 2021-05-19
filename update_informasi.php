@@ -8,8 +8,11 @@ $nomordokumen= $_POST['nomordokumen'];
 $keterangan = $_POST['keterangan'];
 $idperangkat = $_POST['idperangkat'];
 $iddivisi = $_POST['iddivisi'];
+$author  = $_SESSION['username'];
+$tanggal = date('Y-m-d');
 
-$koneksi->query("UPDATE informasi SET  judul='$judul',nomordokumen='$nomordokumen', keterangan='$keterangan', idperangkat='$idperangkat', iddivisi='$iddivisi' WHERE id='$id'");
+
+$koneksi->query("UPDATE informasi SET  judul='$judul',nomordokumen='$nomordokumen', keterangan='$keterangan', idperangkat='$idperangkat', iddivisi='$iddivisi', author='$author', tanggal='$tanggal' WHERE id='$id'");
 
 
 $dokumen= $_FILES['dokumen']['name'];
@@ -24,7 +27,7 @@ $extensi = strtolower(end($ex));
  
 if (!empty($dokumen)) {
   $pindah = move_uploaded_file($tmp,'src/image/'.$nama_baru);
-  $query = $koneksi->query("UPDATE informasi SET dokumen='$nama_baru' WHERE id='$id'");
+  $query = $koneksi->query("UPDATE informasi SET dokumen='$nama_baru', author=$author, tanggal='$tanggal' WHERE id='$id'");
   if (file_exists('src/image/'.$dokumen_lama)) {
     unlink('src/image/'.$dokumen_lama);
   }
