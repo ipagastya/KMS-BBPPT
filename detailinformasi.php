@@ -74,25 +74,47 @@
                 $id = $_GET['id'];
 
 
-                $q = $koneksi->query("select informasi.id,informasi.nomordokumen,informasi.judul,informasi.dokumen,informasi.keterangan,informasi.tanggal,informasi.restricted,informasi.iddivisi, favorit.id as idfavorit, favorit.idinformasi, favorit.username,divisi.iddivisi, divisi.namadivisi
+                $q = $koneksi->query("select informasi.id,informasi.nomordokumen,informasi.judul,informasi.dokumen,informasi.keterangan,informasi.tanggal,informasi.restricted,informasi.iddivisi
                 from informasi
-                INNER JOIN favorit
                 INNER JOIN divisi ON divisi.iddivisi = informasi.iddivisi
                  where informasi.id='$id' limit 1");
-
+                                   
                 $no = 1; // nomor urut
                 while ($dt = $q->fetch_assoc()) :
-                ?>
-                     <a href="hapus_favorit.php?id=<?php echo $dt['idfavorit']; ?>" onclick="return confirm('Anda yakin akan menghapus favorit?')" style="float: right;">
-                        <i class="sidebar-item-icon fa fa-star fa-3x" style="color: #e6c34a";></i>
+                  $idinfo         = $dt['id'];
+                  $username      = $_SESSION['username'];
+                  $data = $koneksi->query("SELECT * FROM favorit WHERE idinformasi='$idinfo' and  username='$username'");
+                  $cek = mysqli_num_rows($data);
+                  if($cek > 0){
+                     $q2 = $koneksi->query("SELECT * FROM favorit WHERE judul='$judul' and  username='$username'");
+                     while ($dt2 =  $q2->fetch_assoc()) {
+                     $cek1=$dt2['id'];  
+                     if($cek1){
+                  ?>
+                        <a href="hapus_favorit.php?id=<?php echo $dt2['id']; ?>" onclick="return confirm('Anda yakin akan menghapus favorit?')" style="float: right;">
+                            <i class="sidebar-item-icon fa fa-star fa-3x" style="color: #e6c34a";></i>
+                        </a>
+                  <?php
+                      }
+                    }
+                  }else{
+                  ?>
+                     <a href="save_favorit.php?id=<?php echo $dt['id']; ?>&judul=<?php echo $dt['judul']; ?>" onclick="return confirm('Berhasil Favorit')">
+                        <i class="sidebar-item-icon fa fa-star-o fa-3x" style="color: #000";></i>
                     </a>
+                  <?php
+                  }
+                  ?>
+
                 <h1><?php echo $dt['judul'] ?></h1>
 
                 <br>
                 <b> Kategori : </b> <?php echo $dt['namadivisi'] ?>  <br>
                 <b> Penulis  : </b> <?php echo $dt['username'] ?> <br>
                 <b> Tanggal  : </b> <?php echo date('d F Y', strtotime($tanggal)); ?> <br>
-                
+                <br>
+                <br>
+                <br>
 
                 <?php echo $dt['keterangan'] ?> 
                 <br>

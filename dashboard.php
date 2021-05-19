@@ -129,7 +129,7 @@
                      $cek1=$dt2['id'];  
                      if($cek1){
                      ?>
-                    <a href="hapus_favorit.php?id=<?php echo $dt2['id']; ?>" onclick="return confirm('Berhasil Favorit')">
+                    <a href="hapus_favorit.php?id=<?php echo $dt2['id']; ?>" onclick="return confirm('Anda yakin akan menghapus favorit?')">
                         <i class="sidebar-item-icon fa fa-star fa-3x" style="color: #e6c34a";></i>
                     </a>
                     <?php
