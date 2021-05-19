@@ -13,7 +13,8 @@
     <meta name="viewport" content="width=device-width initial-scale=1.0">
     <title>KMS-BBPPT</title>
     
-<?php include "csssidebar.php"?>
+<?php include "csssidebar.php";
+include "koneksi.php";?>
 </head>
 
 <body class="fixed-navbar">
@@ -60,14 +61,25 @@
                <div class="container">-->
                 <form>
                 <div class="dropdown">
-              <label for="firstName" class="first-name">Filter Kategori &nbsp;</label>
-              <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" > Pilih Kategori
-              <span class="caret"></span></button></form>
+				<label for="firstName" class="first-name">Filter Kategori &nbsp;</label>
+				<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" > Pilih Kategori
+					<span class="caret"></span>
+				</button></form>
               <ul class="dropdown-menu">
                                 
                                     <?php
                                         // Tampilkan semua data
-                                        include"koneksi.php";
+                                        
+										$searchkey1= $_POST['searchkey'];
+										$iddivisi=$_GET['iddivisi'];
+										$searchkey=$_GET['searchkey'];
+										if(!empty($searchkey1)){
+											$searchkey=$searchkey1;
+										}else{
+											if(!empty($searchkey)){
+												$searchkey= $searchkey;
+											}
+										}
 
                                         $q = $koneksi->query("SELECT * FROM divisi");
 
@@ -75,7 +87,7 @@
                                         while ($dt = $q->fetch_assoc()) :
                                         ?>
                                   
-                                  <li><a href="informasi.php?iddivisi=<?php echo $dt['iddivisi'] ?>"><?php echo $dt['namadivisi'] ?></a></li>
+                                  <li><a href="informasi.php?iddivisi=<?php echo $dt['iddivisi']; ?>&searchkey=<?php echo $searchkey1;?>"><?php echo $dt['namadivisi'] ?></a></li>
                                  <?php
                                 endwhile;
                                 ?> 
@@ -133,24 +145,46 @@
               </tr>
             </thead>
             <tbody>
-                <?php
+                 <?php
                 // Tampilkan semua data
-                include"koneksi.php";
+                
+				
+				
+				if(!empty($searchkey)){
+					
+					if(!empty($iddivisi)){
+                    $q = $koneksi->query("SELECT * FROM informasi where iddivisi='$iddivisi' and judul like '%$searchkey%'");
+					}else{
+						$q = $koneksi->query("SELECT * FROM informasi where judul like '%$searchkey%'");
+					}
+				}else{
+					if(!empty($iddivisi)){
+						
+						
+						
+						$q = $koneksi->query("SELECT * FROM informasi where iddivisi='$iddivisi'");
 
-                $iddivisi=$_GET['iddivisi'];
+					}else{
+						$q = $koneksi->query("SELECT * FROM informasi");
+					}
+					
+				}
+					
+/*
+               $iddivisi=$_GET['iddivisi'];
+			   
                 if(!empty($iddivisi)){
-                    $q = $koneksi->query("SELECT * FROM informasi where idkdivisi='$iddivisi'");
+                    $q = $koneksi->query("SELECT * FROM informasi where iddivisi='$iddivisi'");
                 }else{
                     $q = $koneksi->query("SELECT * FROM informasi");
-                }
-                
+                }*/
 
-                $nom = 1; // nomor urut
+                $numb = 1; // nomor urut
                 while ($dt = $q->fetch_assoc()) :
                 ?>
 
                 <tr>  
-                <td><?php echo $nom++ ?></td>
+                <td><?php echo $nom++ ; echo $iddivisi;?></td>
                 <td><a href="detailinformasi.php?id=<?php echo $dt['id'] ?>"><?php echo $dt['judul'] ?></a></td>
                 <!-- <td><?php echo $dt['judul'] ?></td> -->
                 <td><?php echo $dt['nomordokumen'] ?></td>
@@ -172,7 +206,7 @@
                 <td>
                     
                     <?php
-                    require_once 'koneksi.php';
+                    
                       // ambil data berdasarkan id_produk
                      $iddivisi = $dt['iddivisi'];
                      $q1 = $koneksi->query("SELECT * FROM divisi WHERE iddivisi='$iddivisi'");
@@ -189,7 +223,7 @@
 
                 <td>
                     <?php
-                    require_once 'koneksi.php';
+                    
                       // ambil data berdasarkan id_produk
                      $idperangkat = $dt['idperangkat'];
                      $q1 = $koneksi->query("SELECT * FROM perangkat WHERE idperangkat='$idperangkat'");
@@ -279,7 +313,7 @@
             <tbody>
                 <?php
                 // Tampilkan semua data
-                include"koneksi.php";
+                
 
                $iddivisi=$_GET['iddivisi'];
                 if(!empty($iddivisi)){
@@ -315,7 +349,7 @@
                 <td>
                     
                     <?php
-                    require_once 'koneksi.php';
+                    
                       // ambil data berdasarkan id_produk
                      $iddivisi = $dt['iddivisi'];
                      $q1 = $koneksi->query("SELECT * FROM divisi WHERE iddivisi='$iddivisi'");
@@ -332,7 +366,7 @@
 
                 <td>
                     <?php
-                    require_once 'koneksi.php';
+                    
                       // ambil data berdasarkan id_produk
                      $idperangkat = $dt['idperangkat'];
                      $q1 = $koneksi->query("SELECT * FROM perangkat WHERE idperangkat='$idperangkat'");

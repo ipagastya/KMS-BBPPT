@@ -16,71 +16,11 @@
                         <a class="nav-link sidebar-toggler js-sidebar-toggler"><i class="ti-menu"></i></a>
                     </li>
                     <li>
-                       <form class="navbar-search" action="javascript:;">
+                       <form class="navbar-search" method="post" action="informasi.php">
                             <div class="rel">
                                 <span class="search-icon"><i class="ti-search"></i></span>
-                                <input class="form-control" placeholder="Cari" list="brow"  onchange="javascript:handleSelect1(this)">
-                                <datalist id="brow">
-                                    <?php
-                                        // Tampilkan semua data
-                                        include"koneksi.php";
+                                <input class="form-control" name="searchkey" autocomplete="off" placeholder="Cari" list="brow">
 
-                                        $q = $koneksi->query("SELECT * FROM informasi");
-
-                                        $nom = 1; // nomor urut
-                                        while ($dt = $q->fetch_assoc()) :
-                                        ?>
-                                  
-                                  <option value="informasi"><?php echo $dt['judul'] ?></option>
-                                  <?php
-                                endwhile;
-                                ?> 
-                                <?php
-                                        // Tampilkan semua data
-                                        include"koneksi.php";
-
-                                        $q = $koneksi->query("SELECT * FROM divisi");
-
-                                        $nom = 1; // nomor urut
-                                        while ($dt = $q->fetch_assoc()) :
-                                        ?>
-                                  
-                                  <option value="divisi"><?php echo $dt['namadivisi'] ?></option>
-                                  <?php
-                                endwhile;
-                                ?> 
-                                <?php
-                                        // Tampilkan semua data
-                                        include"koneksi.php";
-
-                                        $q = $koneksi->query("SELECT * FROM akun");
-
-                                        $nom = 1; // nomor urut
-                                        while ($dt = $q->fetch_assoc()) :
-                                        ?>
-                                  
-                                  <option value="akun"><?php echo $dt['nama'] ?></option>
-                                  <option value="akun"><?php echo $dt['email'] ?></option>
-                                  <option value="akun"><?php echo $dt['level'] ?></option>
-                                  <?php
-                                endwhile;
-                                ?> 
-                                    <?php
-                                        // Tampilkan semua data
-                                        include"koneksi.php";
-
-                                        $q = $koneksi->query("SELECT * FROM perangkat");
-
-                                        $nom = 1; // nomor urut
-                                        while ($dt = $q->fetch_assoc()) :
-                                        ?>
-                                  
-                                  <option value="perangkat"><?php echo $dt['namaperangkat'] ?></option>
-                                  <?php
-                                endwhile;
-                                ?> 
-                                  
-                                </datalist>  
                                 <script type="text/javascript">
                                   function handleSelect1(elm)
                                   {
