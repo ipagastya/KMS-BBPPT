@@ -71,7 +71,7 @@
                 $id = $_GET['id'];
 
 
-                $q = $koneksi->query("select informasi.id as idinformasi,informasi.nomordokumen,informasi.judul,informasi.dokumen,informasi.keterangan,informasi.tanggal,informasi.restricted,informasi.iddivisi, favorit.id as idfavorit, favorit.idinformasi, favorit.username
+                $q = $koneksi->query("select informasi.id as idinformasi,informasi.nomordokumen,informasi.judul,informasi.dokumen,informasi.keterangan,informasi.tanggal,informasi.restricted,informasi.iddivisi, informasi.author, favorit.id as idfavorit, favorit.idinformasi, favorit.username
                 from favorit
                 INNER JOIN informasi ON favorit.idinformasi = informasi.id 
                 where favorit.id='$id'");
@@ -115,8 +115,8 @@
                 ?>
                   <br>
                   <b> Kategori : </b> <?php echo $dt3['namadivisi'] ?>  <br>
-                  <b> Penulis  : </b> <?php echo $dt['username'] ?> <br>
-                  <b> Tanggal  : </b> <?php echo date('d F Y', strtotime($tanggal)); ?> <br>
+                  <b> Penulis  : </b> <?php echo $dt['author'] ?> <br>
+                  <b> Tanggal  : </b> <?php echo $dt['tanggal'] ?> <br>
                   <br>
                   <br>
                   <br>

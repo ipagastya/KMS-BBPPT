@@ -74,7 +74,7 @@
                 $id = $_GET['id'];
 
 
-                $q = $koneksi->query("select informasi.id,informasi.nomordokumen,informasi.judul,informasi.dokumen,informasi.keterangan,informasi.tanggal,informasi.restricted,informasi.iddivisi, informasi.author
+                $q = $koneksi->query("select informasi.id,informasi.nomordokumen,informasi.judul,informasi.dokumen,informasi.keterangan,informasi.tanggal,informasi.restricted,informasi.iddivisi, informasi.author, divisi.namadivisi
                 from informasi
                 INNER JOIN divisi ON divisi.iddivisi = informasi.iddivisi
                  where informasi.id='$id' limit 1");
