@@ -99,7 +99,7 @@
                     }
                   }else{
                   ?>
-                     <a href="save_favorit.php?id=<?php echo $dt2['id']; ?>&judul=<?php echo $dt['judul']; ?>" onclick="return confirm('Berhasil Favorit')" style="float: right;">
+                     <a href="save_favorit.php?id=<?php echo $dt['id']; ?>&judul=<?php echo $dt['judul']; ?>" onclick="return confirm('Berhasil Favorit')" style="float: right;">
                         <i class="sidebar-item-icon fa fa-star-o fa-3x" style="color: #000";></i>
                     </a>
                   <?php
