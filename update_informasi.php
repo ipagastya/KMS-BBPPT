@@ -16,6 +16,7 @@ $koneksi->query("UPDATE informasi SET  judul='$judul',nomordokumen='$nomordokume
 
 
 $dokumen= $_FILES['dokumen']['name'];
+$size = $_FILES['dokumen']['size'];
 $dokumen_lama = $_POST['dokumen_lama'];
 $tmp = $_FILES['dokumen']['tmp_name'];
 $ex = explode('.',$dokumen);
@@ -25,7 +26,7 @@ $nama_baru = 'dokumen_'.time().'.'.strtolower($ex[1]);
 $daftar_extensi =  array('jpg','png','jpeg','pdf');
 $extensi = strtolower(end($ex));
  
-if (!empty($dokumen)) {
+if ($dokumen != "" || $size != 0 ) {
   $pindah = move_uploaded_file($tmp,'src/image/'.$nama_baru);
   $query = $koneksi->query("UPDATE informasi SET dokumen='$nama_baru', author=$author, tanggal='$tanggal' WHERE id='$id'");
   if (file_exists('src/image/'.$dokumen_lama)) {
