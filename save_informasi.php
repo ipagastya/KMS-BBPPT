@@ -12,18 +12,23 @@ $author  = $_SESSION['username'];
 
 
 $dokumen = $_FILES['dokumen']['name'];
+$size = $_FILES['dokumen']['size'];
 $tmp = $_FILES['dokumen']['tmp_name'];
 $ex = explode('.',$dokumen);
 $nama_baru = 'dokumen_'.time().'.'.strtolower($ex[1]);
- 
 $daftar_extensi =  array('jpg','png','jpeg','pdf');
 $extensi = strtolower(end($ex));
 
 
  
 if (!empty($judul)) {
-  $pindah = move_uploaded_file($tmp,'src/image/'.$nama_baru);
-  $query = $koneksi->query("INSERT INTO informasi (dokumen,judul,nomordokumen,keterangan,tanggal,restricted,idperangkat,iddivisi, author) VALUES('$nama_baru','$judul','$nomordokumen','$keterangan','$tanggal','$restricted','$idperangkat','$iddivisi','$author')");
+  if $dokumen != "" || $size != 0 {
+    $pindah = move_uploaded_file($tmp,'src/image/'.$nama_baru);
+    $query = $koneksi->query("INSERT INTO informasi (dokumen,judul,nomordokumen,keterangan,tanggal,restricted,idperangkat,iddivisi, author) VALUES('$nama_baru','$judul','$nomordokumen','$keterangan','$tanggal','$restricted','$idperangkat','$iddivisi','$author')");
+  }else{
+    $query = $koneksi->query("INSERT INTO informasi (judul,nomordokumen,keterangan,tanggal,restricted,idperangkat,iddivisi, author) VALUES('$judul','$nomordokumen','$keterangan','$tanggal','$restricted','$idperangkat','$iddivisi','$author')");
+  }
+
 
   if ($query){
     echo "<script>alert('Data berhasil ditambahkan'); window.location.href='informasi.php'</script>";
