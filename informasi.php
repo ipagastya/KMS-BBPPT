@@ -311,27 +311,43 @@ include "koneksi.php";?>
               </tr>
             </thead>
             <tbody>
-                <?php
+                 <?php
                 // Tampilkan semua data
                 
+				
+				
+				if(!empty($searchkey)){
+					
+					if(!empty($iddivisi)){
+                    $q = $koneksi->query("SELECT * FROM informasi where iddivisi='$iddivisi' and judul like '%$searchkey%'");
+					}else{
+						$q = $koneksi->query("SELECT * FROM informasi where judul like '%$searchkey%'");
+					}
+				}else{
+					if(!empty($iddivisi)){
+						
+						
+						
+						$q = $koneksi->query("SELECT * FROM informasi where iddivisi='$iddivisi'");
 
+					}else{
+						$q = $koneksi->query("SELECT * FROM informasi");
+					}
+					
+				}
+					
+/*
                $iddivisi=$_GET['iddivisi'];
+			   
                 if(!empty($iddivisi)){
                     $q = $koneksi->query("SELECT * FROM informasi where iddivisi='$iddivisi'");
                 }else{
                     $q = $koneksi->query("SELECT * FROM informasi");
-                }
+                }*/
 
                 $numb = 1; // nomor urut
                 while ($dt = $q->fetch_assoc()) :
                 ?>
-
-                <tr>  
-                <td><?php echo $numb++ ?></td>
-                <td><a href="detailinformasi.php?id=<?php echo $dt['id'] ?>"><?php echo $dt['judul'] ?></a></td>
-                <td><?php echo $dt['nomordokumen'] ?></td>
-                <td>
-                  <?php
           $dokumen=$dt['dokumen'];
           if(!empty($dokumen)){
           ?>
