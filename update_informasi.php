@@ -12,7 +12,7 @@ $author  = $_SESSION['username'];
 $tanggal = date('Y-m-d');
 
 
-$koneksi->query("UPDATE informasi SET  judul='$judul',nomordokumen='$nomordokumen', keterangan='$keterangan', idperangkat='$idperangkat', iddivisi='$iddivisi', author='$author', tanggal='$tanggal' WHERE id='$id'");
+// $koneksi->query("UPDATE informasi SET  judul='$judul',nomordokumen='$nomordokumen', keterangan='$keterangan', idperangkat='$idperangkat', iddivisi='$iddivisi', author='$author', tanggal='$tanggal' WHERE id='$id'");
 
 
 $dokumen= $_FILES['dokumen']['name'];
@@ -25,15 +25,23 @@ $nama_baru = 'dokumen_'.time().'.'.strtolower($ex[1]);
  
 $daftar_extensi =  array('jpg','png','jpeg','pdf');
 $extensi = strtolower(end($ex));
- 
+
 if ($dokumen != "" || $size != 0 ) {
   $pindah = move_uploaded_file($tmp,'src/image/'.$nama_baru);
-  $query = $koneksi->query("UPDATE informasi SET dokumen='$nama_baru', author=$author, tanggal='$tanggal' WHERE id='$id'");
+  $query = $koneksi->query("UPDATE informasi SET dokumen='$nama_baru', judul='$judul',nomordokumen='$nomordokumen', keterangan='$keterangan', idperangkat='$idperangkat', iddivisi='$iddivisi', author='$author', tanggal='$tanggal' WHERE id='$id'");
   if (file_exists('src/image/'.$dokumen_lama)) {
     unlink('src/image/'.$dokumen_lama);
   }
-   echo "<script>alert('Data berhasil diubah'); window.location.href='informasi.php'</script>";
+  //  echo "<script>alert('Data berhasil diubah'); window.location.href='informasi.php'</script>";
 }else{
-  echo "<script>alert('Data berhasil diubah'); window.location.href='informasi.php'</script>";
+  $query = $koneksi->query("UPDATE informasi SET judul='$judul',nomordokumen='$nomordokumen', keterangan='$keterangan', idperangkat='$idperangkat', iddivisi='$iddivisi', author='$author', tanggal='$tanggal' WHERE id='$id'");
+  // echo "<script>alert('Data berhasil diubah'); window.location.href='informasi.php'</script>";
+}
+
+if ($query){
+  echo "<script>alert('Data berhasil ditambahkan'); window.location.href='informasi.php'</script>";
+
+}else{
+  echo "Error: " . $query . "<br>" . $koneksi->error;
 }
 ?>
