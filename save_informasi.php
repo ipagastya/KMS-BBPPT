@@ -22,7 +22,7 @@ $extensi = strtolower(end($ex));
 
  
 if (!empty($judul)) {
-  if $dokumen != "" || $size != 0 {
+  if ($dokumen != "" || $size != 0 ) {
     $pindah = move_uploaded_file($tmp,'src/image/'.$nama_baru);
     $query = $koneksi->query("INSERT INTO informasi (dokumen,judul,nomordokumen,keterangan,tanggal,restricted,idperangkat,iddivisi, author) VALUES('$nama_baru','$judul','$nomordokumen','$keterangan','$tanggal','$restricted','$idperangkat','$iddivisi','$author')");
   }else{
