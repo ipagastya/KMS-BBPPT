@@ -313,7 +313,16 @@ include "koneksi.php";?>
             <tbody>
                  <?php
                 // Tampilkan semua data
-                
+                $searchkey1= $_POST['searchkey'];
+				$iddivisi=$_GET['iddivisi'];
+				$searchkey=$_GET['searchkey'];
+				if(!empty($searchkey1)){
+					$searchkey=$searchkey1;
+				}else{
+					if(!empty($searchkey)){
+						$searchkey= $searchkey;
+					}
+										}
 				
 				
 				if(!empty($searchkey)){
@@ -348,6 +357,13 @@ include "koneksi.php";?>
                 $numb = 1; // nomor urut
                 while ($dt = $q->fetch_assoc()) :
                 ?>
+				
+			<tr>
+			<td><?php echo $numb++?></td>
+			<td><a href="detailinformasi.php?id=<?php echo $dt['id']?>"><?php echo $dt['judul']?></a></td>
+			<td><?php echo $dt['nomordokumen']?></td>
+			<td>
+			<?php
           $dokumen=$dt['dokumen'];
           if(!empty($dokumen)){
           ?>
