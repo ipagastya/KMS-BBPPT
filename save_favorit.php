@@ -13,13 +13,13 @@ if (isset($_GET['id'])) {
 
   if ($q) {
     // pesan jika data tersimpan
-    echo "<script>alert('Berhasil Favoritkan'); window.location.href='dashboard.php'</script>";
+    echo "<script>alert('Berhasil Favoritkan'); window.location.href='dashboard_new.php'</script>";
   } else {
     // pesan jika data gagal disimpan
-    echo "<script>alert('Gagal Favoritkan'); window.location.href='dashboard.php'</script>";
+    echo "<script>alert('Gagal Favoritkan'); window.location.href='dashboard_new.php'</script>";
   }
 } else {
   // jika coba akses langsung halaman ini akan diredirect ke halaman index
-  header('Location: dashboard.php');
+  header('Location: dashboard_new.php');
 }
 ?>

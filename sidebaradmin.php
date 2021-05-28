@@ -15,31 +15,47 @@
                         </a>
                     </li>
 
-                     <li>
+                    <?php 
+                    $level = $_SESSION['level'];
+                    if($level=='Officer'){
+                    ?>
+                    <li>
+                        <a href="validasi_knowledge.php"><i class="sidebar-item-icon fa fa-check-circle"></i>
+                            <span class="nav-label">Validasi Pengetahuan</span>
+                        </a>
                         
-                        <?php 
-                            $level = $_SESSION['level'];
-                            if($level=='Admin'){
-                        ?>
+                    </li>
+                    <?php 
+                    }
+                    ?>
+
+                    <li>
                         <a href="javascript:;"><i class="sidebar-item-icon fa fa-newspaper-o"></i>
-                            <span class="nav-label">Informasi</span><i class="fa fa-angle-left arrow"></i></a>
+                            <span class="nav-label">Manajemen Knowledge</span><i class="fa fa-angle-left arrow"></i></a>
                         <ul class="nav-2-level collapse">
-                             <li >
-                                <a href="informasi.php">Pengaturan Informasi</a>
+                            <li >
+                                <a href="informasi.php">Informasi</a>
                             </li>
                             <li >
                                 <a href="tambah_informasi.php">Tambah Informasi</a>
                             </li>
                         </ul>
-                        <?php
-                             }else{
-                        ?>
-                        <a href="informasi.php"><i class="sidebar-item-icon fa fa-newspaper-o"></i>
-                            <span class="nav-label">Informasi</span>
-                        </a>
-                        <?php
-                             }
-                        ?>
+                        
+                    </li>
+
+                    <li>
+                        
+                        <a href="javascript:;"><i class="sidebar-item-icon fa fa-newspaper-o"></i>
+                            <span class="nav-label">Manajemen Dokumen</span><i class="fa fa-angle-left arrow"></i></a>
+                        <ul class="nav-2-level collapse">
+                             <li >
+                                <a href="informasi.php">Dokumen</a>
+                            </li>
+                            <li >
+                                <a href="tambah_informasi.php">Tambah Dokumen</a>
+                            </li>
+                        </ul>
+                        
                     </li>
 
                    
@@ -79,7 +95,7 @@
 
                     <li>
                         <a href="javascript:;"><i class="sidebar-item-icon fa fa-folder-open-o"></i>
-                            <span class="nav-label">Kategori Informasi</span><i class="fa fa-angle-left arrow"></i></a>
+                            <span class="nav-label">Kategori Pengetahuan</span><i class="fa fa-angle-left arrow"></i></a>
                          <ul class="nav-2-level collapse">
                             <?php
                         // Tampilkan semua data
@@ -98,12 +114,7 @@
                             ?> 
                             </ul>
                     </li>
-
-                     <?php 
-                    $level = $_SESSION['level'];
-                    if($level=='Admin'){
-                    ?>
-                    
+                   
                     <li>
                         <a href="perangkat.php"><i class="sidebar-item-icon fa fa-tablet "></i>
                             <span class="nav-label">Perangkat</span>
@@ -118,7 +129,10 @@
                         </a>
                     </li>
                     
-                   
+                    <?php 
+                    $level = $_SESSION['level'];
+                    if($level=='Admin'){
+                    ?>
 
                     <li>
                         <a href="akun.php"><i class="sidebar-item-icon fa fa-users "></i>

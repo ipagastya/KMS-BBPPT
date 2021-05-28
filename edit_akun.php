@@ -4,7 +4,7 @@
       header("location:login.php?pesan=belum_login");
   }
   if ($_SESSION['level'] != "Admin"){
-    header("location:dashboard.php");
+    header("location:dashboard_new.php");
   }
 ?>
 <!DOCTYPE html>

@@ -1,6 +1,6 @@
   <header class="header">
             <div class="page-brand">
-                <a class="link" href="dashboard.php" >
+                <a class="link" href="dashboard_new.php" >
                     <div>
                         <img src="src/image/logokms.png" width="200px" />
                     </div>

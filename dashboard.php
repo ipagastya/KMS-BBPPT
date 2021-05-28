@@ -29,7 +29,7 @@
                 <h1 class="page-title"> <i class="sidebar-item-icon fa fa-th-large";></i> Beranda</h1>
                 <ol class="breadcrumb">
                     
-                    <li class="breadcrumb-item">Beranda > <a href="dashboard.php" style="color: #0c2496;">Informasi Terbaru</a> </li>
+                    <li class="breadcrumb-item">Beranda > <a href="dashboard_new.php" style="color: #0c2496;">Informasi Terbaru</a> </li>
                 </ol>
                 
                 <div class="box">

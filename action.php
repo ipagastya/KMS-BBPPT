@@ -24,7 +24,7 @@
             $_SESSION['level'] =  $row['level'];
             }
            
-            echo "<script>window.location.href ='dashboard.php';</script>";
+            echo "<script>window.location.href ='dashboard_new.php';</script>";
         }
         else{
              echo "<script>window.location.href ='login.php?pesan=gagal';</script>";
