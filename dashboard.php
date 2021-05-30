@@ -63,7 +63,7 @@
 
                  
                  <div class="ibox ibox-primary">
-                            <div class="ibox-head" style="background-color: #466B97;">
+                            <div class="ibox-head" style="background-color: #0c2496;">
                                 <div class="ibox-title">Informasi Terbaru</div>
                                 <div class="ibox-tools">
 

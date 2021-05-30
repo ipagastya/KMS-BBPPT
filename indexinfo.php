@@ -46,6 +46,10 @@
             </div>
           </div>
         </div>
+
+        <ol class="breadcrumb">
+           <li class="breadcrumb-item"><a href="index.php">Beranda</a> > <a href="indexinfo.php" style="color: #0c2496;">Informasi Pengujian</a> </li>
+        </ol>
     </header>
 </html>
 	 <div class="page-content fade-in-up">

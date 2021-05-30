@@ -33,11 +33,11 @@ include "koneksi.php";?>
                       $level = $_SESSION['level'];
                       if($level=='Admin' || $level=='Officer'){
                     ?>
-                      <li class="breadcrumb-item">Beranda > Knowledge > <a href="informasi.php" style="color: #0c2496;">Pengaturan Knowledge</a> </li>
+                      <li class="breadcrumb-item">Beranda > Knowledge > <a href="informasi.php" style="color: #0c2496;">Knowledge</a> </li>
                     <?php 
                       }else{
                     ?>
-                      <li class="breadcrumb-item">Beranda > Knowledge > <a href="informasi.php" style="color: #0c2496;">Daftar Knowledge</a> </li>
+                      <li class="breadcrumb-item">Beranda > Knowledge > <a href="informasi.php" style="color: #0c2496;">Knowledge</a> </li>
                     <?php 
                       }
                     ?>
@@ -100,7 +100,7 @@ include "koneksi.php";?>
 
                  <div class="ibox ibox-primary">
                             <div class="ibox-head" style="background-color: #466B97;">
-                                <div class="ibox-title">Pengaturan Knowledge</div>
+                                <div class="ibox-title">Knowledge</div>
                                 <div class="ibox-tools">
                    
                 <a href="tambah_informasi.php">

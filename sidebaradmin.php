@@ -58,7 +58,7 @@
                                 <a href="dokumen.php">Dokumen</a>
                             </li>
                             <li >
-                                <a href="tambah_dokuemen.php">Tambah Dokumen</a>
+                                <a href="tambah_dokumen.php">Tambah Dokumen</a>
                             </li>
                         </ul>
                         
