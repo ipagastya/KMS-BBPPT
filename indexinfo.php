@@ -37,6 +37,7 @@
               <ul class="nav navbar-nav">
                 <li class="active"><a href="indexinfo.php">Informasi Pengujian</a></li>
                 <li><a href="http://bbppt.postel.go.id/pengujian/">Portal Pengujian</a></li>
+                <li><a href="faq_pemohon.php">FAQ</a></li>
               </ul>
 
               <ul class="nav navbar-nav navbar-right">
@@ -107,14 +108,18 @@
                 <?php
                 // Tampilkan semua data
                 include"koneksi.php";
-                $judul=$_GET['judul'];
+                if (isset($_GET['judul'])){
+                  $judul=$_GET['judul'];
+                }
                 if(!empty($judul)){
                     $q = $koneksi->query("SELECT * FROM informasi where restricted='Non Aktif' and judul like '%$judul%'");
                 }else{
                     $q = $koneksi->query("SELECT * FROM informasi WHERE restricted='Non Aktif'");
                 }
 
+                if (isset($_GET['idperangkat'])){
                  $idperangkat=$_GET['idperangkat'];
+                }
                 if(!empty($idperangkat)){
                     $q = $koneksi->query("SELECT * FROM informasi where restricted='Non Aktif' and idperangkat='$idperangkat' and idperangkat!=''");
                 }

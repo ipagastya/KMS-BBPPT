@@ -68,7 +68,6 @@
     </script>
     
 <?php include "csssidebar.php"?>
-
 </head>
 
 <body class="fixed-navbar">
@@ -81,10 +80,10 @@
         <div class="content-wrapper">
             <!-- START PAGE CONTENT-->
             <div class="page-heading">
-              <h1 class="page-title"> <i class="sidebar-item-icon fa fa-newspaper-o";></i> Tambah Informasi</h1>
+              <h1 class="page-title"> <i class="sidebar-item-icon fa fa-newspaper-o";></i> Edit Informasi</h1>
                 <ol class="breadcrumb">
                     
-                    <li class="breadcrumb-item">Beranda > Informasi > <a href="tambah_informasi.php" style="color: #0c2496;">Tambah Informasi</a> </li>
+                    <li class="breadcrumb-item">Beranda > Informasi > <a href="edit_informasi.php" style="color: #0c2496;">Edit Informasi</a> </li>
                 </ol>
                 <div class="box">
                     <div class="container">
@@ -117,30 +116,70 @@
                     <button class="btn btn-info btn-lg" type="button">Search</button>
                 </span>-->
 
-              <form action="save_informasi.php" method="post" enctype="multipart/form-data" name="form1">  
+               <?php
+
+require_once 'koneksi.php';
+
+// cek id
+if (isset($_GET['id'])) {
+  $id = $_GET['id'];
+
+  // ambil data berdasarkan id_produk
+  $q = $koneksi->query("SELECT * FROM informasi WHERE id = '$id'");
+
+ while ($dt = $q->fetch_assoc()) :
+  ?>
+
+
+      <br><br>
+            <form action="update_informasi.php" method="post" enctype="multipart/form-data" name="form1"> 
+            <input type="hidden" name="id" value="<?php echo $dt['id'] ?>">
       <table class="table table-bordered">
             <thead>
                <tr>
                 <th>Judul</th>
                 <td>
-                 <input type="text" class="form-control" name="judul" required=""> 
+                 <input type="text" class="form-control" name="judul" required="" value="<?php echo $dt['judul'] ?>"> 
                 </td>
               </tr>
               <tr>
                 <th>Nomor Dokumen</th>
                 <td>
-                 <input type="text" class="form-control" name="nomordokumen" required=""> 
+                 <input type="text" class="form-control" name="nomordokumen" required=""
+                 value="<?php echo $dt['nomordokumen'] ?>">
                 </td>
               </tr>
               <tr>
-                <th style="vertical-align:top">Keterangan</th>
-                <td><textarea class="form-control ckeditor" name="keterangan" id="content"></textarea>
+                <th>Dokumen</th>
+                <td><a href="src/image/<?php echo $dt['dokumen'] ?>"><button type="button" class="btn btn-danger">File</button></a>
+                  <input type="file" name="dokumen" value=""> 
+                  <input type="hidden" name="dokumen_lama" value="<?php echo $dt['dokumen'] ?>"> </td>
+              </tr>
+
+              <tr>
+                <th>Jenis Dokumen</th>
+                <td>
+                <select class="form-control" name="jenisDokumen" id="jenisDokumen">
+                    <?php if ($dt['jenisDokumen'] == 'Teks'){ ?>
+                        <option selected value="Teks">Teks</option>
+                        <option value="Gambar">Gambar</option>
+                        <option value="Video">Video</option>
+                    <?php }else if ($dt['jenisDokumen'] == 'Gambar'){ ?>
+                        <option  value="Teks">Teks</option>
+                        <option selected value="Gambar">Gambar</option>
+                        <option value="Video">Video</option>
+                    <?php }else if ($dt['jenisDokumen'] == 'Video'){ ?>
+                        <option  value="Teks">Teks</option>
+                        <option  value="Gambar">Gambar</option>
+                        <option selected value="Video">Video</option>
+                    <?php }else{ ?>
+                        <option  value="Teks">Teks</option>
+                        <option  value="Gambar">Gambar</option>
+                        <option selected value="Video">Video</option>
+                    <?php }?>
+                </select> 
 
                 </td>
-              </tr>
-              <tr>
-                <th>Dokumen Lampiran</th>
-                <td> <input type="file" name="dokumen" value=""> </td>
               </tr>
 
               <tr>
@@ -156,7 +195,12 @@
                               $no = 1; // nomor urut
                               while ($row = $q->fetch_assoc()) :
                       ?>
-                  <option value="<?php echo $row['iddivisi']; ?>">
+                  <option value="<?php echo $row['iddivisi']; ?>" <?php
+                    $local= $dt['iddivisi'];
+                    $iddivisi=$row['iddivisi'];
+                    if($local==$iddivisi){ ?>
+                      selected
+                    <?php } ?>> 
                     <?php echo $row['namadivisi']; ?>
                   </option>
                      <?php
@@ -172,39 +216,31 @@
                 <td>
                       
                 <select class="form-control" name="idperangkat" id="idperangkat">
-                  <option value=""></option>
-
-              <!--       <?php
+                    <?php
                     require_once 'koneksi.php';
                       // ambil data berdasarkan id_produk
-                     $q = $koneksi->query("SELECT * FROM perangkat");
+                    $iddivisi= $dt['iddivisi']; 
+                     $q2 = $koneksi->query("SELECT * FROM perangkat where iddivisi='$iddivisi'");
 
                               $no = 1; // nomor urut
-                              while ($row = $q->fetch_assoc()) :
+                              while ($row2 = $q2->fetch_assoc()) :
                       ?>
-                  <option value="<?php echo $row['idperangkat']; ?>">
-                    <?php echo $row['namaperangkat']; ?>
+                  <option value="<?php echo $row2['idperangkat']; ?>"<?php
+                    $local= $dt['idperangkat'];
+                    $idperangkat=$row2['idperangkat'];
+                    if($local==$idperangkat){ ?>
+                      selected
+                    <?php } ?>>
+                    <?php echo $row2['namaperangkat']; ?>
                   </option>
                      <?php
                     endwhile;
-                  ?> -->
+                  ?> 
                 </select> 
 
                 </td>
               </tr>
               
-              <tr>
-                <th>Jenis Informasi</th>
-                <td>
-                      
-                <select class="form-control" name="isrestricted" id="isrestricted">
-                  <option selected value="Aktif">Non-publik</option>
-                  <option value="Non Aktif">Publik</option>
-                </select> 
-
-                </td>
-              </tr>
-
               <tr>
                 <td></td>
                 <td>
@@ -214,21 +250,19 @@
             </thead>
           </table>
        </form>   
+ <?php
+   endwhile;
+}
+  ?>
 
 
-               
+                
                 </div>
                 </div>
             </div>
            <?php include "footeradmin.php" ?>
         </div>
     </div>
-   <script>
- CKEDITOR.replace( 'keterangan', {
-  height: 300,
-  filebrowserUploadUrl: "upload.php"
- });
-</script>
     <!-- END THEME CONFIG PANEL-->
     <?php include "cssbawah.php" ?>
 </body>

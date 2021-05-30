@@ -116,6 +116,15 @@ if (isset($_GET['id'])) {
                 <td>
                   <select class="form-control" name="level">
 
+                  <option value="Officer"
+                    <?php
+                    $local= $dt['level'];
+                    if($local=='Officer'){ ?>
+                      selected
+                    <?php } ?>>
+                    Officer
+                  </option>
+
                   <option value="Admin"
                     <?php
                     $local= $dt['level'];

@@ -26,10 +26,10 @@
         <div class="content-wrapper">
             <!-- START PAGE CONTENT-->
             <div class="page-heading">
-               <h1 class="page-title"> <i class="sidebar-item-icon fa fa-users";></i> Tambah Akun Pengguna</h1>
+                <h1 class="page-title"> <i class="sidebar-item-icon fa fa-question";></i> FAQ</h1>
                 <ol class="breadcrumb">
                     
-                    <li class="breadcrumb-item">Beranda > Pegawai > <a href="tambah_akun.php" style="color: #0c2496;">Tambah Pengguna</a> </li>
+                    <li class="breadcrumb-item">Beranda > FAQ > <a href="pengaturan_faq.php" style="color: #0c2496;">Pengaturan FAQ</a> </li>
                 </ol>
                 <div class="box">
                     <div class="container">
@@ -64,9 +64,12 @@
 
 
                 <div class="ibox ibox-primary">
-                            <div class="ibox-head">
-                                <div class="ibox-title">Tambah Pengguna</div>
+                            <div class="ibox-head" style="background-color: #466B97;">
+                                <div class="ibox-title">Pengaturan FAQ</div>
                                 <div class="ibox-tools">
+                                     <a href="tambah_faq.php">
+                                      <button type="button" class="btn btn-success">Tambah</button>
+                                      </a>
                                     <div class="dropdown-menu dropdown-menu-right">
                                        
                                       
@@ -79,92 +82,51 @@
 
 
 
-                <form method="post" action="save_akun.php">
-      <table class="table table-bordered">
+                <table class="table table-bordered">
             <thead>
               <tr>
-                <th>Username</th>
-                <td><input type="text" class="form-control" name="username"></td>
-              </tr>
-              <tr>
-                <th>Password</th>
-                <td><input type="password" class="form-control" name="password"></td>
-              </tr>
-              <tr>
-                <th>Nama</th>
-                <td><input type="text" class="form-control" name="nama"></td>
-              </tr>
-              <tr>
-                <th>Email</th>
-                <td><input type="text" class="form-control" name="email"></td>
-              </tr>
-              <tr>
-                <th>NIP</th>
-                <td><input type="text" class="form-control" name="nip"></td>
-              </tr>
-              <tr>
+                <th style="text-align: center";>No</th>
+                <th>Pertanyaan</th>
+                <th>Jawaban</th>
+                <th>Author</th>
+                <th>Update Time</th>
+                <th>Action</th>
 
-                <th>Role</th>
-                <td>
-                <select class="form-control" name="level">
 
-                  <option value="Officer">
-                    Officer
-                  </option>
-
-                  <option value="Admin">
-                    Admin
-                  </option>
-
-                   <option value="Pegawai">
-                    Pegawai
-                  </option>
-  
-                </select> 
-
-                  </td>
-
-              </tr>
-
-              <tr>
-                <th>Divisi</th>
-                <td>
-                      
-                <select class="form-control" name="iddivisi">
-                    <?php
-                    require_once 'koneksi.php';
-                      // ambil data berdasarkan id_produk
-                     $q = $koneksi->query("SELECT * FROM divisi");
-
-                              $no = 1; // nomor urut
-                              while ($row = $q->fetch_assoc()) :
-                      ?>
-                  <option value="<?php echo $row['namadivisi']; ?>">
-                    <?php echo $row['namadivisi']; ?>
-                  </option>
-                     <?php
-                    endwhile;
-                  ?>
-                </select> 
-
-                </td>
-              </tr>
-               
-              <tr>
-                <td></td>
-                <td>
-                      <input type="submit" name="submit"  class="btn btn-primary" value="Simpan">
-                </td>
               </tr>
             </thead>
-          </table>
-       </form>   
+            <tbody>
+             
+                <?php
+                // Tampilkan semua data
+                include"koneksi.php";
 
+                $q = $koneksi->query("SELECT * FROM faq");
+
+                $no = 1; // nomor urut
+                while ($dt = $q->fetch_assoc()) :
+                ?>
+                <tr>
+                  
+                <td style="text-align: center";><?php echo $no++ ?></td>
+                <td><?php echo $dt['pertanyaan'] ?></td>
+                <td><?php echo $dt['jawaban'] ?></td>
+                <td><?php echo $dt['author'] ?></td>
+                <td><?php echo $dt['updated'] ?></td>
+                <td>
+                    <a href="edit_faq.php?id=<?php echo $dt['ID']; ?>"><i class="sidebar-item-icon fa fa-pencil "></i></a> &nbsp; &nbsp;
+                    <a href="delete_faq.php?id=<?php echo $dt['ID']; ?>" onclick="return confirm('Anda yakin akan menghapus data ini?')"><i class="sidebar-item-icon fa fa-trash-o"></i></a>
+                </td>
+                </tr>
+             
+             <?php
+              endwhile;
+              ?> 
+
+            </tbody>
+          </table>
 
 </div>
-
-
-
 
 
 

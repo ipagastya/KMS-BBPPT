@@ -16,6 +16,30 @@
 <?php include "csssidebar.php";
 include "koneksi.php";?>
 </head>
+<script>
+$(document).ready(function(){
+	$(".btn-group .btn").click(function(){
+		var inputValue = $(this).find("input").val();
+		if(inputValue != 'all'){
+			var target = $('table tr[data-status="' + inputValue + '"]');
+			$("table tbody tr").not(target).hide();
+			target.fadeIn();
+		} else {
+			$("table tbody tr").fadeIn();
+		}
+	});
+	// Changing the class of status label to support Bootstrap 4
+    var bs = $.fn.tooltip.Constructor.VERSION;
+    var str = bs.split(".");
+    if(str[0] == 4){
+        $(".label").each(function(){
+        	var classStr = $(this).attr("class");
+            var newClassStr = classStr.replace(/label/g, "badge");
+            $(this).removeAttr("class").addClass(newClassStr);
+        });
+    }
+});
+</script>
 
 <body class="fixed-navbar">
     <div class="page-wrapper">
@@ -27,20 +51,11 @@ include "koneksi.php";?>
         <div class="content-wrapper">
             <!-- START PAGE CONTENT-->
             <div class="page-heading">
-                <h1 class="page-title"> <i class="sidebar-item-icon fa fa-newspaper-o";></i> Knowledge</h1>
+                <h1 class="page-title"> <i class="sidebar-item-icon fa  fa-file";></i> Dokumen</h1>
                 <ol class="breadcrumb">
-                    <?php 
-                      $level = $_SESSION['level'];
-                      if($level=='Admin' || $level=='Officer'){
-                    ?>
-                      <li class="breadcrumb-item">Beranda > Knowledge > <a href="informasi.php" style="color: #0c2496;">Pengaturan Knowledge</a> </li>
-                    <?php 
-                      }else{
-                    ?>
-                      <li class="breadcrumb-item">Beranda > Knowledge > <a href="informasi.php" style="color: #0c2496;">Daftar Knowledge</a> </li>
-                    <?php 
-                      }
-                    ?>
+                   
+                      <li class="breadcrumb-item">Beranda > Knowledge > <a href="dokumen.php" style="color: #0c2496;">Dokumen</a> </li>
+                    
                 </ol>
                 <div class="box">
                     <div class="container">
@@ -97,15 +112,31 @@ include "koneksi.php";?>
     </div>
 
                 <br><br>
-
+                <a href="tambah_dokumen.php">
+                                        <button type="button" class="btn btn-success">Tambah</button>
+                                </a>
                  <div class="ibox ibox-primary">
                             <div class="ibox-head" style="background-color: #466B97;">
-                                <div class="ibox-title">Pengaturan Knowledge</div>
+                                <div class="ibox-title">Dokumen</div>
                                 <div class="ibox-tools">
-                   
-                <a href="tambah_informasi.php">
-                                      <button type="button" class="btn btn-success">Tambah</button>
-                                      </a>
+                                <div class="col-sm-6">
+                                    <div class="btn-group" data-toggle="buttons">
+                                        <label class="btn btn-primary active">
+                                            <input type="radio" name="status" value="all" checked="checked"> All
+                                        </label>
+                                        <label class="btn btn-success">
+                                            <input type="radio" name="status" value="Teks"> Teks
+                                        </label>
+                                        <label class="btn btn-info ">
+                                            <input type="radio" name="status" value="Gambar" > Gambar
+                                        </label>
+                                        <label class="btn btn-warning">
+                                            <input type="radio" name="status" value="Video"> Video
+                                        </label>
+        						
+                                    </div>
+                                    
+                                </div>
                                       <div class="dropdown-menu dropdown-menu-right">
                                     </div>
                                 </div>
@@ -133,8 +164,9 @@ include "koneksi.php";?>
                 <th>No</th>
                 <th>Judul</th>
                 <th>Nomor Dokumen</th>
+                <th>Dokumen</th>
                 <th>Revisi</th>
-                <th>Author</th>
+                <th>Jenis Dokumen</th>
                 <th>Kategori</th>
                 <th>Perangkat</th>
                 <th>Status</th>
@@ -165,7 +197,7 @@ include "koneksi.php";?>
             // } else {
             //   $q = $koneksi->query("SELECT * FROM informasi where iddivisi='$iddivisi' and level='Admin' and author='$username'");
             // }
-            $q = $koneksi->query("SELECT * FROM informasi where status_approval='Disetujui' and iddivisi='$iddivisi'");
+            $q = $koneksi->query("SELECT * FROM informasi where status_approval='Disetujui' and isDokumen = 1 and iddivisi='$iddivisi' and dokumen IS NOT NULL");
 
 
           }else{
@@ -176,7 +208,7 @@ include "koneksi.php";?>
             // } else {
             //   $q = $koneksi->query("SELECT * FROM informasi where level='Admin' and author='$username'");
             // }
-            $q = $koneksi->query("SELECT * FROM informasi where status_approval='Disetujui'");
+            $q = $koneksi->query("SELECT * FROM informasi where status_approval='Disetujui' and isDokumen = 1 and dokumen IS NOT NULL");
 
           }
           
@@ -195,27 +227,22 @@ include "koneksi.php";?>
                 while ($dt = $q->fetch_assoc()) :
                 ?>
 
-                <tr>  
+                <?php if ($dt['jenisDokumen'] == 'Teks'){ ?>
+                    <tr data-status="Teks" >
+                <?php }else if ($dt['jenisDokumen'] == 'Gambar'){ ?>
+                    <tr data-status="Gambar">
+                <?php }else if ($dt['jenisDokumen'] == 'Video'){ ?>
+                    <tr data-status="Video">
+                <?php }else{ ?>
+                    <tr> 
+                <?php }?>
                 <td><?php echo $nom++ ;?></td>
-                <td><a href="detailinformasi.php?id=<?php echo $dt['id'] ?>"><?php echo $dt['judul'] ?></a></td>
+                <td><a href="src/image/<?php echo $dt['dokumen'] ?>"><?php echo $dt['judul'] ?></a></td>
                 <!-- <td><?php echo $dt['judul'] ?></td> -->
                 <td><?php echo $dt['nomordokumen'] ?></td>
-                <!-- <td>
-                   <?php
-                    $dokumen=$dt['dokumen'];
-                    if(!empty($dokumen)){
-                    ?>
-                    <a href="src/image/<?php echo $dt['dokumen'] ?>"><button type="button" class="btn btn-danger">File</button></a> 
-                    <?php
-                    }else{
-                    ?>
-                    <button type="button" class="btn btn-danger">File Kosong</button>
-                    <?php
-                    }
-                    ?>
-                  <a href="detailinformasi.php?id=<?php echo $dt['id'] ?>"><button type="button" class="btn btn-primary">Detail</button></a></td> -->
-                <td><?php $tanggal= $dt['tanggal']; echo date('d F Y', strtotime($tanggal)); ?></td>
-                <td><?php echo $dt['author'] ?></td>
+                <td><a href="src/image/<?php echo $dt['dokumen'] ?>"><button type="button" class="btn btn-danger">File</button></a> </td>
+                <td><b>Author : <?php echo $dt['author'] ?></b><br>Tanggal Update : <?php $tanggal= $dt['tanggal']; echo date('d F Y', strtotime($tanggal)); ?></td>
+                <td><?php echo $dt['jenisDokumen'] ?></td>
                 <td>
                     
                     <?php
@@ -251,7 +278,7 @@ include "koneksi.php";?>
                 </td>
                 <td><b>Validator : <?php echo $dt['officer'] ?></b><br>Tanggal Validasi : <?php $tanggal= $dt['tanggal_verif']; echo date('d F Y', strtotime($tanggal)); ?></td>
                 <td>
-                    <a href="edit_informasi.php?id=<?php echo $dt['id']; ?>"><button type="button" class="btn btn-warning">Edit</button></a> 
+                    <a href="edit_dokumen.php?id=<?php echo $dt['id']; ?>"><button type="button" class="btn btn-warning">Edit</button></a> 
 
                     <?php 
                     $level = $_SESSION['level'];
@@ -265,11 +292,11 @@ include "koneksi.php";?>
                      $status= $dt['restricted'];
                      if($status=='Aktif'){
                      ?>
-                       <a href="aktivasi_informasi.php?id=<?php echo $dt['id']; ?>&status=aktif" onclick="return confirm('Anda yakin akan menonaktifkan artikel ini?')">
+                       <a href="aktivasi_informasi.php?id=<?php echo $dt['id']; ?>&status=aktif" onclick="return confirm('Anda yakin akan mengubah dokumen ini menjadi privat?')">
                        <i class="sidebar-item-icon fa fa-eye-slash fa-2x" style="color: #000";></i> &nbsp; &nbsp;
                     </a>
                      <?php }else{ ?>
-                        <a href="aktivasi_informasi.php?id=<?php echo $dt['id']; ?>&status=non" onclick="return confirm('Anda yakin akan mengaktifkan artikel ini?')">
+                        <a href="aktivasi_informasi.php?id=<?php echo $dt['id']; ?>&status=non" onclick="return confirm('Anda yakin akan mengubah dokumen ini menjadi publik?')">
                         <i class="sidebar-item-icon fa fa-eye fa-2x" style="color: #000";></i> &nbsp; &nbsp;
                     </a>
                     <?php 

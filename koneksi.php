@@ -4,7 +4,7 @@
         // if (mysqli_connect_errno()){
         //     echo "Koneksi database gagal : " . mysqli_connect_error();
         // }
-        $servername = "remotemysql.com:3306";
+        $servername = "remotemysql.com";
         $username = "1O7emlC26Q";
         $password = "3vjI3bdh1y";
         $dbname = "1O7emlC26Q";

@@ -34,6 +34,48 @@
                 <!-- END TOP-LEFT TOOLBAR-->
                 <!-- START TOP-RIGHT TOOLBAR-->
                 <ul class="nav navbar-toolbar">
+                    <li class="dropdown dropdown-notification">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell-o rel"><span class="notify-signal"></span></i></a>
+                        <ul class="dropdown-menu dropdown-menu-right dropdown-menu-media">
+                            <li class="dropdown-menu-header">
+                               
+                            </li>
+                            <li class="list-group list-group-divider scroller" data-height="240px" data-color="#71808f">
+                                <div>
+                                            <?php 
+                                            // Tampilkan semua data
+                                            include"koneksi.php";
+                                            $level = $_SESSION['level'];
+                                            if($level=='Pegawai' || $level=='Admin'){ 
+                                             $q = $koneksi->query("SELECT COUNT(*) as total, status_approval FROM informasi WHERE level='$level' GROUP BY status_approval;"); 
+                                                while ($dt = $q->fetch_assoc()) :?>
+                                                    <a class="list-group-item">
+                                                        <div class="media">
+                                                            <div class="media-body">
+                                                                <div class="font-13"> <?php echo $dt['total'] ?> Informasi <?php echo $dt['status_approval'] ?></div>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                    <?php  
+                                                endwhile;} else if($level=='Officer'){
+                                                $q = $koneksi->query("SELECT COUNT(*) as total, status_approval FROM informasi WHERE level='$level' GROUP BY status_approval;"); 
+                                                while ($dt = $q->fetch_assoc()) :
+                                                
+                                                ?>
+                                                <a class="list-group-item">
+                                                        <div class="media">
+                                                            <div class="media-body">
+                                                                <div class="font-13"> <?php echo $dt['total'] ?> Informasi <?php echo $dt['status_approval'] ?></div>
+                                                            </div>
+                                                        </div>
+                                                </a>
+                                                <?php  
+                                                endwhile;}
+                                                ?>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
                     <li class="dropdown dropdown-user" >
                         <a class="nav-link dropdown-toggle link" style="width:150px" data-toggle="dropdown">
                             <img src="libs/assets/img/admin-avatar.png" />

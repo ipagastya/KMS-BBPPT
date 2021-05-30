@@ -58,6 +58,8 @@
              <!-- <li><a href="header1.php">Plans</a></li>
               <li><a href="header1.php">FAQ</a></li>-->
               <!-- <li><a href="infopublik.php">Informasi Publik</a></li> -->
+              <li><a href="faq_pemohon.php">FAQ</a></li>
+
             </ul>
 
              <ul class="nav navbar-nav navbar-right">

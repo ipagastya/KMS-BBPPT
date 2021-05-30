@@ -5,7 +5,7 @@ require_once "koneksi.php";
 
 $judul = $_POST['judul'];
 $nomordokumen = $_POST['nomordokumen'];
-$keterangan = $_POST['keterangan'];
+$jenisDokumen = $_POST['jenisDokumen'];
 $tanggal = date('Y-m-d');
 $idperangkat = $_POST['idperangkat'];
 $iddivisi = $_POST['iddivisi'];
@@ -27,10 +27,11 @@ $extensi = strtolower(end($ex));
 if (!empty($judul)) {
   if ($dokumen != "" || $size != 0 ) {
     $pindah = move_uploaded_file($tmp,'src/image/'.$nama_baru);
-    $query = $koneksi->query("INSERT INTO informasi (dokumen,judul,nomordokumen,keterangan,tanggal,restricted,idperangkat,iddivisi, author, level) VALUES('$nama_baru','$judul','$nomordokumen','$keterangan','$tanggal','$restricted','$idperangkat','$iddivisi','$author','$level')");
-  }else{
-    $query = $koneksi->query("INSERT INTO informasi (judul,nomordokumen,keterangan,tanggal,restricted,idperangkat,iddivisi, author, level) VALUES('$judul','$nomordokumen','$keterangan','$tanggal','$restricted','$idperangkat','$iddivisi','$author','$level')");
+    $query = $koneksi->query("INSERT INTO informasi (dokumen, jenisDokumen, judul,nomordokumen,tanggal,restricted,idperangkat,iddivisi, author, isDokumen, level) VALUES('$nama_baru','$jenisDokumen','$judul','$nomordokumen','$tanggal','$restricted','$idperangkat','$iddivisi','$author',1,'$level')");
   }
+//   else{
+//     $query = $koneksi->query("INSERT INTO informasi (judul,nomordokumen, tanggal,restricted,idperangkat,iddivisi, author, level) VALUES('$judul','$nomordokumen','$keterangan','$tanggal','$restricted','$idperangkat','$iddivisi','$author','$level')");
+//   }
 
 
   if ($query){
@@ -40,7 +41,7 @@ if (!empty($judul)) {
     echo "Error: " . $query . "<br>" . $koneksi->error;
   }
 }else{
-  echo "<script>alert('Data gagal ditambahkan'); window.location.href='informasi.php'</script>";
+  echo "<script>alert('Data gagal ditambahkan'); window.location.href='dokumen.php'</script>";
 }
 
 ?>

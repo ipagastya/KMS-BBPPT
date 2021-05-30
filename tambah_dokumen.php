@@ -81,10 +81,10 @@
         <div class="content-wrapper">
             <!-- START PAGE CONTENT-->
             <div class="page-heading">
-              <h1 class="page-title"> <i class="sidebar-item-icon fa fa-newspaper-o";></i> Tambah Informasi</h1>
+              <h1 class="page-title"> <i class="sidebar-item-icon fa fa-newspaper-o";></i> Tambah Dokumen</h1>
                 <ol class="breadcrumb">
                     
-                    <li class="breadcrumb-item">Beranda > Informasi > <a href="tambah_informasi.php" style="color: #0c2496;">Tambah Informasi</a> </li>
+                    <li class="breadcrumb-item">Beranda > Dokumen > <a href="tambah_dokumen.php" style="color: #0c2496;">Tambah Dokumen</a> </li>
                 </ol>
                 <div class="box">
                     <div class="container">
@@ -117,7 +117,7 @@
                     <button class="btn btn-info btn-lg" type="button">Search</button>
                 </span>-->
 
-              <form action="save_informasi.php" method="post" enctype="multipart/form-data" name="form1">  
+              <form action="save_dokumen.php" method="post" enctype="multipart/form-data" name="form1">  
       <table class="table table-bordered">
             <thead>
                <tr>
@@ -133,13 +133,19 @@
                 </td>
               </tr>
               <tr>
-                <th style="vertical-align:top">Keterangan</th>
-                <td><textarea class="form-control ckeditor" name="keterangan" id="content"></textarea>
+                <th>Jenis Dokumen</th>
+                <td>
+                      
+                <select class="form-control" name="jenisDokumen" id="jenisDokumen">
+                  <option selected value="Teks">Teks</option>
+                  <option value="Gambar">Gambar</option>
+                  <option value="Video">Video</option>
+                </select> 
 
                 </td>
               </tr>
               <tr>
-                <th>Dokumen Lampiran</th>
+                <th>Dokumen </th>
                 <td> <input type="file" name="dokumen" value=""> </td>
               </tr>
 

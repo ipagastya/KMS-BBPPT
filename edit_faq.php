@@ -26,10 +26,10 @@
         <div class="content-wrapper">
             <!-- START PAGE CONTENT-->
             <div class="page-heading">
-               <h1 class="page-title"> <i class="sidebar-item-icon fa fa-users";></i> Tambah Akun Pengguna</h1>
+              <h1 class="page-title"> <i class="sidebar-item-icon fa fa-question";></i> Edit FAQ</h1>
                 <ol class="breadcrumb">
                     
-                    <li class="breadcrumb-item">Beranda > Pegawai > <a href="tambah_akun.php" style="color: #0c2496;">Tambah Pengguna</a> </li>
+                    <li class="breadcrumb-item">Beranda > FAQ > <a href="edit_faq.php" style="color: #0c2496;">Edit FAQ</a> </li>
                 </ol>
                 <div class="box">
                     <div class="container">
@@ -65,7 +65,7 @@
 
                 <div class="ibox ibox-primary">
                             <div class="ibox-head">
-                                <div class="ibox-title">Tambah Pengguna</div>
+                                <div class="ibox-title">Edit FAQ</div>
                                 <div class="ibox-tools">
                                     <div class="dropdown-menu dropdown-menu-right">
                                        
@@ -75,91 +75,65 @@
                                 </div>
                             </div>
                             <div class="ibox-body">
+                <?php
+
+require_once 'koneksi.php';
+
+            // cek id
+            if (isset($_GET['id'])) {
+            $id = $_GET['id'];
+
+            // ambil data berdasarkan id_produk
+                $q = $koneksi->query("SELECT * FROM faq WHERE ID = '$id'");
+
+            while ($dt = $q->fetch_assoc()) :
+            ?>
 
 
 
 
-                <form method="post" action="save_akun.php">
-      <table class="table table-bordered">
-            <thead>
-              <tr>
-                <th>Username</th>
-                <td><input type="text" class="form-control" name="username"></td>
-              </tr>
-              <tr>
-                <th>Password</th>
-                <td><input type="password" class="form-control" name="password"></td>
-              </tr>
-              <tr>
-                <th>Nama</th>
-                <td><input type="text" class="form-control" name="nama"></td>
-              </tr>
-              <tr>
-                <th>Email</th>
-                <td><input type="text" class="form-control" name="email"></td>
-              </tr>
-              <tr>
-                <th>NIP</th>
-                <td><input type="text" class="form-control" name="nip"></td>
-              </tr>
-              <tr>
 
-                <th>Role</th>
-                <td>
-                <select class="form-control" name="level">
-
-                  <option value="Officer">
-                    Officer
-                  </option>
-
-                  <option value="Admin">
-                    Admin
-                  </option>
-
-                   <option value="Pegawai">
-                    Pegawai
-                  </option>
-  
-                </select> 
-
-                  </td>
-
-              </tr>
-
-              <tr>
-                <th>Divisi</th>
-                <td>
-                      
-                <select class="form-control" name="iddivisi">
-                    <?php
-                    require_once 'koneksi.php';
-                      // ambil data berdasarkan id_produk
-                     $q = $koneksi->query("SELECT * FROM divisi");
-
-                              $no = 1; // nomor urut
-                              while ($row = $q->fetch_assoc()) :
-                      ?>
-                  <option value="<?php echo $row['namadivisi']; ?>">
-                    <?php echo $row['namadivisi']; ?>
-                  </option>
-                     <?php
-                    endwhile;
-                  ?>
-                </select> 
-
-                </td>
-              </tr>
-               
-              <tr>
-                <td></td>
-                <td>
-                      <input type="submit" name="submit"  class="btn btn-primary" value="Simpan">
-                </td>
-              </tr>
-            </thead>
-          </table>
+                <form method="post" action="update_faq.php">
+                    <input type="hidden" name="idfaq" value="<?php echo $dt['ID'] ?>">
+                    <table class="table table-bordered">
+                            <thead>
+                            <tr>
+                                <th>Pertanyaan</th>
+                                <td><input type="text" class="form-control" name="pertanyaan" value="<?php echo $dt['pertanyaan'] ?>"></td>
+                                
+                            </tr>
+                            <tr>
+                                <th>Jawaban</th>
+                                <td><input type="text" class="form-control" name="jawaban" value="<?php echo $dt['jawaban'] ?>"></td>
+                            </tr>
+                            <tr>
+                                <th>Jenis FAQ</th>
+                                <td>
+                                    <select class="form-control" name="isrestricted" id="isrestricted">
+                                        <?php if($dt['isRestricted'] == 1 ){ ?>
+                                            <option selected value="1">Non-publik</option>
+                                            <option value="0">Publik</option>
+                                        <?php }else{ ?>
+                                            <option value="1">Non-publik</option>
+                                            <option selected value="0">Publik</option>
+                                        <?php } ?>
+                                        
+                                    </select> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>
+                                    <input type="submit" name="submit"  class="btn btn-primary" value="Simpan">
+                                </td>
+                            </tr>
+                            </thead>
+                        </table>
        </form>   
-
+ <?php
+   endwhile;
+}
+?>
 
 </div>
 

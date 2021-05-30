@@ -14,6 +14,7 @@
     <title>KMS-BBPPT</title>
     
 <?php include "csssidebar.php"?>
+<script type="text/javascript" src="libs/chartjs/Chart.js"></script>
 </head>
 
 <body class="fixed-navbar">
@@ -44,12 +45,23 @@
                 </div>
                
             </div>
+              <table>
+                  <tr>
+                    <td>
+                      <div style="width: 100%;height: 200px">
+                            <canvas id="myChart"></canvas> 
+                      </div>  
+                    </td>
+                  </tr>
+              </table>                  <br><br><br><br><br><br><br><br><br><br>
             <div class="page-content fade-in-up">
                 <div class="row">
+
+               
                  
                 <div class="container"> 
 
-                <br><br>
+                 
                  <div class="ibox ibox-primary">
                             <div class="ibox-head" style="background-color: #466B97;">
                                 <div class="ibox-title">Informasi Terbaru</div>
@@ -171,6 +183,79 @@
     </div>
   
     <!-- END THEME CONFIG PANEL-->
+      <script>
+    var ctx = document.getElementById("myChart").getContext('2d');
+    var myChart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+       
+        labels: [
+         <?php
+                // Tampilkan semua data
+                include"koneksi.php";
+
+                $q = $koneksi->query("SELECT COUNT(level) as count,level FROM informasi GROUP BY level");
+
+                $no = 1; // nomor urut
+                while ($dt = $q->fetch_assoc()) :
+                ?>
+        "<?php echo $dt['level'] ?>",
+        <?php
+              endwhile;
+              ?> 
+        ],
+        
+        datasets: [{
+          label: 'Data Jumlah Informasi',
+         
+          data: [
+           <?php
+                // Tampilkan semua data
+                include"koneksi.php";
+
+                $q = $koneksi->query("SELECT COUNT(level) as count,level FROM informasi GROUP BY level");
+
+                $no = 1; // nomor urut
+                while ($dt = $q->fetch_assoc()) :
+                ?>
+          <?php echo $dt['count'] ?>,
+             <?php
+              endwhile;
+              ?> 
+              ],
+        
+       
+
+          backgroundColor: [
+          'rgba(255, 99, 132, 0.2)',
+          'rgba(54, 162, 235, 0.2)',
+          'rgba(255, 206, 86, 0.2)',
+          'rgba(75, 192, 192, 0.2)',
+          'rgba(153, 102, 255, 0.2)',
+          'rgba(255, 159, 64, 0.2)'
+          ],
+          borderColor: [
+          'rgba(255,99,132,1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(75, 192, 192, 1)',
+          'rgba(153, 102, 255, 1)',
+          'rgba(255, 159, 64, 1)'
+          ],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        scales: {
+          yAxes: [{
+            ticks: {
+              beginAtZero:true
+            }
+          }]
+        }
+      }
+    });
+  </script>
     <?php include "cssbawah.php" ?>
 </body>
 

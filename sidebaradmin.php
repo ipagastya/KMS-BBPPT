@@ -10,7 +10,7 @@
                 </div>
                 <ul class="side-menu metismenu">
                     <li>
-                        <a href="dashboard.php"><i class="sidebar-item-icon fa fa-th-large"></i>
+                        <a href="dashboard_new.php"><i class="sidebar-item-icon fa fa-th-large"></i>
                             <span class="nav-label">Beranda</span>
                         </a>
                     </li>
@@ -31,14 +31,20 @@
 
                     <li>
                         <a href="javascript:;"><i class="sidebar-item-icon fa fa-newspaper-o"></i>
-                            <span class="nav-label">Manajemen Knowledge</span><i class="fa fa-angle-left arrow"></i></a>
+                            <span class="nav-label">Knowledge</span><i class="fa fa-angle-left arrow"></i></a>
                         <ul class="nav-2-level collapse">
                             <li >
-                                <a href="informasi.php">Informasi</a>
+                                <a href="informasi.php">Knowledge</a>
                             </li>
                             <li >
-                                <a href="tambah_informasi.php">Tambah Informasi</a>
+                                <a href="tambah_informasi.php">Tambah Knowledge</a>
                             </li>
+                            
+                            <li>
+                                <a href="status_upload.php"> Status Upload</a>
+                                
+                            </li>
+                            
                         </ul>
                         
                     </li>
@@ -46,13 +52,13 @@
                     <li>
                         
                         <a href="javascript:;"><i class="sidebar-item-icon fa fa-newspaper-o"></i>
-                            <span class="nav-label">Manajemen Dokumen</span><i class="fa fa-angle-left arrow"></i></a>
+                            <span class="nav-label">Dokumen</span><i class="fa fa-angle-left arrow"></i></a>
                         <ul class="nav-2-level collapse">
                              <li >
-                                <a href="informasi.php">Dokumen</a>
+                                <a href="dokumen.php">Dokumen</a>
                             </li>
                             <li >
-                                <a href="tambah_informasi.php">Tambah Dokumen</a>
+                                <a href="tambah_dokuemen.php">Tambah Dokumen</a>
                             </li>
                         </ul>
                         
@@ -114,20 +120,34 @@
                             ?> 
                             </ul>
                     </li>
-                   
+
+                   <?php 
+                    $level = $_SESSION['level'];
+                    if($level=='Admin'){
+                    ?>
                     <li>
                         <a href="perangkat.php"><i class="sidebar-item-icon fa fa-tablet "></i>
                             <span class="nav-label">Perangkat</span>
 
                         </a>
                     </li>
+                     <?php
+                    }
+                    ?> 
 
+                    <?php 
+                    $level = $_SESSION['level'];
+                    if($level=='Admin'){
+                    ?>
                     <li>
                         <a href="divisi.php"><i class="sidebar-item-icon fa fa-id-card-o "></i>
                             <span class="nav-label">Kategori</span>
 
                         </a>
                     </li>
+                    <?php
+                    }
+                    ?> 
                     
                     <?php 
                     $level = $_SESSION['level'];
@@ -141,27 +161,54 @@
                         </a>
                     </li>
                
+ 
+
+                    <li>
+                        <a href="javascript:;"><i class="sidebar-item-icon fa fa-question-circle"></i>
+                            <span class="nav-label">FAQ</span><i class="fa fa-angle-left arrow"></i></a>
+                        <ul class="nav-2-level collapse">
+                            <li >
+                                <a href="faq.php">FAQ</a>
+                            </li>
+                            <li >
+                                <a href="pengaturan_faq.php">Pengaturan FAQ</a>
+                            </li>
+                            
+                        </ul>
+                        
+                    </li>
+
+                    <?php
+                    }else{
+                    ?>  
+
+                    <li>
+                        <a href="faq.php"><i class="sidebar-item-icon fa fa-question-circle "></i>
+                            <span class="nav-label">FAQ</span>
+
+                        </a>
+                    </li>
 
                     <?php
                     }
-                    ?>   
+                    ?>  
 
-                     <li>
-                       <!-- <a href=""><i class="sidebar-item-icon fa fa-address-book"></i>
+                    <!-- <li>
+                        <a href=""><i class="sidebar-item-icon fa fa-address-book"></i>
                             <span class="nav-label">Non Aktif Akun</span>
-                        </a>-->
-                    </li>
+                        </a>
+                    </li>-->
                     <!--<li>
                         <a href="logout.php"><i class="sidebar-item-icon fa fa-sign-out"></i>
                             <span class="nav-label">Logout</span>
                         </a>
                     </li>-->
                     
-                     <li>
+                     <!--<li>
                         <a href="http://bbppt.postel.go.id/pengujian/"><i class="sidebar-item-icon fa fa-desktop"></i>
                             <span class="nav-label">Portal Pengujian</span>
                         </a>
-                    </li>
+                    </li>-->
 
                     <!--<li>
                         <a href="javascript:;"><i class="sidebar-item-icon fa fa-envelope"></i>

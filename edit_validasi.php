@@ -68,7 +68,6 @@
     </script>
     
 <?php include "csssidebar.php"?>
-
 </head>
 
 <body class="fixed-navbar">
@@ -81,10 +80,10 @@
         <div class="content-wrapper">
             <!-- START PAGE CONTENT-->
             <div class="page-heading">
-              <h1 class="page-title"> <i class="sidebar-item-icon fa fa-newspaper-o";></i> Tambah Informasi</h1>
+              <h1 class="page-title"> <i class="sidebar-item-icon fa fa-newspaper-o";></i> Form Validasi</h1>
                 <ol class="breadcrumb">
                     
-                    <li class="breadcrumb-item">Beranda > Informasi > <a href="tambah_informasi.php" style="color: #0c2496;">Tambah Informasi</a> </li>
+                    <li class="breadcrumb-item">Beranda > Validasi Pengetahuan > <a href="edit_informasi.php" style="color: #0c2496;">Form Validasi</a> </li>
                 </ol>
                 <div class="box">
                     <div class="container">
@@ -117,116 +116,119 @@
                     <button class="btn btn-info btn-lg" type="button">Search</button>
                 </span>-->
 
-              <form action="save_informasi.php" method="post" enctype="multipart/form-data" name="form1">  
+               <?php
+
+require_once 'koneksi.php';
+
+// cek id
+if (isset($_GET['id'])) {
+  $id = $_GET['id'];
+
+  // ambil data berdasarkan id_produk
+  $q = $koneksi->query("SELECT * FROM informasi WHERE id = '$id'");
+
+ while ($dt = $q->fetch_assoc()) :
+  ?>
+
+
+      <br><br>
+            
       <table class="table table-bordered">
             <thead>
                <tr>
                 <th>Judul</th>
                 <td>
-                 <input type="text" class="form-control" name="judul" required=""> 
+                 <input type="text" class="form-control" value="<?php echo $dt['judul'] ?>"> 
                 </td>
               </tr>
               <tr>
                 <th>Nomor Dokumen</th>
                 <td>
-                 <input type="text" class="form-control" name="nomordokumen" required=""> 
+                 <input type="text" class="form-control"
+                 value="<?php echo $dt['nomordokumen'] ?>">
                 </td>
               </tr>
               <tr>
                 <th style="vertical-align:top">Keterangan</th>
-                <td><textarea class="form-control ckeditor" name="keterangan" id="content"></textarea>
-
-                </td>
+                <td><textarea disabled class="form-control" name="keterangan" id="content"><?php echo $dt['keterangan'] ?></textarea></td>
               </tr>
               <tr>
                 <th>Dokumen Lampiran</th>
-                <td> <input type="file" name="dokumen" value=""> </td>
+                <td><a href="src/image/<?php echo $dt['dokumen'] ?>"><button type="button" class="btn btn-danger">File</button></a>
+                </td>
               </tr>
 
-              <tr>
-                <th>Kategori</th>
+              <form action="update_validasi.php" method="post" enctype="multipart/form-data" name="form1"> 
+            <input type="hidden" name="id" value="<?php echo $dt['id'] ?>">
+
+            <tr>
+                <th>Status Persetujuan</th>
                 <td>
-                      
-                <select class="form-control" name="iddivisi" onChange="SelectCat2();">
+                  <select class="form-control" name="status_approval">
+                  <option value="Revisi"
                     <?php
-                    require_once 'koneksi.php';
-                      // ambil data berdasarkan id_produk
-                     $q = $koneksi->query("SELECT * FROM divisi");
-
-                              $no = 1; // nomor urut
-                              while ($row = $q->fetch_assoc()) :
-                      ?>
-                  <option value="<?php echo $row['iddivisi']; ?>">
-                    <?php echo $row['namadivisi']; ?>
+                    $local= $dt['status_approval'];
+                    if($local=='Revisi'){ ?>
+                      selected
+                    <?php } ?>>
+                    Revisi
                   </option>
-                     <?php
-                    endwhile;
-                  ?>
-                </select> 
 
-                </td>
+                   <option value="Ditolak"
+                    <?php
+                    $local= $dt['status_approval'];
+                    if($local=='Ditolak'){ ?>
+                      selected
+                    <?php } ?>>
+                    Ditolak
+                  </option>
+
+                  <option value="Disetujui"
+                    <?php
+                    $local= $dt['status_approval'];
+                    if($local=='Disetujui'){ ?>
+                      selected
+                    <?php } ?>>
+                    Disetujui
+                  </option>
+                  </select>
+
+       </td>
               </tr>
 
-              <tr>
-                <th>Perangkat</th>
-                <td>
-                      
-                <select class="form-control" name="idperangkat" id="idperangkat">
-                  <option value=""></option>
-
-              <!--       <?php
-                    require_once 'koneksi.php';
-                      // ambil data berdasarkan id_produk
-                     $q = $koneksi->query("SELECT * FROM perangkat");
-
-                              $no = 1; // nomor urut
-                              while ($row = $q->fetch_assoc()) :
-                      ?>
-                  <option value="<?php echo $row['idperangkat']; ?>">
-                    <?php echo $row['namaperangkat']; ?>
-                  </option>
-                     <?php
-                    endwhile;
-                  ?> -->
-                </select> 
-
-                </td>
+            <tr>
+                <th style="vertical-align:top">Feedback</th>
+                <td><textarea class="form-control" name="feedback" id="content"><?php echo $dt['feedback'] ?></textarea></td>
               </tr>
               
               <tr>
-                <th>Jenis Informasi</th>
-                <td>
-                      
-                <select class="form-control" name="isrestricted" id="isrestricted">
-                  <option selected value="Aktif">Non-publik</option>
-                  <option value="Non Aktif">Publik</option>
-                </select> 
-
-                </td>
-              </tr>
-
-              <tr>
                 <td></td>
                 <td>
-                      <input type="submit" name="submit"  class="btn btn-primary" value="Simpan">
+                      <input type="submit" name="submit"  class="btn btn-primary" value="Validasi">
                 </td>
               </tr>
             </thead>
           </table>
        </form>   
+ <?php
+   endwhile;
+}
+  ?>
 
 
-               
+                
                 </div>
                 </div>
             </div>
            <?php include "footeradmin.php" ?>
         </div>
     </div>
-   <script>
+    <script>
  CKEDITOR.replace( 'keterangan', {
-  height: 300,
-  filebrowserUploadUrl: "upload.php"
+  height: 300
+ });
+  CKEDITOR.replace( 'feedback', {
+  height: 300
  });
 </script>
     <!-- END THEME CONFIG PANEL-->
