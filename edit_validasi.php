@@ -118,42 +118,51 @@
 
                <?php
 
-require_once 'koneksi.php';
+            require_once 'koneksi.php';
 
-// cek id
-if (isset($_GET['id'])) {
-  $id = $_GET['id'];
+            // cek id
+            if (isset($_GET['id'])) {
+              $id = $_GET['id'];
 
-  // ambil data berdasarkan id_produk
-  $q = $koneksi->query("SELECT * FROM informasi WHERE id = '$id'");
+              // ambil data berdasarkan id_produk
+              $q = $koneksi->query("SELECT * FROM informasi WHERE id = '$id'");
 
- while ($dt = $q->fetch_assoc()) :
-  ?>
+              while ($dt = $q->fetch_assoc()) :
+              ?>
 
 
-      <br><br>
+              <br><br>
             
       <table class="table table-bordered">
             <thead>
                <tr>
                 <th>Judul</th>
                 <td>
-                 <input type="text" class="form-control" value="<?php echo $dt['judul'] ?>"> 
+                  <?php echo $dt['judul'] ?>
                 </td>
               </tr>
               <tr>
                 <th>Nomor Dokumen</th>
                 <td>
-                 <input type="text" class="form-control"
-                 value="<?php echo $dt['nomordokumen'] ?>">
+                  <?php echo $dt['nomordokumen'] ?>
                 </td>
               </tr>
+              
+
+              <?php if ($dt['isDokumen'] == '0'){ ?>
+                  <tr>
+                    <th>Keterangan</th>
+                    <td><?php echo $dt['keterangan'] ?></td>
+                  </tr>
+              <?php }else{ ?>
+                  <tr>
+                    <th>Jenis Dokumen</th>
+                    <td><?php echo $dt['jenisDokumen'] ?></td>
+                  </tr> 
+              <?php }?>
+
               <tr>
-                <th style="vertical-align:top">Keterangan</th>
-                <td><textarea disabled class="form-control" name="keterangan" id="content"><?php echo $dt['keterangan'] ?></textarea></td>
-              </tr>
-              <tr>
-                <th>Dokumen Lampiran</th>
+                <th>Dokumen </th>
                 <td><a href="src/image/<?php echo $dt['dokumen'] ?>"><button type="button" class="btn btn-danger">File</button></a>
                 </td>
               </tr>
@@ -177,7 +186,8 @@ if (isset($_GET['id'])) {
                    <option value="Ditolak"
                     <?php
                     $local= $dt['status_approval'];
-                    if($local=='Ditolak'){ ?>
+                    if($local=='Ditolak'){ 
+                    ?>
                       selected
                     <?php } ?>>
                     Ditolak
@@ -186,7 +196,8 @@ if (isset($_GET['id'])) {
                   <option value="Disetujui"
                     <?php
                     $local= $dt['status_approval'];
-                    if($local=='Disetujui'){ ?>
+                    if($local=='Disetujui'){ 
+                    ?>
                       selected
                     <?php } ?>>
                     Disetujui
@@ -212,7 +223,7 @@ if (isset($_GET['id'])) {
        </form>   
  <?php
    endwhile;
-}
+  }
   ?>
 
 
@@ -224,9 +235,6 @@ if (isset($_GET['id'])) {
         </div>
     </div>
     <script>
- CKEDITOR.replace( 'keterangan', {
-  height: 300
- });
   CKEDITOR.replace( 'feedback', {
   height: 300
  });

@@ -31,7 +31,7 @@ $extensi = strtolower(end($ex));
 
 if ($dokumen != "" || $size != 0 ) {
   $pindah = move_uploaded_file($tmp,'src/image/'.$nama_baru);
-  $query = $koneksi->query("UPDATE informasi SET dokumen='$nama_baru', judul='$judul',nomordokumen='$nomordokumen', keterangan='$keterangan', idperangkat='$idperangkat', iddivisi='$iddivisi', author='$author', tanggal='$tanggal', level='$level' WHERE id='$id'");
+  $query = $koneksi->query("UPDATE informasi SET dokumen='$nama_baru', judul='$judul',nomordokumen='$nomordokumen', keterangan='$keterangan', idperangkat='$idperangkat', iddivisi='$iddivisi', author='$author', tanggal='$tanggal', level='$level', status_approval='Pending' WHERE id='$id'");
   if (file_exists('src/image/'.$dokumen_lama)) {
     unlink('src/image/'.$dokumen_lama);
   }
