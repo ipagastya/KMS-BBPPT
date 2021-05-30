@@ -119,13 +119,13 @@
                 <?php echo $dt['keterangan'] ?> 
                 <br>
                 <table class="table">
-            <thead>
-              <tr>
-                <td>Dokumen Lampiran</td>
-                <td><a href="src/image/<?php echo $dt['dokumen'] ?>"><button type="button" class="btn btn-danger">File</button></a></td>
-              </tr>
-            </thead>
-            </table>
+                <thead>
+                  <tr>
+                    <td>Dokumen Lampiran</td>
+                    <td><a href="src/image/<?php echo $dt['dokumen'] ?>"><button type="button" class="btn btn-danger">File</button></a></td>
+                  </tr>
+                </thead>
+                </table>
                 
                 
              
@@ -134,12 +134,8 @@
             }
               ?> 
 
-            </tbody>
-          </table>
+  
 
-
-                
-                </div>
             </div>
            <?php include "footeradmin.php" ?>
         </div>
