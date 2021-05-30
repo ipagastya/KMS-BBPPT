@@ -132,6 +132,8 @@
              <?php
               endwhile;
             }
+
+            include "comment.php"
               ?> 
 
   
