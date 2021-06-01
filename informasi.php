@@ -69,10 +69,19 @@ include "koneksi.php";?>
                                 
                                     <?php
                                         // Tampilkan semua data
-                                        
-                    $searchkey1= $_POST['searchkey'];
-                    $iddivisi=$_GET['iddivisi'];
-                    $searchkey=$_GET['searchkey'];
+                    $searchkey1='';
+                    $iddivisi='';
+                    $searchkey='';
+                    if (isset($_POST['searchkey'])) {            
+                        $searchkey1= $_POST['searchkey'];
+                    }
+                    if (isset($_GET['iddivisi'])) {            
+                      $iddivisi=$_GET['iddivisi'];
+                    }
+                    if (isset($_GET['searchkey'])) {            
+                      $searchkey=$_GET['searchkey'];
+                    }
+                   
                     if(!empty($searchkey1)){
                       $searchkey=$searchkey1;
                     }else{

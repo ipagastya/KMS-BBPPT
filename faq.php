@@ -97,7 +97,7 @@ $(document).ready(function(){
                    
                     <div id="accordion">
                         <div class="card">
-                            <div class="card-header" id="heading<?php echo $numb ;?>">
+                            <div class="card-header" id="heading<?php echo $numb ;?>" style="background-color: #E5E5E5;>
                             <h5 class="mb-0">
                                 <button class="btn btn-link" data-toggle="collapse" data-target="#collapse<?php echo $numb ;?>" aria-expanded="true" aria-controls="collapse<?php echo $numb ;?>">
                                 <?php echo $dt['pertanyaan'] ?>

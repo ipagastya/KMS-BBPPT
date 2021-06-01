@@ -51,17 +51,17 @@ $(document).ready(function(){
         <div class="content-wrapper">
             <!-- START PAGE CONTENT-->
             <div class="page-heading">
-                <h1 class="page-title"> <i class="sidebar-item-icon fa fa-newspaper-o";></i> Validasi Pengetahuan</h1>
+                <h1 class="page-title"> <i class="sidebar-item-icon fa fa-newspaper-o";></i> Validasi Knowledge</h1>
                 <ol class="breadcrumb">
                     <?php 
                       $level = $_SESSION['level'];
                       if($level=='Officer'){
                     ?>
-                      <li class="breadcrumb-item">Beranda > Validasi Pengetahuan > <a href="validasi_knowledge.php" style="color: #0c2496;">Pengaturan Validasi</a> </li>
+                      <li class="breadcrumb-item">Beranda > Validasi Knowledge > <a href="validasi_knowledge.php" style="color: #0c2496;">Pengaturan Validasi</a> </li>
                     <?php 
                       }else{
                     ?>
-                      <li class="breadcrumb-item">Beranda > Validasi Pengetahuan > <a href="validasi_knowledge.php" style="color: #0c2496;">Pengaturan Validasi</a> </li>
+                      <li class="breadcrumb-item">Beranda > Validasi Knowledge > <a href="validasi_knowledge.php" style="color: #0c2496;">Pengaturan Validasi</a> </li>
                     <?php 
                       }
                     ?>
@@ -87,7 +87,7 @@ $(document).ready(function(){
 
                  <div class="ibox ibox-primary">
                             <div class="ibox-head" style="background-color: #466B97;">
-                                <div class="ibox-title">Validasi Pengetahuan</div>
+                                <div class="ibox-title">Validasi Knowledge</div>
                                 <div class="ibox-tools">
                                 <div class="col-sm-6">
                                     <div class="btn-group" data-toggle="buttons">

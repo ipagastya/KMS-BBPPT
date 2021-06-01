@@ -147,7 +147,7 @@
 					</div>
 				</div>
 				<div class="row">
-					<input type="submit" name="submit" class="btn btn-primary pull-left">
+					<input type="submit" name="submit" class="btn btn-primary pull-left" style="margin-left: 16px;">
 				</div>
 			</form>
 
@@ -160,7 +160,7 @@
 					ORDER BY komentar.tanggal DESC");
 				$n_comment = $qcomment->num_rows;
 			?>
-			
+			</br>
 			<h1 class="comments-title">Komentar (<?php echo $n_comment; ?>)</h1>
 
 			<?php

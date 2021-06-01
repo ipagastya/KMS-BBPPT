@@ -121,9 +121,9 @@
                  
                     <div class="container"> 
 
-                        <br><br>
+                        
                         <div class="ibox ibox-primary">
-                            <div class="ibox-head" style="background-color: #466B97;">
+                            <div class="ibox-head" style="background-color: #c3c6d4;">
                                 <div class="ibox-title">Knowledge Terbaru</div>
                                 <div class="ibox-tools"></div>
                             </div>
@@ -132,7 +132,7 @@
                         <?php
                         // Tampilkan semua data
                         include"koneksi.php";
-                        $q = $koneksi->query("SELECT * FROM informasi where status_approval='Disetujui' order by tanggal desc limit 5");
+                        $q = $koneksi->query("SELECT * FROM informasi where status_approval='Disetujui' and isDokumen=0 and keterangan IS NOT NULL   order by tanggal desc limit 5");
 
                         // $level = $_SESSION['level'];
                         // if($level=='Officer'){
@@ -150,33 +150,9 @@
                         ?>
                         
                         <div class="container">
-                            <!--<div class="span8">-->
-                                <div class="row">
-                                    <div class="span8">
-                                        <h4><strong><a href="detailinformasi.php?id=<?php echo $dt['id'] ?>"><?php echo $dt['judul'] ?></a></strong></h4>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="span2">
-                                        <a href="#" class="thumbnail">
-                                            <img src="http://placehold.it/260x180" alt="">
-                                        </a>
-                                    </div>
-                                    <div class="span6">      
-                                        <p>
-                                        Lorem ipsum dolor sit amet, id nec conceptam conclusionemque. Et eam tation option. Utinam salutatus ex eum. Ne mea dicit tibique facilisi, ea mei omittam explicari conclusionemque, ad nobis propriae quaerendum sea.
-                                        </p>
-                                        <p><a href="detailinformasi.php?id=<?php echo $dt['id'] ?>">Read more</a></p>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="span8">
-                                        <p></p>
-                                        <p>
-                                        <i class="icon-user"></i> by <?php echo $dt['author'] ?></a> 
-                                        | <i class="icon-calendar"></i> <?php echo $dt['tanggal'] ?>
-                                        | <i class="icon-comment"></i> 3 Comments
-                                        <?php
+                            <div class="col-md-12">
+                                <h1><a href="detailinformasi.php?id=<?php echo $dt['id'] ?>"><?php echo $dt['judul'] ?></a></h1>
+                                <?php
                                             $judul         = $dt['judul'];
                                             $username      = $_SESSION['username'];
                                             $data = $koneksi->query("SELECT * FROM favorit WHERE judul='$judul' and  username='$username'");
@@ -189,8 +165,8 @@
                                                     if($cek1){
                                                     ?>
                                                                     
-                                                        | <a href="hapus_favorit.php?id=<?php echo $dt2['id']; ?>" onclick="return confirm('Anda yakin akan menghapus favorit?')">
-                                                            <i class="sidebar-item-icon fa fa-star fa-3x" style="color: #e6c34a";></i>
+                                                        <a href="hapus_favorit.php?id=<?php echo $dt2['id']; ?>" onclick="return confirm('Anda yakin akan menghapus favorit?')" style="float: right;">
+                                                            <i class="fa fa-star fa-2x" style="color: #e6c34a";></i>
                                                         </a>
                                                     <?php
                                                     }
@@ -199,24 +175,34 @@
                                             ?>
                                     
 
-                                                    | <a href="save_favorit.php?id=<?php echo $dt['id']; ?>&judul=<?php echo $dt['judul']; ?>" onclick="return confirm('Berhasil Favorit')">
-                                                        <i class="sidebar-item-icon fa fa-star-o fa-3x" style="color: #000";></i>
+                                                    <a href="save_favorit.php?id=<?php echo $dt['id']; ?>&judul=<?php echo $dt['judul']; ?>" onclick="return confirm('Berhasil Favorit')" style="float: right;">
+                                                        <i class="fa fa-star-o fa-2x" style="color: #000";></i>
                                                     </a>
-                                            <?php
+                                    <?php
                                             }
-                                            ?>
-                                        
-                                        </p>
-                                    </div>
+                                    ?>
+
+                                <p><?php echo $dt['keterangan'] ?></p>
+                                <div>
+                                    <span class="badge label-default">Posted <?php echo $dt['tanggal'] ?></span> <span class="label label-default">by <?php echo $dt['author'] ?></span> 
+                                    <div class="pull-right">
+                                    <?php
+                                        $idInfo = $dt['id'];
+                                        $q3 = $koneksi->query("SELECT COUNT(id) as total FROM komentar WHERE idinformasi='$idInfo'"); 
+                                        $dt3 = $q3->fetch_assoc();?>
+                                        <span class="label label-primary"><?php echo $dt3['total'] ?> comments</span> 
+                                        <span class="label label-success">blog</span>
+                                    </div> 
+                                            
                                 </div>
+                                <hr>
                             </div>
-                        
-                        <hr>
+                        </div>
 
                         <?php
                         endwhile;
                         ?>
-                        </div>
+                    </div>
                         
                     
                 </div>

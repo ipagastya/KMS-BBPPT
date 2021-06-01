@@ -21,7 +21,7 @@
                     ?>
                     <li>
                         <a href="validasi_knowledge.php"><i class="sidebar-item-icon fa fa-check-circle"></i>
-                            <span class="nav-label">Validasi Pengetahuan</span>
+                            <span class="nav-label">Validasi Knowledge</span>
                         </a>
                         
                     </li>
